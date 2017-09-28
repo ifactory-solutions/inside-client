@@ -15,6 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "release": "standard-version",
     "eject": "react-scripts eject",
     "eslint": "eslint .",
     "commitmsg": "commitlint -e",
@@ -37,6 +38,7 @@
     "eslint-plugin-react": "^7.3.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.1",
-    "minicat": "^1.0.0"
+    "minicat": "^1.0.0",
+    "standard-version": "^4.2.0"
   }
 }
