@@ -5,6 +5,7 @@ Inside is an open source platform to deal with all the intern process of a compa
 | Master | Development |
 | :----: | :---------: |
 | [![Build Status][travis_badge_master]][travis_link] | [![Build Status][travis_badge_development]][travis_link] |
+| [![codecov][codecov_badge_master]][codecov_link] | [![codecov][codecov_badge_development]][codecov_link] |
 
 ## Getting Started
 
@@ -77,6 +78,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) site
 * Coders
 * All our loved users
 
+[codecov_badge_master]: https://codecov.io/gh/ifactory-solutions/inside_client/branch/master/graph/badge.svg
+[codecov_badge_development]: https://codecov.io/gh/ifactory-solutions/inside_client/branch/development/graph/badge.svg
+[codecov_link]: https://codecov.io/gh/ifactory-solutions/inside_client
 [travis_badge_master]: https://travis-ci.org/ifactory-solutions/inside_client.svg?branch=master
 [travis_badge_development]: https://travis-ci.org/ifactory-solutions/inside_client.svg?branch=development
 [travis_link]: https://travis-ci.org/ifactory-solutions/inside_client
