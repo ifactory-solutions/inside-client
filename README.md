@@ -6,7 +6,7 @@ Inside is an open source platform to deal with all the intern process of a compa
 | :----: | :---------: |
 | [![Build Status][travis_badge_master]][travis_link] | [![Build Status][travis_badge_development]][travis_link] |
 | [![codecov][codecov_badge_master]][codecov_link] | [![codecov][codecov_badge_development]][codecov_link] |
-
+| [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d701864e180848c5a645e1717d8e1fee)](https://www.codacy.com/app/jvcjunior/inside-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-client&amp;utm_campaign=Badge_Grade) | 
 ## Getting Started
 
 To get started you will need to get a copy of the project, insert the following commands (one by one) on your terminal.
