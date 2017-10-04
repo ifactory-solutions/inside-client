@@ -1,18 +1,32 @@
 <h2 align="center">Inside Client</h2>
 
 <p align="center">
-  [![GitHub Stars](https://img.shields.io/github/stars/ifactory-solutions/inside-client.svg?style=social&label=Star)](https://github.com/ifactory-solutions/inside-client/stargazers)
-  [![GitHub Issues](https://img.shields.io/github/issues/ifactory-solutions/inside-client.svg?style=flat-square)](https://github.com/ifactory-solutions/inside-client/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/ifactory-solutions/inside-client.svg?style=flat-square)](https://github.comifactory-solutions/inside-client/pulls)
-  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d701864e180848c5a645e1717d8e1fee)](https://www.codacy.com/app/ifactory-solutions/inside-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-client&amp;utm_campaign=Badge_Grade)
-  [![Build Status](https://img.shields.io/travis/ifactory-solutions/inside-client.svg?style=flat-square)](https://travis-ci.org/ifactory-solutions/inside-client)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+  <a href="https://github.com/ifactory-solutions/inside-client/stargazers">
+    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/ifactory-solutions/inside-client.svg?style=social&label=Star">
+  </a>
+  <a href="https://github.com/ifactory-solutions/inside-client/issues">
+    <img alt="GitHub Issues" src="https://img.shields.io/github/issues/ifactory-solutions/inside-client.svg?style=flat-square">
+  </a>
+  <a href="https://github.comifactory-solutions/inside-client/pulls">
+    <img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr-raw/ifactory-solutions/inside-client.svg?style=flat-square">
+  </a>
+  <a href="https://www.codacy.com/app/ifactory-solutions/inside-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-client&amp;utm_campaign=Badge_Grade">
+    <img alt="Codacy" src="https://api.codacy.com/project/badge/Grade/d701864e180848c5a645e1717d8e1fee">
+  </a>
+  <a href="https://travis-ci.org/ifactory-solutions/inside-client">
+    <img alt="Build Status" src="https://img.shields.io/travis/ifactory-solutions/inside-client.svg?style=flat-square">
+  </a>
+  <a href="http://makeapullrequest.com">
+    <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
+  </a>
 </p>
 
 Inside is an open source platform to deal with all the intern process of a company related to its employees. Our goal is to make easy to keep a track and manage all information related to the people that work **inside** the company.
 
 <p align="center" margin-bottom="0">
-  [![Inside Client Logo](img/inside-logo.png)]("https://github.com/ifactory-solutions/inside-client")
+  <a href="" target="\_blank">
+    <img alt="Inside Client Logo" width="auto" height="auto" src="img/inside-logo.png">
+  </a>
 </p>
 
 ## Getting Started
@@ -39,7 +53,6 @@ npm start
 
 You should have at least the LTS node version 6.11. We recommend you to use [nvm](https://github.com/creationix/nvm) it will make easy for you to switch between node/mpm versions.
 
-
 ### Installing
 
 Run `npm start` (into the project folder) to run the application over a local server.
@@ -60,7 +73,6 @@ npm start
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
 
 ## Authors
 
@@ -85,10 +97,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) site
 * Ifactory Team
 * Coders
 * All our loved users
-
-[codecov_badge_master]: https://codecov.io/gh/ifactory-solutions/inside_client/branch/master/graph/badge.svg
-[codecov_badge_development]: https://codecov.io/gh/ifactory-solutions/inside_client/branch/development/graph/badge.svg
-[codecov_link]: https://codecov.io/gh/ifactory-solutions/inside_client
-[travis_badge_master]: https://travis-ci.org/ifactory-solutions/inside_client.svg?branch=master
-[travis_badge_development]: https://travis-ci.org/ifactory-solutions/inside_client.svg?branch=development
-[travis_link]: https://travis-ci.org/ifactory-solutions/inside_client
