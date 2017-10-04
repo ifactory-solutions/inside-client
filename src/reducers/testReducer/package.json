@@ -1,0 +1,4 @@
+{
+  "name": "Test Redux MOdule",
+  "main": "./testReducer"
+}
