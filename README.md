@@ -1,17 +1,25 @@
-# Inside
+<h2 align="center">Inside Client</h2>
+
+<p align="center">
+  [![GitHub Stars](https://img.shields.io/github/stars/ifactory-solutions/inside-client.svg?style=social&label=Star)](https://github.com/ifactory-solutions/inside-client/stargazers)
+  [![GitHub Issues](https://img.shields.io/github/issues/ifactory-solutions/inside-client.svg?style=flat-square)](https://github.com/ifactory-solutions/inside-client/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr-raw/ifactory-solutions/inside-client.svg?style=flat-square)](https://github.comifactory-solutions/inside-client/pulls)
+  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d701864e180848c5a645e1717d8e1fee)](https://www.codacy.com/app/ifactory-solutions/inside-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-client&amp;utm_campaign=Badge_Grade)
+  [![Build Status](https://img.shields.io/travis/ifactory-solutions/inside-client.svg?style=flat-square)](https://travis-ci.org/ifactory-solutions/inside-client)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+</p>
 
 Inside is an open source platform to deal with all the intern process of a company related to its employees. Our goal is to make easy to keep a track and manage all information related to the people that work **inside** the company.
 
-| Master | Development |
-| :----: | :---------: |
-| [![Build Status][travis_badge_master]][travis_link] | [![Build Status][travis_badge_development]][travis_link] |
-| [![codecov][codecov_badge_master]][codecov_link] | [![codecov][codecov_badge_development]][codecov_link] |
-| | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d701864e180848c5a645e1717d8e1fee)](https://www.codacy.com/app/ifactory-solutions/inside-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-client&amp;utm_campaign=Badge_Grade) |
+<p align="center" margin-bottom="0">
+  [![Inside Client Logo](img/inside-logo.png)]("https://github.com/ifactory-solutions/inside-client")
+</p>
+
 ## Getting Started
 
 To get started you will need to get a copy of the project, insert the following commands (one by one) on your terminal.
 
-```javascript
+```
 git clone git@github.com:ifactory-solutions/inside-client.git
 cd inside-client
 npm install
