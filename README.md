@@ -16,6 +16,9 @@
   <a href="https://travis-ci.org/ifactory-solutions/inside-client">
     <img alt="Build Status" src="https://img.shields.io/travis/ifactory-solutions/inside-client.svg?style=flat-square">
   </a>
+  <a href="https://gitter.im/ifactory-open-source/inside-client">
+    <img alt="Gitter" src="https://img.shields.io/gitter/room/nwjs/inside-client.svg?style=flat-square">
+  </a>
   <a href="http://makeapullrequest.com">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
   </a>
