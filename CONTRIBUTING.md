@@ -1,4 +1,4 @@
-# Awesome React App
+# Inside Client
 
 ### Introduction
 First of all, thank you for considering to contribute! 🙏
