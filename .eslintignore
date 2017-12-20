@@ -1,4 +1,6 @@
 /src/registerServiceWorker.js
+/src/setupTests.js
+/src/tempPolyfills.js
 /config
 /scripts
 /coverage

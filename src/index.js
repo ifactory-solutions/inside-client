@@ -6,9 +6,10 @@ import { LocaleProvider } from 'antd';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import enUS from 'antd/lib/locale-provider/en_US';
-import Home from 'components/pages/Home';
-import DefaultLayout from './layouts/Default';
+import Home from 'features/home';
+import { ProjectsList } from 'features/projects';
 
+import DefaultLayout from './layouts/Default';
 import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -24,6 +25,7 @@ ReactDOM.render(
       <Router>
         <div style={{ height: '100%' }}>
           <DefaultLayout exact path="/" component={Home} />
+          <DefaultLayout path="/projects" component={ProjectsList} />
         </div>
       </Router>
     </LocaleProvider>
