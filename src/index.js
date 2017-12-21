@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { LocaleProvider } from 'antd';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import enUS from 'antd/lib/locale-provider/en_US';
 import Home from 'features/home';
 import { ProjectsList } from 'features/projects';
+import { EmployeesList } from 'features/employees';
+import { Profile } from 'features/profile';
+import { Careers } from 'features/careers';
+import { Levels } from 'features/levels';
 
 import DefaultLayout from './layouts/Default';
 import rootReducer from './reducers';
@@ -25,7 +29,13 @@ ReactDOM.render(
       <Router>
         <div style={{ height: '100%' }}>
           <DefaultLayout exact path="/" component={Home} />
-          <DefaultLayout path="/projects" component={ProjectsList} />
+          <Switch>
+            <DefaultLayout path="/projects" component={ProjectsList} />
+            <DefaultLayout path="/employees" component={EmployeesList} />
+            <DefaultLayout path="/profile" component={Profile} />
+            <DefaultLayout path="/careers" component={Careers} />
+            <DefaultLayout path="/levels" component={Levels} />
+          </Switch>
         </div>
       </Router>
     </LocaleProvider>
