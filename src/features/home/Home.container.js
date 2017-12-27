@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { doTest } from 'reducers/testReducer';
+import { doTest } from '../../reducers/testReducer';
 
 import Home from './Home';
 
