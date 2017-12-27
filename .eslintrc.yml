@@ -12,6 +12,7 @@ env:
 globals:
   __DEV__: true
 rules:
+  linebreak-style: 'off'
   global-require: 'off'
   import/prefer-default-export: 'off'
   import/no-extraneous-dependencies: 'off'
