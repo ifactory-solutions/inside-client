@@ -2,14 +2,79 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout, Menu, Icon } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
+import pathToRegexp from 'path-to-regexp';
+import { arrayToTree, queryArray } from '../../utils';
+import menus from '../../mock/menu';
 
-const SubMenu = Menu.SubMenu;
 const { Sider } = Layout;
+
 /* eslint arrow-body-style: ["error", "always"] */
-/* eslint-env es6 */
-const SideMenu = props => {
-  // debugger // eslint-disable-line
-  const { collapsed, location } = props;
+const SideMenu = ({ collapsed, location }) => {
+  // Generate Trees
+  const menuTree = arrayToTree(menus.filter(_ => _.mpid !== '-1'), // eslint-disable-line
+    'id', 'mpid');
+  const levelMap = {};
+
+  // Recursively generate menu
+  const getMenus = (menuTreeN) => { // eslint-disable-line
+    return menuTreeN.map(item => {
+      if (item.children) {
+        if (item.mpid) {
+          levelMap[item.id] = item.mpid;
+        }
+        return (
+          <Menu.SubMenu
+            key={item.id}
+            title={<span>
+              {item.icon && <Icon type={item.icon} />}
+              {<span>{item.name}</span>}
+            </span>}
+          >
+            {getMenus(item.children)}
+          </Menu.SubMenu>
+        );
+      }
+      return (
+        <Menu.Item key={item.id}>
+          <Link to={item.route || '#'}>
+            {item.icon && <Icon type={item.icon} />}
+            {<span>{item.name}</span>}
+          </Link>
+        </Menu.Item>
+      );
+    });
+  };
+  const menuItems = getMenus(menuTree);
+
+  // Look for the selected route
+  let currentMenu;
+  let defaultSelectedKeys;
+  for (let item of menus) { // eslint-disable-line
+    if (item.route && pathToRegexp(item.route).exec(location.pathname)) {
+      currentMenu = item;
+      break;
+    }
+  }
+  const getPathArray = (array, current, pid, id) => {
+    let result = [String(current[id])]; // eslint-disable-line
+    const getPath = item => {
+      if (item && item[pid]) {
+        result.unshift(String(item[pid]));
+        getPath(queryArray(array, item[pid], id));
+      }
+    };
+    getPath(current);
+    return result;
+  };
+
+  if (currentMenu) {
+    defaultSelectedKeys = getPathArray(menus, currentMenu, 'mpid', 'id');
+  }
+
+  if (!defaultSelectedKeys) {
+    defaultSelectedKeys = ['1'];
+  }
+
   return (
     <Sider
       trigger={null}
@@ -18,51 +83,11 @@ const SideMenu = props => {
     >
       <div className="logo" />
       <Menu
-        theme="dark"
         mode="inline"
-        defaultSelectedKeys={[location ? location.pathname : '/']}>
-        <Menu.Item key="/">
-          <Link to="/">
-            <Icon type="appstore-o" />
-            <span>Dashboard</span>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="/profile">
-          <Link to="/profile">
-            <Icon type="user" />
-            <span>Perfil</span>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="/employees">
-          <Link to="/employees">
-            <Icon type="team" />
-            <span>Colaboradores</span>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="/projects">
-          <Link to="/projects">
-            <Icon type="switcher" />
-            <span>Projetos</span>
-          </Link>
-        </Menu.Item>
-        <SubMenu
-          key="sub1"
-          title={<span><Icon type="solution" />
-            <span>Cargos e Carreiras</span></span>}
-        >
-          <Menu.Item key="/levels">
-            <Link to="/levels">
-              <Icon type="switcher" />
-              <span>Cargos/Níveis</span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/careers">
-            <Link to="/careers">
-              <Icon type="switcher" />
-              <span>Carreiras</span>
-            </Link>
-          </Menu.Item>
-        </SubMenu>
+        theme="dark"
+        selectedKeys={defaultSelectedKeys}
+      >
+        {menuItems}
       </Menu>
     </Sider>
   );

@@ -1,6 +1,7 @@
 /src/registerServiceWorker.js
 /src/setupTests.js
 /src/tempPolyfills.js
+/src/components/breadcrumb/Bread.js
 /config
 /scripts
 /coverage
