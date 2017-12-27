@@ -12,6 +12,7 @@ import { EmployeesList } from './features/employees';
 import { Profile } from './features/profile';
 import { Careers } from './features/careers';
 import { Levels } from './features/levels';
+import NotFound from './features/error';
 
 import DefaultLayout from './layouts/Default';
 import rootReducer from './reducers';
@@ -35,6 +36,7 @@ ReactDOM.render(
             <DefaultLayout path="/profile" component={Profile} />
             <DefaultLayout path="/careers" component={Careers} />
             <DefaultLayout path="/levels" component={Levels} />
+            <DefaultLayout component={NotFound} />
           </Switch>
         </div>
       </Router>

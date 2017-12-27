@@ -1,0 +1,51 @@
+export default [
+  {
+    id: '1',
+    icon: 'appstore-o',
+    name: 'Dashboard',
+    route: '/',
+  },
+  {
+    id: '2',
+    bpid: '1',
+    name: 'Perfil',
+    icon: 'user',
+    route: '/profile',
+  },
+  {
+    id: '3',
+    bpid: '1',
+    name: 'Colaboradores',
+    icon: 'team',
+    route: '/employees',
+  },
+  {
+    id: '4',
+    bpid: '1',
+    name: 'Projetos',
+    icon: 'switcher',
+    route: '/projects',
+  },
+  {
+    id: '5',
+    bpid: '1',
+    name: 'Cargos e Carreiras',
+    icon: 'solution',
+  },
+  {
+    id: '51',
+    bpid: '5',
+    mpid: '5',
+    name: 'Cargos/Níveis',
+    icon: 'switcher',
+    route: '/levels',
+  },
+  {
+    id: '52',
+    bpid: '5',
+    mpid: '5',
+    name: 'Carreiras',
+    icon: 'switcher',
+    route: '/careers',
+  },
+];
