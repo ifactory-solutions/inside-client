@@ -1,55 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import { Table, Row, Button, Divider } from 'antd';
-import data from '../../../mock/employees';
-
-const columns = [{
-  title: 'Nome',
-  dataIndex: 'name',
-  key: 'name',
-  render: text => {
-    return <a href="#">{text}</a>;
-  },
-}, {
-  title: 'Cargo',
-  dataIndex: 'level',
-  key: 'level',
-}, {
-  title: 'Alocação',
-  dataIndex: 'alocation',
-  key: 'alocation',
-}, {
-  title: 'Projeto',
-  dataIndex: 'project',
-  key: 'project',
-}];
+import { Row, Col } from 'antd';
+import EmployeeCard from '../../components/employeeCard';
 
 /* eslint arrow-body-style: ["error", "always"] */
 /* eslint-env es6 */
-const ListEmployees = ({ history }) => {
+const EmployeeList = () => {
   return (
-    <div>
-      <Row type="flex" justify="end">
-        <Button
-          type="primary"
-          onClick={() => { history.push('/employees/new'); }}>
-            Novo Colaborador
-        </Button>
-      </Row>
-      <Divider />
-      <Row>
-        <Table
-          columns={columns}
-          dataSource={data}
-          pagination={{ pageSize: 2 }} />
-      </Row>
-    </div>
+    <Row type="flex" justify="start">
+      {[1, 2, 3, 4, 5].map(i => {
+        return (
+          <Col
+            key={i}
+            md={{ span: 24 }}
+            lg={{ span: 12 }}
+            xl={{ span: 8 }}
+            style={{ marginBottom: '20px' }}>
+            <EmployeeCard />
+          </Col>
+        );
+      })
+      }
+    </Row>
   );
 };
 
-ListEmployees.propTypes = {
-  history: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-};
-
-export default withRouter(ListEmployees);
+export default EmployeeList;
