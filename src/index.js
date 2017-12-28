@@ -11,7 +11,7 @@ import { ListProjects, CreateProject } from './features/projects';
 import { ListEmployees, CreateEmployee } from './features/employees';
 import { Profile } from './features/profile';
 import { Careers } from './features/careers';
-import { Levels } from './features/levels';
+import { ListLevels, CreateLevel } from './features/levels';
 import NotFound from './features/error';
 
 import DefaultLayout from './layouts/Default';
@@ -40,7 +40,8 @@ ReactDOM.render(
             <DefaultLayout path="/employees" component={ListEmployees} />
             <DefaultLayout path="/profile" component={Profile} />
             <DefaultLayout path="/careers" component={Careers} />
-            <DefaultLayout path="/levels" component={Levels} />
+            <DefaultLayout path="/levels/new" component={CreateLevel} />
+            <DefaultLayout path="/levels" component={ListLevels} />
             <DefaultLayout component={NotFound} />
           </Switch>
         </div>
