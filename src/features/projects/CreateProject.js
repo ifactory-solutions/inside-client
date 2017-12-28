@@ -1,10 +1,11 @@
 import React from 'react';
-import { Form, Input, DatePicker, Select, Button } from 'antd';
+import { Form, Input, DatePicker, Button, Tag } from 'antd';
+
+const { TextArea } = Input;
 
 const FormItem = Form.Item;
-const Option = Select.Option;
 
-class CreateEmployee extends React.Component {
+class CreateProject extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -19,14 +20,6 @@ class CreateEmployee extends React.Component {
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '85',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="85">85</Option>
-        <Option value="88">88</Option>
-      </Select>
-    );
 
     return (
       <Form layout={formLayout}>
@@ -37,40 +30,31 @@ class CreateEmployee extends React.Component {
           <Input />
         </FormItem>
         <FormItem
-          label="Email"
+          label="Descrição"
           {...formItemLayout}
         >
-          <Input />
+          <TextArea rows={4} />
         </FormItem>
         <FormItem
-          label="CPF"
-          {...formItemLayout}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="Endereço"
-          {...formItemLayout}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="Data de Admissão"
+          label="Data de Início"
           {...formItemLayout}
         >
           <DatePicker />
         </FormItem>
         <FormItem
-          label="Data de Nascimento"
+          label="Data de Término"
           {...formItemLayout}
         >
           <DatePicker />
         </FormItem>
         <FormItem
+          label="Tecnologias"
           {...formItemLayout}
-          label="Telefone"
         >
-          <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+          <Tag>Javascript</Tag>
+          <Tag>Java</Tag>
+          <Tag closable>Angular</Tag>
+          <Tag closable>Html</Tag>
         </FormItem>
         <FormItem
           wrapperCol={{
@@ -85,6 +69,6 @@ class CreateEmployee extends React.Component {
   }
 }
 
-const WrappedCreateEmployeeForm = Form.create()(CreateEmployee);
+const WrappedCreateProjectForm = Form.create()(CreateProject);
 
-export default WrappedCreateEmployeeForm;
+export default WrappedCreateProjectForm;

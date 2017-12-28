@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import enUS from 'antd/lib/locale-provider/en_US';
 import Home from './features/home';
-import { ProjectsList } from './features/projects';
+import { ListProjects, CreateProject } from './features/projects';
 import { ListEmployees, CreateEmployee } from './features/employees';
 import { Profile } from './features/profile';
 import { Careers } from './features/careers';
@@ -34,7 +34,8 @@ ReactDOM.render(
               exact
               path={`${process.env.PUBLIC_URL}/`}
               component={Home} />
-            <DefaultLayout path="/projects" component={ProjectsList} />
+            <DefaultLayout path="/projects/new" component={CreateProject} />
+            <DefaultLayout path="/projects" component={ListProjects} />
             <DefaultLayout path="/employees/new" component={CreateEmployee} />
             <DefaultLayout path="/employees" component={ListEmployees} />
             <DefaultLayout path="/profile" component={Profile} />
