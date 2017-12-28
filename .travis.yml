@@ -4,7 +4,9 @@ cache:
   directories:
     - "node_modules"
 
-script: npm test -- --coverage
+script:
+  - npm run build
+  - npm test -- --coverage
 
 after_success: bash <(curl -s https://codecov.io/bash)
 
@@ -12,5 +14,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: build
   on:
-    branch: gh-pages
+    branch: feature/continuous_deployment
