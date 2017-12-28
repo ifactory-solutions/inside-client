@@ -55,6 +55,13 @@ export default [
     route: '/levels',
   },
   {
+    id: '51',
+    mpid: '-1',
+    bpid: '5',
+    name: 'Novo Cargo',
+    route: '/levels/new',
+  },
+  {
     id: '52',
     bpid: '5',
     mpid: '5',
