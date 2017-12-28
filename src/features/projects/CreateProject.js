@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, DatePicker, Button, Tag } from 'antd';
+import { Form, Input, DatePicker, Button, Tag, Icon, AutoComplete } from 'antd';
 
 const { TextArea } = Input;
 
@@ -10,12 +10,42 @@ class CreateProject extends React.Component {
     super();
     this.state = {
       formLayout: 'horizontal',
+      inputVisible: false,
+      selectedTechs: [],
+      techs: [
+        'AngularJS',
+        'Angular',
+        'JavaScript',
+        'C#',
+        'WSO2',
+        'Ruby',
+        'Inglês avançadíssimo'],
     };
   }
-
+  getTechs() {
+    return this.state.techs
+      .filter(s => this.state.selectedTechs.indexOf(s) === -1);
+  }
+  saveInputRef = input => {
+    this.input = input;
+  }
+  showInput = () => {
+    this.setState({ inputVisible: true }, () => this.input.focus());
+  }
+  handleSelectChange = tech => {
+    const state = this.state;
+    let selectedTechs = state.selectedTechs;
+    if (tech && selectedTechs.indexOf(tech) === -1) {
+      selectedTechs = [...selectedTechs, tech];
+    }
+    this.setState({
+      selectedTechs,
+      inputVisible: false,
+    });
+  }
   render() {
     const { getFieldDecorator } = this.props.form; // eslint-disable-line
-    const { formLayout } = this.state;
+    const { formLayout, inputVisible } = this.state;
     const formItemLayout = {
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
@@ -39,22 +69,43 @@ class CreateProject extends React.Component {
           label="Data de Início"
           {...formItemLayout}
         >
-          <DatePicker />
+          <DatePicker placeholder="Selecione uma data" />
         </FormItem>
         <FormItem
           label="Data de Término"
           {...formItemLayout}
         >
-          <DatePicker />
+          <DatePicker placeholder="Selecione uma data" />
         </FormItem>
         <FormItem
           label="Tecnologias"
           {...formItemLayout}
         >
-          <Tag>Javascript</Tag>
-          <Tag>Java</Tag>
-          <Tag closable>Angular</Tag>
-          <Tag closable>Html</Tag>
+          {
+            this.state.selectedTechs.map(tech => <Tag>{tech}</Tag>)
+          }
+          {inputVisible && (
+            <AutoComplete
+              ref={this.saveInputRef}
+              size="small"
+              style={{ width: 200 }}
+              dataSource={this.getTechs()}
+              placeholder="digita alguma coisa"
+              onSelect={this.handleSelectChange}
+              filterOption={(inputValue, option) =>
+                option.props.children.toUpperCase()
+                  .indexOf(inputValue.toUpperCase()) !== -1
+              }
+            />
+          )}
+          {!inputVisible && (
+            <Tag
+              onClick={this.showInput}
+              style={{ background: '#fff', borderStyle: 'dashed' }}
+            >
+              <Icon type="plus" /> Adicionar
+            </Tag>
+          )}
         </FormItem>
         <FormItem
           wrapperCol={{
