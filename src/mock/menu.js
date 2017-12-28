@@ -34,6 +34,13 @@ export default [
     route: '/projects',
   },
   {
+    id: '4',
+    mpid: '-1',
+    bpid: '4',
+    name: 'Novo Projeto',
+    route: '/projects/new',
+  },
+  {
     id: '5',
     bpid: '1',
     name: 'Cargos e Carreiras',

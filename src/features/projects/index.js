@@ -1,6 +1,8 @@
-import ProjectsList from './ProjectsList';
+import ListProjects from './ListProjects';
+import CreateProject from './CreateProject';
 
 export {
-  ProjectsList,
+  ListProjects,
+  CreateProject,
 };
 
