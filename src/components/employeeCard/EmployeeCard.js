@@ -16,12 +16,7 @@ const EmployeeCard = () => {
     <Card className="employee-card">
       <Meta
         avatar={
-          <Avatar
-            src={src2}
-            shape="square"
-            className="avatar"
-            size="large"
-          />
+          <Avatar src={src2} shape="square" className="avatar" size="large" />
         }
         title="Daisy Ridley"
         description="Desenvolvedor Nível 3"
