@@ -95,7 +95,7 @@ const SideMenu = ({ collapsed, location }) => {
 
 SideMenu.propTypes = {
   collapsed: PropTypes.bool.isRequired,
-  location: PropTypes.isRequired,
+  location: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default withRouter(SideMenu);
