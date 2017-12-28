@@ -20,6 +20,13 @@ export default [
     route: '/employees',
   },
   {
+    id: '3',
+    mpid: '-1',
+    bpid: '3',
+    name: 'Novo Colaborador',
+    route: '/employees/new',
+  },
+  {
     id: '4',
     bpid: '1',
     name: 'Projetos',

@@ -1,5 +1,7 @@
-import EmployeesList from './EmployeesList';
+import ListEmployees from './ListEmployees';
+import CreateEmployee from './CreateEmployee';
 
 export {
-  EmployeesList,
+  ListEmployees,
+  CreateEmployee,
 };

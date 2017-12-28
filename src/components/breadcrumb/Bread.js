@@ -80,11 +80,7 @@ const Bread = ({ location }) => {
 };
 
 Bread.propTypes = {
-  location: PropTypes.isRequired,
-};
-
-Bread.DefaultTypes = {
-  location: {},
+  location: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default withRouter(Bread);

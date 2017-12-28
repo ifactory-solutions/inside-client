@@ -10,7 +10,7 @@ import './index.css';
 const { Content } = Layout;
 class DefaultLayout extends React.Component {
   render() {
-    const { component: Component, location, ...rest } = this.props;
+    const { component: Component, location, ...rest } = this.props; // eslint-disable-line
     const contentStyle = {
       padding: 24,
       background: '#fff',
@@ -39,8 +39,7 @@ class DefaultLayout extends React.Component {
 }
 
 DefaultLayout.propTypes = {
-  component: PropTypes.element.isRequired,
-  location: PropTypes.element.isRequired,
+  location: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default withRouter(DefaultLayout);
