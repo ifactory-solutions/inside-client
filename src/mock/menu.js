@@ -3,7 +3,7 @@ export default [
     id: '1',
     icon: 'appstore-o',
     name: 'Dashboard',
-    route: '/',
+    route: `${process.env.PUBLIC_URL}/`,
   },
   {
     id: '2',

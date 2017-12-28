@@ -29,8 +29,11 @@ ReactDOM.render(
     <LocaleProvider locale={enUS}>
       <Router>
         <div style={{ height: '100%' }}>
-          <DefaultLayout exact path="/" component={Home} />
           <Switch>
+            <DefaultLayout
+              exact
+              path={`${process.env.PUBLIC_URL}/`}
+              component={Home} />
             <DefaultLayout path="/projects" component={ProjectsList} />
             <DefaultLayout path="/employees" component={EmployeesList} />
             <DefaultLayout path="/profile" component={Profile} />
