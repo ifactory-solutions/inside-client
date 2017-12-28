@@ -8,7 +8,7 @@ export default [
   {
     id: '2',
     bpid: '1',
-    name: 'Perfil (teste deploy)',
+    name: 'Perfil',
     icon: 'user',
     route: '/profile',
   },
