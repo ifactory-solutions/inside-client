@@ -31,7 +31,9 @@ class EmployeeList extends Component {
         <Icon
           type={this.state.showAsTable ? 'bars' : 'appstore-o'}
           style={{ cursor: 'pointer', fontSize: 25 }}
-          onClick={() => { this.toggleVisualization(); }}
+          onClick={() => {
+            this.toggleVisualization();
+          }}
         />
 
         <div>{this.content}</div>
