@@ -2,6 +2,10 @@
   width: 300px;
 }
 
+.employee-card .ant-card-body {
+  padding-bottom: 10px;
+}
+
 .employee-card .avatar {
   width: 45px;
   height: 68px;
@@ -12,9 +16,11 @@
 }
 
 .employee-card .badge {
+  display: inline-block;
   padding: 8px;
   border-radius: 14px;
   background: #eee;
   font-size: 11px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
