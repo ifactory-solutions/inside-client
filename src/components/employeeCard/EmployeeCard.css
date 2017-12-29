@@ -1,0 +1,20 @@
+.employee-card {
+  width: 300px;
+}
+
+.employee-card .avatar {
+  width: 45px;
+  height: 68px;
+}
+
+.employee-card .info {
+  margin-top: 21px;
+}
+
+.employee-card .badge {
+  padding: 8px;
+  border-radius: 14px;
+  background: #eee;
+  font-size: 11px;
+  margin-right: 10px;
+}
