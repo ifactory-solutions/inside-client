@@ -12,6 +12,8 @@ import { ListEmployees, CreateEmployee } from './features/employees';
 import { Profile } from './features/profile';
 import { Careers } from './features/careers';
 import { ListLevels, CreateLevel } from './features/levels';
+import { ListRequests } from './features/requests';
+import { ListBadges, CreateBadge } from './features/badges';
 import NotFound from './features/error';
 
 import DefaultLayout from './layouts/Default';
@@ -42,6 +44,9 @@ ReactDOM.render(
             <DefaultLayout path="/careers" component={Careers} />
             <DefaultLayout path="/levels/new" component={CreateLevel} />
             <DefaultLayout path="/levels" component={ListLevels} />
+            <DefaultLayout path="/requests" component={ListRequests} />
+            <DefaultLayout path="/badges/new" component={CreateBadge} />
+            <DefaultLayout path="/badges" component={ListBadges} />
             <DefaultLayout component={NotFound} />
           </Switch>
         </div>

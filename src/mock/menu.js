@@ -57,7 +57,7 @@ export default [
   {
     id: '51',
     mpid: '-1',
-    bpid: '5',
+    bpid: '51',
     name: 'Novo Cargo',
     route: '/levels/new',
   },
@@ -68,5 +68,28 @@ export default [
     name: 'Carreiras',
     icon: 'switcher',
     route: '/careers',
+  },
+  {
+    id: '53',
+    bpid: '5',
+    mpid: '5',
+    name: 'Requisições',
+    icon: 'switcher',
+    route: '/requests',
+  },
+  {
+    id: '54',
+    bpid: '5',
+    mpid: '5',
+    name: 'Badges',
+    icon: 'switcher',
+    route: '/badges',
+  },
+  {
+    id: '54',
+    mpid: '-1',
+    bpid: '54',
+    name: 'Nova Badge',
+    route: '/badges/new',
   },
 ];
