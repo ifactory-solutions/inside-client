@@ -26,6 +26,11 @@ class CreateProject extends React.Component {
     return this.state.techs
       .filter(s => this.state.selectedTechs.indexOf(s) === -1);
   }
+  handleClose(removedTech) {
+    const selectedTechs = this.state.selectedTechs
+      .filter(tech => tech !== removedTech);
+    this.setState({ selectedTechs });
+  }
   saveInputRef = input => {
     this.input = input;
   }
@@ -82,7 +87,13 @@ class CreateProject extends React.Component {
           {...formItemLayout}
         >
           {
-            this.state.selectedTechs.map(tech => <Tag>{tech}</Tag>)
+            this.state.selectedTechs.map(tech =>
+              <Tag
+                key={`tech_option${tech}`}
+                closable
+                afterClose={() => this.handleClose(tech)}>
+                {tech}
+              </Tag>)
           }
           {inputVisible && (
             <AutoComplete
