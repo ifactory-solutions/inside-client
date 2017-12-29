@@ -1,77 +1,16 @@
 import React, { Component } from 'react';
-import { Row, Col, Button, Divider, Table, Icon } from 'antd';
-import EmployeeCard from '../../components/employeeCard';
-import data from '../../mock/employees';
+import { Icon } from 'antd';
+
+import EmployeeListTable from '../../components/employeeListTable';
+import EmployeeListGrid from '../../components/employeeListGrid';
 
 /* eslint arrow-body-style: ["error", "always"] */
 /* eslint-env es6 */
 class EmployeeList extends Component {
-  static showTableStyle() {
-    return (
-      <Row type="flex" justify="start">
-        {[1, 2, 3, 4, 5].map(i => {
-          return (
-            <Col
-              key={i}
-              md={{ span: 24 }}
-              lg={{ span: 12 }}
-              xl={{ span: 8 }}
-              style={{ marginBottom: '20px' }}>
-              <EmployeeCard />
-            </Col>
-          );
-        })
-        }
-      </Row>
-    );
-  }
-
-  static showGridStyle() {
-    const columns = [{
-      title: 'Nome',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => {
-        return <a href="#">{text}</a>;
-      },
-    }, {
-      title: 'Cargo',
-      dataIndex: 'level',
-      key: 'level',
-    }, {
-      title: 'Alocação',
-      dataIndex: 'alocation',
-      key: 'alocation',
-    }, {
-      title: 'Projeto',
-      dataIndex: 'project',
-      key: 'project',
-    }];
-
-    return (
-      <div>
-        <Row type="flex" justify="end">
-          <Button
-            type="primary"
-            onClick={() => { history.push('/employees/new'); }}>
-              Novo Colaborador
-          </Button>
-        </Row>
-        <Divider />
-        <Row>
-          <Table
-            columns={columns}
-            dataSource={data}
-            pagination={{ pageSize: 2 }} />
-        </Row>
-      </div>
-    );
-  }
-
   constructor(props) {
     super(props);
     this.state = { showAsTable: true };
-    this.content = null;
+    this.content = <EmployeeListTable />;
   }
 
   toggleVisualization() {
@@ -80,59 +19,9 @@ class EmployeeList extends Component {
     });
 
     if (this.state.showAsTable) {
-      const columns = [{
-        title: 'Nome',
-        dataIndex: 'name',
-        key: 'name',
-        render: text => {
-          return <a href="#">{text}</a>;
-        },
-      }, {
-        title: 'Cargo',
-        dataIndex: 'level',
-        key: 'level',
-      }, {
-        title: 'Alocação',
-        dataIndex: 'alocation',
-        key: 'alocation',
-      }, {
-        title: 'Projeto',
-        dataIndex: 'project',
-        key: 'project',
-      }];
-
-      this.content = <div>
-        <Row type="flex" justify="end">
-          <Button
-            type="primary"
-            onClick={() => { history.push('/employees/new'); }}>
-              Novo Colaborador
-          </Button>
-        </Row>
-        <Divider />
-        <Row>
-          <Table
-            columns={columns}
-            dataSource={data}
-            pagination={{ pageSize: 2 }} />
-        </Row>
-      </div>;
+      this.content = <EmployeeListTable />;
     } else {
-      this.content = <Row type="flex" justify="start">
-        {[1, 2, 3, 4, 5].map(i => {
-          return (
-            <Col
-              key={i}
-              md={{ span: 24 }}
-              lg={{ span: 12 }}
-              xl={{ span: 8 }}
-              style={{ marginBottom: '20px' }}>
-              <EmployeeCard />
-            </Col>
-          );
-        })
-        }
-      </Row>;
+      this.content = <EmployeeListGrid />;
     }
   }
 
