@@ -28,10 +28,12 @@ const EmployeeCard = () => {
       />
       <div className="info">Devry USA</div>
       <div className="info">
-        <span className="badge">Angular 2</span>
-        <span className="badge">React</span>
-        <span className="badge">Redux</span>
-        <span className="badge">Java</span>
+        <div className="badge">Angular 2</div>
+        <div className="badge">React</div>
+        <div className="badge">Redux</div>
+        <div className="badge">Java</div>
+        <div className="badge">C#</div>
+        <div className="badge">Functional Programming</div>
       </div>
     </Card>
   );
