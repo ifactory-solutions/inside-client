@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Table, Row, Button, Divider } from 'antd';
-import data from '../../mock/levels';
+import data from '../../mock/badges';
 
 const columns = [{
   title: 'Nome',
@@ -15,22 +15,18 @@ const columns = [{
   title: 'Descrição',
   dataIndex: 'description',
   key: 'description',
-}, {
-  title: 'Categoria',
-  dataIndex: 'category',
-  key: 'category',
 }];
 
 /* eslint arrow-body-style: ["error", "always"] */
 /* eslint-env es6 */
-const ListLevels = ({ history }) => {
+const ListBadges = ({ history }) => {
   return (
     <div>
       <Row type="flex" justify="end">
         <Button
           type="primary"
-          onClick={() => { history.push('/levels/new'); }}>
-            Novo Cargo/Nível
+          onClick={() => { history.push('/badges/new'); }}>
+            Nova Badge
         </Button>
       </Row>
       <Divider />
@@ -44,8 +40,8 @@ const ListLevels = ({ history }) => {
   );
 };
 
-ListLevels.propTypes = {
+ListBadges.propTypes = {
   history: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-export default withRouter(ListLevels);
+export default withRouter(ListBadges);
