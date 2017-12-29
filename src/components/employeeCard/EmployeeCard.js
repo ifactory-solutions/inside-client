@@ -24,7 +24,7 @@ const EmployeeCard = () => {
           />
         }
         title="Daisy Ridley"
-        description="Dev 3"
+        description="Desenvolvedor Nível 3"
       />
       <div className="info">Devry USA</div>
       <div className="info">
