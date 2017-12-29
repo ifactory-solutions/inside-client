@@ -10,7 +10,6 @@ export default [
     bpid: '1',
     name: 'Administração',
     icon: 'api',
-    route: '/admin',
   },
   {
     id: '21',
@@ -128,6 +127,14 @@ export default [
     name: 'Entrevistas',
     icon: 'schedule',
     route: '/interviews',
+  },
+  {
+    id: '8',
+    mpid: '-1',
+    bpid: '8',
+    name: 'Nova Entrevista',
+    icon: 'schedule',
+    route: '/interviews/new',
   },
   {
     id: '9',
