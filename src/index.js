@@ -14,6 +14,7 @@ import { Careers } from './features/careers';
 import { ListLevels, CreateLevel } from './features/levels';
 import { ListRequests } from './features/requests';
 import { ListBadges, CreateBadge } from './features/badges';
+import { ListInterviews, CreateInterview } from './features/interviews';
 import NotFound from './features/error';
 
 import DefaultLayout from './layouts/Default';
@@ -47,6 +48,8 @@ ReactDOM.render(
             <DefaultLayout path="/requests" component={ListRequests} />
             <DefaultLayout path="/badges/new" component={CreateBadge} />
             <DefaultLayout path="/badges" component={ListBadges} />
+            <DefaultLayout path="/interviews/new" component={CreateInterview} />
+            <DefaultLayout path="/interviews" component={ListInterviews} />
             <DefaultLayout component={NotFound} />
           </Switch>
         </div>
