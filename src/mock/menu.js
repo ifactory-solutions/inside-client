@@ -17,7 +17,14 @@ export default [
     mpid: '2',
     name: 'Perfis',
     icon: 'team',
-    route: '/profiles',
+    route: '/roles',
+  },
+  {
+    id: '21',
+    mpid: '-1',
+    bpid: '21',
+    name: 'Novo Perfil',
+    route: '/roles/new',
   },
   {
     id: '22',
