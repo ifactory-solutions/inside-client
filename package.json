@@ -86,6 +86,7 @@
     "lint-staged": "^4.2.1",
     "minicat": "^1.0.0",
     "prop-types": "^15.6.0",
+    "raf": "^3.4.0",
     "react-test-renderer": "^16.2.0",
     "standard-version": "^4.2.0"
   },
@@ -94,6 +95,7 @@
       "src/**/*.{js,jsx}"
     ],
     "setupFiles": [
+      "raf/polyfill",
       "<rootDir>/config/polyfills.js",
       "<rootDir>/src/setupTests.js"
     ],
