@@ -1,6 +1,6 @@
-import Careers from './Careers';
+import ListCareers from './ListCareers';
 
 export {
-  Careers,
+  ListCareers,
 };
 

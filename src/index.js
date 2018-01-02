@@ -7,10 +7,12 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import enUS from 'antd/lib/locale-provider/en_US';
 import Home from './features/home';
+
+import { ListRoles, CreateRole } from './features/admin/roles';
 import { ListProjects, CreateProject } from './features/projects';
 import { ListEmployees, CreateEmployee } from './features/employees';
 import { Profile } from './features/profile';
-import { Careers } from './features/careers';
+import { ListCareers } from './features/careers';
 import { ListLevels, CreateLevel } from './features/levels';
 import { ListRequests } from './features/requests';
 import { ListBadges, CreateBadge } from './features/badges';
@@ -37,17 +39,28 @@ ReactDOM.render(
               exact
               path={`${process.env.PUBLIC_URL}/`}
               component={Home} />
+            {/* Admin */}
+            <DefaultLayout path="/roles/new" component={CreateRole} />
+            <DefaultLayout path="/roles" component={ListRoles} />
+            {/* Projects */}
             <DefaultLayout path="/projects/new" component={CreateProject} />
             <DefaultLayout path="/projects" component={ListProjects} />
+            {/* Employees */}
             <DefaultLayout path="/employees/new" component={CreateEmployee} />
             <DefaultLayout path="/employees" component={ListEmployees} />
+            {/* Profile */}
             <DefaultLayout path="/profile" component={Profile} />
-            <DefaultLayout path="/careers" component={Careers} />
+            {/* Careers */}
+            <DefaultLayout path="/careers" component={ListCareers} />
+            {/* Levels */}
             <DefaultLayout path="/levels/new" component={CreateLevel} />
             <DefaultLayout path="/levels" component={ListLevels} />
+            {/* Requests */}
             <DefaultLayout path="/requests" component={ListRequests} />
+            {/* Badges */}
             <DefaultLayout path="/badges/new" component={CreateBadge} />
             <DefaultLayout path="/badges" component={ListBadges} />
+            {/* Interviews */}
             <DefaultLayout path="/interviews/new" component={CreateInterview} />
             <DefaultLayout path="/interviews" component={ListInterviews} />
             <DefaultLayout component={NotFound} />
