@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  shallow,
-} from 'enzyme';
+import { shallow } from 'enzyme';
 import { Row, Button } from 'antd';
 import ListInterviews from './ListInterviews';
 
@@ -24,6 +22,7 @@ describe('feature(ListInterviews)', () => {
     expect(button.length).toBe(1);
     expect(button.prop('children')).toBe('Nova Entrevista');
   });
+
   it('update prop "history"', () => {
     expect(pathHistory.length).toBe(0);
     const row = wrapper.first(Row);
