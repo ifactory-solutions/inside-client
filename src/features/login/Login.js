@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 
+import '../../styles/login.css';
+
 import {
   validateEmail,
   getIconPrefix,
