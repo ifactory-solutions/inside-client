@@ -17,16 +17,19 @@ import { ListLevels, CreateLevel } from './features/levels';
 import { ListRequests } from './features/requests';
 import { ListBadges, CreateBadge } from './features/badges';
 import { ListInterviews, CreateInterview } from './features/interviews';
+import { Login } from './features/login';
 import NotFound from './features/error';
 
 import DefaultLayout from './layouts/Default';
+import PageLayout from './layouts/Page';
+
 import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(
@@ -63,11 +66,13 @@ ReactDOM.render(
             {/* Interviews */}
             <DefaultLayout path="/interviews/new" component={CreateInterview} />
             <DefaultLayout path="/interviews" component={ListInterviews} />
+            <PageLayout path="/login" component={Login} />
             <DefaultLayout component={NotFound} />
           </Switch>
         </div>
       </Router>
     </LocaleProvider>
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById('root')
+);
 registerServiceWorker();
