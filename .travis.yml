@@ -17,3 +17,6 @@ deploy:
   local_dir: build
   on:
     branch: master
+
+notifications:
+ slack: ifactory-open-source:2Vg6UTHuZ9mXYIyPmxMQ7uFF
