@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, DatePicker, Select } from 'antd';
+
 import { PLACEHOLDERS, MARITAL_STATUS, GENDER } from './step1Constants';
 import { DATE_FORMAT_PT_BR } from '../stepFormConstants';
 
