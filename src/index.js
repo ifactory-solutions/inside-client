@@ -10,12 +10,12 @@ import Home from './features/home';
 
 import { ListRoles, CreateRole } from './features/admin/roles';
 import { ListProjects, CreateProject } from './features/projects';
-import { ListEmployees, CreateEmployee } from './features/employees';
+import { ListEmployees, CreateEmployee } from './features/people/employees';
 import { Profile } from './features/profile';
 import { ListCareers } from './features/careers';
-import { ListLevels, CreateLevel } from './features/levels';
-import { ListRequests } from './features/requests';
-import { ListBadges, CreateBadge } from './features/badges';
+import { ListLevels, CreateLevel } from './features/careers/levels';
+import { ListRequests } from './features/careers/requests';
+import { ListBadges, CreateBadge } from './features/careers/badges';
 import { ListInterviews, CreateInterview } from './features/interviews';
 import { Login } from './features/login';
 import NotFound from './features/error';

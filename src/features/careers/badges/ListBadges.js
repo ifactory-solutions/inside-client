@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Table, Row, Button, Divider } from 'antd';
-import data from '../../mock/badges';
+import data from '../../../mock/badges';
 
 const columns = [{
   title: 'Nome',
