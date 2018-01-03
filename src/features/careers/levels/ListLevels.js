@@ -1,39 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Table, Row } from 'antd';
-import data from '../../mock/requests';
+import { Table, Row, Button, Divider } from 'antd';
+import data from '../../../mock/levels';
 
 const columns = [{
-  title: 'Autor',
-  dataIndex: 'author',
-  key: 'author',
+  title: 'Nome',
+  dataIndex: 'name',
+  key: 'name',
   render: text => {
     return <a href="#">{text}</a>;
   },
 }, {
-  title: 'Requisição',
-  dataIndex: 'request',
-  key: 'request',
+  title: 'Descrição',
+  dataIndex: 'description',
+  key: 'description',
 }, {
-  title: 'Data',
-  dataIndex: 'date',
-  key: 'date',
+  title: 'Categoria',
+  dataIndex: 'category',
+  key: 'category',
 }];
 
 /* eslint arrow-body-style: ["error", "always"] */
 /* eslint-env es6 */
-const ListRequests = (/* { history } */) => {
+const ListLevels = ({ history }) => {
   return (
     <div>
-      {/* <Row type="flex" justify="end">
+      <Row type="flex" justify="end">
         <Button
           type="primary"
-          onClick={() => { history.push('/employees/new'); }}>
-            Novo Req
+          onClick={() => { history.push('/levels/new'); }}>
+            Novo Cargo/Nível
         </Button>
       </Row>
-      <Divider /> */}
+      <Divider />
       <Row>
         <Table
           columns={columns}
@@ -44,8 +44,8 @@ const ListRequests = (/* { history } */) => {
   );
 };
 
-ListRequests.propTypes = {
+ListLevels.propTypes = {
   history: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-export default withRouter(ListRequests);
+export default withRouter(ListLevels);

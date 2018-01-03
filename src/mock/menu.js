@@ -44,16 +44,39 @@ export default [
   {
     id: '4',
     bpid: '1',
-    name: 'Colaboradores',
+    name: 'Gestão de Pessoas',
     icon: 'team',
+  },
+  {
+    id: '41',
+    bpid: '4',
+    mpid: '4',
+    name: 'Colaboradores',
+    icon: 'switcher',
     route: '/employees',
   },
   {
-    id: '4',
+    id: '41',
     mpid: '-1',
-    bpid: '4',
+    bpid: '41',
     name: 'Novo Colaborador',
     route: '/employees/new',
+  },
+  {
+    id: '42',
+    bpid: '4',
+    mpid: '4',
+    name: 'Férias',
+    icon: 'rocket',
+    route: '/vacation',
+  },
+  {
+    id: '43',
+    bpid: '4',
+    mpid: '4',
+    name: 'Atestados',
+    icon: 'switcher',
+    route: '/medical-certificate',
   },
   {
     id: '5',
@@ -72,7 +95,7 @@ export default [
   {
     id: '6',
     bpid: '1',
-    name: 'Cargos e Carreiras',
+    name: 'Gestão de Carreiras',
     icon: 'solution',
   },
   {
@@ -123,13 +146,6 @@ export default [
   },
   {
     id: '7',
-    bpid: '1',
-    name: 'Férias',
-    icon: 'rocket',
-    route: '/vacation',
-  },
-  {
-    id: '8',
     bpid: '1',
     name: 'Entrevistas',
     icon: 'schedule',
