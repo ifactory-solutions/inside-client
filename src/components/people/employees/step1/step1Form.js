@@ -15,11 +15,7 @@ import {
 } from './step1Entries';
 
 import { getDecoratorManager } from './step1Decorators';
-
-// import PropTypes from 'prop-types';
-
 import { LABELS } from './step1Constants';
-
 import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormConstants';
 
 const FormItem = Form.Item;
