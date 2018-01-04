@@ -16,7 +16,7 @@ import {
 
 import { getDecoratorManager } from './step1Decorators';
 import { LABELS } from './step1Constants';
-import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormConstants';
+import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormHelper';
 
 const FormItem = Form.Item;
 
