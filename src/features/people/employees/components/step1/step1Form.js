@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'antd';
+import PropTypes from 'prop-types';
 
 import {
   getNickNameInput,
@@ -16,7 +17,13 @@ import {
 
 import { getDecoratorManager } from './step1Decorators';
 import { LABELS } from './step1Constants';
-import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormHelper';
+import {
+  FORM_ITEM_LAYOUT,
+  FORM_ITEM_LAYOUT_2,
+  HORIZONTAL_FORM_LAYOUT,
+} from '../stepFormHelper';
+
+import StepFormNavigator from '../stepFormNavigator';
 
 const FormItem = Form.Item;
 
@@ -29,11 +36,17 @@ class NewEmployeeStep1Form extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    return this;
+    const { form } = this.props;
+
+    form.validateFields(error => {
+      if (!error) {
+        this.props.nextCallback();
+      }
+    });
   }
 
   render() {
-    const { getFieldDecorator: fieldDecorator } = this.props.form; //eslint-disable-line
+    const { getFieldDecorator: fieldDecorator } = this.props.form;
     const decoratorManager = getDecoratorManager(fieldDecorator);
 
     return (
@@ -46,10 +59,13 @@ class NewEmployeeStep1Form extends Component {
           {decoratorManager.nickNameDecorator(getNickNameInput())}
         </FormItem>
 
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.GENDER} hasFeedback>
+        <FormItem {...FORM_ITEM_LAYOUT_2} label={LABELS.GENDER} hasFeedback>
           {decoratorManager.genderDecorator(getGenderSelector())}
         </FormItem>
 
+        <FormItem {...FORM_ITEM_LAYOUT_2} label={LABELS.BIRTH_DATE}>
+          {decoratorManager.birthDateDecorator(getBirthDatePicker())}
+        </FormItem>
         <FormItem
           {...FORM_ITEM_LAYOUT}
           label={LABELS.FILIATION_FATHER}
@@ -68,10 +84,6 @@ class NewEmployeeStep1Form extends Component {
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NATIONALITY} hasFeedback>
           {decoratorManager.nationalityDecorator(getNationalityInput())}
-        </FormItem>
-
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.BIRTH_DATE} hasFeedback>
-          {decoratorManager.birthDateDecorator(getBirthDatePicker())}
         </FormItem>
 
         <FormItem
@@ -93,9 +105,16 @@ class NewEmployeeStep1Form extends Component {
         >
           {getChildrenAmountInput()}
         </FormItem>
+
+        <StepFormNavigator {...this.props} submit={this.handleOnSubmit} />
       </Form>
     );
   }
 }
+
+NewEmployeeStep1Form.propTypes = {
+  form: PropTypes.instanceOf(Object).isRequired,
+  nextCallback: PropTypes.func.isRequired,
+};
 
 export default Form.create()(NewEmployeeStep1Form);

@@ -4,7 +4,7 @@ export const LABELS = {
   FILIATION_MOTHER: 'Nome da Mãe',
   NICK_NAME: 'Apelido',
   PROFILE_PICTURE: 'Foto de Perfil',
-  BIRTH_DATE: 'Data de Nascimento',
+  BIRTH_DATE: 'Data Nascimento',
   MARITAL_STATUS: 'Estado Civil',
   NATIONALITY: 'Nacionalidade',
   GENDER: 'Sexo',
