@@ -5,7 +5,7 @@ const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 function getPhone1Decorator(decorator) {
   return decorator('phone_1', {
     rules: [
-      { required: false, message: REQUIRED_FIELD_MSG },
+      { required: true, message: REQUIRED_FIELD_MSG },
       { required: false, validator: phoneValidator },
     ],
   });
@@ -14,7 +14,7 @@ function getPhone1Decorator(decorator) {
 function getPhone2Decorator(decorator) {
   return decorator('phone_2', {
     rules: [
-      { required: true, message: REQUIRED_FIELD_MSG },
+      { required: false, message: REQUIRED_FIELD_MSG },
       { required: true, validator: phoneValidator },
     ],
   });

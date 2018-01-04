@@ -27,7 +27,7 @@ export function getGenderSelector() {
     </Option>
   ));
 
-  return <Select style={{ width: '50%' }}>{genderOptions}</Select>;
+  return <Select>{genderOptions}</Select>;
 }
 
 export function getFatherNameInput() {
@@ -63,9 +63,9 @@ export function getNationalityInput() {
 export function getBirthDatePicker() {
   return (
     <DatePicker
+      style={{ width: '100%' }}
       id="birth_date"
       format={DATE_FORMAT_PT_BR}
-      style={{ width: '50%' }}
       placeholder={PLACEHOLDERS.BIRTH_DATE}
     />
   );
@@ -78,7 +78,7 @@ export function getMaritalStatusInput() {
     </Option>
   ));
 
-  return <Select style={{ width: '50%' }}>{martialStatusOptions}</Select>;
+  return <Select>{martialStatusOptions}</Select>;
 }
 
 export function getSpouseNameInput() {

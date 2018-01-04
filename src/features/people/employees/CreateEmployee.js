@@ -1,90 +1,78 @@
 import React from 'react';
-import { Form, Input, DatePicker, Select, Button } from 'antd';
+import { Steps, Button, message } from 'antd'; //eslint-disable-line
 
-const FormItem = Form.Item;
-const Option = Select.Option;
+import { Step1Form, Step2Form, Step3Form } from './components/index';
+
+import '../../../styles/createEmployee.css';
+
+const { Step } = Steps;
+
+const steps = [
+  {
+    title: 'Informações Pessoais',
+    content: Step1Form,
+  },
+  {
+    title: 'Endereço',
+    content: Step2Form,
+  },
+  {
+    title: 'Contatos',
+    content: Step3Form,
+  },
+];
 
 class CreateEmployee extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       formLayout: 'horizontal',
+      currentStep: 0,
     };
+
+    this.renderItem = this.renderItem.bind(this);
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+
+  next() {
+    const currentStep = this.state.currentStep + 1;
+    this.setState({ currentStep });
+  }
+
+  previous() {
+    const currentStep = this.state.currentStep - 1;
+    this.setState({ currentStep });
+  }
+
+  renderItem() {
+    const { content: StepForm } = steps[this.state.currentStep];
+    const { currentStep } = this.state;
+
+    const stepProps = {
+      currentStep,
+      maxStep: steps.length - 1,
+      nextCallback: this.next.bind(this),
+      previousCallback: this.previous.bind(this),
+    };
+
+    return <StepForm {...stepProps} />;
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form; // eslint-disable-line
-    const { formLayout } = this.state;
-    const formItemLayout = {
-      labelCol: { span: 4 },
-      wrapperCol: { span: 14 },
-    };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '85',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="85">85</Option>
-        <Option value="88">88</Option>
-      </Select>
-    );
+    const { currentStep } = this.state;
 
     return (
-      <Form layout={formLayout}>
-        <FormItem
-          label="Nome"
-          {...formItemLayout}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="Email"
-          {...formItemLayout}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="CPF"
-          {...formItemLayout}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="Endereço"
-          {...formItemLayout}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          label="Data de Admissão"
-          {...formItemLayout}
-        >
-          <DatePicker />
-        </FormItem>
-        <FormItem
-          label="Data de Nascimento"
-          {...formItemLayout}
-        >
-          <DatePicker />
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Telefone"
-        >
-          <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
-        </FormItem>
-        <FormItem
-          wrapperCol={{
-            xs: { span: 24, offset: 0 },
-            sm: { span: 16, offset: 4 },
-          }}
-        >
-          <Button type="primary" htmlType="submit">Cadastrar</Button>
-        </FormItem>
-      </Form>
+      <div>
+        <Steps current={currentStep}>
+          {steps.map(item => <Step key={item.title} title={item.title} />)}
+        </Steps>
+
+        <div className="steps-content">{this.renderItem()}</div>
+      </div>
     );
   }
 }
 
-const WrappedCreateEmployeeForm = Form.create()(CreateEmployee);
-
-export default WrappedCreateEmployeeForm;
+export default CreateEmployee;
