@@ -13,7 +13,7 @@ import {
 
 import { getDecoratorManager } from './step2Decorators';
 import { LABELS } from './step2Constants';
-import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormConstants';
+import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormHelper';
 
 const FormItem = Form.Item;
 
