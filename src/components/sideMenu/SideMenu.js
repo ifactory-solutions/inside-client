@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import pathToRegexp from 'path-to-regexp';
 import { arrayToTree, queryArray } from '../../utils';
 import menus from '../../mock/menu';
+import './SideMenu.css';
 
 const { Sider } = Layout;
 
@@ -82,7 +83,17 @@ const SideMenu = ({ collapsed, location }) => {
       collapsed={collapsed}
       width={250}
     >
-      <div className="logo" />
+      <div className="logo" >
+        <div id="logo">
+          {collapsed && <span>in</span>}
+          {!collapsed && <span>inside</span>}
+        </div>
+      </div>
+      {/* <div>
+        <div id="logo">
+          <span>inside</span>
+        </div>
+      </div> */}
       <Menu
         mode="inline"
         theme="dark"
