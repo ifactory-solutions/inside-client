@@ -13,7 +13,7 @@ describe('feature(ListProjects)', () => {
   const props = {
     history: { push },
   };
-  const wrapper = shallow(<ListProjects {...props} />);
+  const wrapper = shallow(<ListProjects.WrappedComponent {...props} />);
   it('renders properly', () => {
     expect(wrapper).toMatchSnapshot();
   });

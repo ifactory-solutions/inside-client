@@ -80,6 +80,7 @@ const SideMenu = ({ collapsed, location }) => {
       trigger={null}
       collapsible
       collapsed={collapsed}
+      width={250}
     >
       <div className="logo" />
       <Menu

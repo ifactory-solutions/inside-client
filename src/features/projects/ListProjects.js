@@ -1,7 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Button, Divider } from 'antd';
-import ProjectCard from '../../components/projectCard';
+import { withRouter } from 'react-router-dom';
+import { Table, Row, Button, Divider } from 'antd';
+import data from '../../mock/projects';
+
+const columns = [{
+  title: 'Nome',
+  dataIndex: 'name',
+  key: 'name',
+}, {
+  title: 'Descrição',
+  dataIndex: 'description',
+  key: 'description',
+}, {
+  title: 'Data de Início',
+  dataIndex: 'startDate',
+  key: 'startDate',
+}, {
+  title: 'Data de Finalização',
+  dataIndex: 'endDate',
+  key: 'endDate',
+}, {
+  title: 'Stack',
+  dataIndex: 'stack',
+  key: 'stack',
+}, {
+  title: 'Status',
+  dataIndex: 'status',
+  key: 'status',
+}];
 
 /* eslint arrow-body-style: ["error", "always"] */
 /* eslint-env es6 */
@@ -16,28 +43,18 @@ const ListProjects = ({ history }) => {
         </Button>
       </Row>
       <Divider />
-      <Row type="flex" justify="start">
-        {[1, 2, 3, 4, 5].map(i => {
-          return (
-            <Col
-              key={i}
-              md={{ span: 24 }}
-              lg={{ span: 12 }}
-              xl={{ span: 8 }}
-              style={{ marginBottom: '20px' }}>
-              <ProjectCard />
-            </Col>
-          );
-        })
-        }
+      <Row>
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={{ pageSize: 2 }} />
       </Row>
     </div>
-
   );
 };
 
 ListProjects.propTypes = {
-  history: PropTypes.object.isRequired, // eslint-disable-line
+  history: PropTypes.object, // eslint-disable-line
 };
 
-export default ListProjects;
+export default withRouter(ListProjects);

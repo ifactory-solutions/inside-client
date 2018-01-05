@@ -16,7 +16,7 @@ import { ListCareers } from './features/careers';
 import { ListLevels, CreateLevel } from './features/careers/levels';
 import { ListRequests } from './features/careers/requests';
 import { ListBadges, CreateBadge } from './features/careers/badges';
-import { ListInterviews, CreateInterview } from './features/interviews';
+import { ListInterviews, CreateInterview } from './features/people/interviews';
 import { Login } from './features/login';
 import NotFound from './features/error';
 
