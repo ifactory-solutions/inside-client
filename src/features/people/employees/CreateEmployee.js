@@ -1,7 +1,7 @@
 import React from 'react';
 import { Steps, Button, message } from 'antd'; //eslint-disable-line
 
-import { Step1Form, Step2Form, Step3Form } from './components/index';
+import { Step1Form, Step2Form, Step3Form, Step4Form } from './components/index';
 
 import '../../../styles/createEmployee.css';
 
@@ -19,6 +19,10 @@ const steps = [
   {
     title: 'Contatos',
     content: Step3Form,
+  },
+  {
+    title: 'Documentação',
+    content: Step4Form,
   },
 ];
 

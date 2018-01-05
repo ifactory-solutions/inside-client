@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, message, Form } from 'antd';
+import { Button, Form } from 'antd';
 
 import { FORM_ITEM_LAYOUT } from './stepFormHelper';
 
@@ -25,10 +25,7 @@ class StepFormNavigator extends Component {
           </Button>
         )}
         {this.props.currentStep === this.props.maxStep && (
-          <Button
-            type="primary"
-            onClick={() => message.success('Processing complete!')}
-          >
+          <Button type="primary" onClick={event => this.props.submit(event)}>
             Finalizar
           </Button>
         )}
