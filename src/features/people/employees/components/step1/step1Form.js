@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from 'antd';
+import { Form, message } from 'antd';
 import PropTypes from 'prop-types';
 
 import {
@@ -40,7 +40,13 @@ class NewEmployeeStep1Form extends Component {
 
     form.validateFields(error => {
       if (!error) {
-        this.props.nextCallback();
+        const { currentStep, maxStep } = this.props;
+
+        if (currentStep === maxStep) {
+          message.success('Dados salvos com sucesso!');
+        } else {
+          this.props.nextCallback();
+        }
       }
     });
   }
@@ -115,6 +121,8 @@ class NewEmployeeStep1Form extends Component {
 NewEmployeeStep1Form.propTypes = {
   form: PropTypes.instanceOf(Object).isRequired,
   nextCallback: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  maxStep: PropTypes.number.isRequired,
 };
 
 export default Form.create()(NewEmployeeStep1Form);

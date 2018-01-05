@@ -6,7 +6,7 @@ function getPhone1Decorator(decorator) {
   return decorator('phone_1', {
     rules: [
       { required: true, message: REQUIRED_FIELD_MSG },
-      { required: false, validator: phoneValidator },
+      { required: true, validator: phoneValidator },
     ],
   });
 }
@@ -15,7 +15,7 @@ function getPhone2Decorator(decorator) {
   return decorator('phone_2', {
     rules: [
       { required: false, message: REQUIRED_FIELD_MSG },
-      { required: true, validator: phoneValidator },
+      { required: false, validator: phoneValidator },
     ],
   });
 }
