@@ -1,5 +1,23 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Button, message } from 'antd';
+import PropTypes from 'prop-types';
+
+import {
+  HORIZONTAL_FORM_LAYOUT,
+  FORM_ITEM_LAYOUT,
+  LABELS,
+  FORM_ITEM_SUBMMIT_LAYOUT,
+} from './CreateInterviewConstants';
+
+import { getDecoratorManager } from './CreateInterviewDecorators';
+import {
+  getApplicantNameInput,
+  getInterViewTypeSelector,
+  getInterviewStatusSelector,
+  getDueDatePicker,
+  getInterviewerAutoComplete,
+  getScoreInput,
+} from './CreateInterviewEntries';
 
 const FormItem = Form.Item;
 
@@ -9,36 +27,75 @@ class CreateInterview extends React.Component {
     this.state = {
       formLayout: 'horizontal',
     };
+
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
+  }
+
+  handleOnSubmit(event) {
+    event.preventDefault();
+
+    const { form } = this.props;
+
+    form.validateFields(error => {
+      if (!error) {
+        message.success('Dados salvos com sucesso!');
+      }
+    });
   }
 
   render() {
     const { getFieldDecorator } = this.props.form; // eslint-disable-line
-    const { formLayout } = this.state;
-    const formItemLayout = {
-      labelCol: { span: 4 },
-      wrapperCol: { span: 14 },
-    };
+    const decoratorManager = getDecoratorManager(getFieldDecorator);
 
     return (
-      <Form layout={formLayout}>
+      <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
         <FormItem
-          label="Nome do Candidato"
-          {...formItemLayout}
+          label={LABELS.APPLICANT_NAME}
+          {...FORM_ITEM_LAYOUT}
+          hasFeedback
         >
-          <Input />
+          {decoratorManager.applicantNameDecorator(getApplicantNameInput())}
         </FormItem>
+
         <FormItem
-          wrapperCol={{
-            xs: { span: 24, offset: 0 },
-            sm: { span: 16, offset: 4 },
-          }}
+          label={LABELS.INTERVIEW_TYPE}
+          {...FORM_ITEM_LAYOUT}
+          hasFeedback
         >
-          <Button type="primary" htmlType="submit">Cadastrar</Button>
+          {decoratorManager.interViewTypeDecorator(getInterViewTypeSelector())}
+        </FormItem>
+
+        <FormItem label={LABELS.STATUS} {...FORM_ITEM_LAYOUT} hasFeedback>
+          {decoratorManager.interviewStatusDecorator(
+            getInterviewStatusSelector()
+          )}
+        </FormItem>
+
+        <FormItem label={LABELS.DUE_DATE} {...FORM_ITEM_LAYOUT} hasFeedback>
+          {decoratorManager.dueDateDecorator(getDueDatePicker())}
+        </FormItem>
+
+        <FormItem label={LABELS.INTERVIEWER} {...FORM_ITEM_LAYOUT} hasFeedback>
+          {decoratorManager.interviewerDecorator(getInterviewerAutoComplete())}
+        </FormItem>
+
+        <FormItem label={LABELS.SCORES} {...FORM_ITEM_LAYOUT} hasFeedback>
+          {decoratorManager.scoreDecorator(getScoreInput())}
+        </FormItem>
+
+        <FormItem {...FORM_ITEM_SUBMMIT_LAYOUT} style={{ textAlign: 'right' }}>
+          <Button type="primary" htmlType="submit">
+            Cadastrar
+          </Button>
         </FormItem>
       </Form>
     );
   }
 }
+
+CreateInterview.propTypes = {
+  form: PropTypes.instanceOf(Object).isRequired,
+};
 
 const WrappedCreateInterviewForm = Form.create()(CreateInterview);
 
