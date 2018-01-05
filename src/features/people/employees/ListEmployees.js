@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
 
-import EmployeeListTable from '../../components/employeeListTable';
-import EmployeeListGrid from '../../components/employeeListGrid';
+import EmployeeListTable from '../../../components/employeeListTable';
+import EmployeeListGrid from '../../../components/employeeListGrid';
 
 /* eslint arrow-body-style: ["error", "always"] */
 /* eslint-env es6 */
