@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Table, Row, Button, Divider } from 'antd';
-import data from '../../mock/interviews';
+import data from '../../../mock/interviews';
 
 const columns = [{
   title: 'Candidato',
