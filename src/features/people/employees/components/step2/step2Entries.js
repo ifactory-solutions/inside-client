@@ -8,7 +8,7 @@ export function getLine1Input() {
 }
 
 export function getLine2Input() {
-  return <Input id="line_2" type="text" placeholder={PLACEHOLDERS.LINE_2} />;
+  return <Input id="line_2" type="number" placeholder={PLACEHOLDERS.LINE_2} />;
 }
 
 export function getLine3Input() {
@@ -23,7 +23,7 @@ export function getZipCodeInput() {
   return (
     <Input
       id="zip_code"
-      type="text"
+      type="number"
       pattern="[0-9]{5}"
       placeholder={PLACEHOLDERS.ZIP_CODE}
     />

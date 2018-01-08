@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { Form, message } from 'antd';
+import { Form } from 'antd';
 import PropTypes from 'prop-types';
 
-import {
-  getPhone1Input,
-  getPhone2Input,
-  getPersonalEmailInput,
-  getOfficeEmailInput,
-} from './step3Entries';
+import * as entries from './step3Entries';
 import { getDecoratorManager } from './step3Decorators';
 import { LABELS } from './step3Constants';
 import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormHelper';
@@ -21,6 +16,13 @@ class NewEmployeeStep3Form extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { form, employee } = this.props;
+    form.setFieldsValue(employee.contacts);
+
+    this.props.onRef(this);
+  }
+
   handleOnSubmit(event) {
     event.preventDefault();
 
@@ -28,12 +30,23 @@ class NewEmployeeStep3Form extends Component {
 
     form.validateFields(error => {
       if (!error) {
-        const { currentStep, maxStep } = this.props;
+        const {
+          employee,
+          nextCallback,
+          currentStep,
+          maxStep,
+          finishCallback,
+        } = this.props;
+
+        const editedEmployee = {
+          ...employee,
+          contacts: form.getFieldsValue(),
+        };
 
         if (currentStep === maxStep) {
-          message.success('Dados salvos com sucesso!');
+          finishCallback(editedEmployee);
         } else {
-          this.props.nextCallback();
+          nextCallback(editedEmployee);
         }
       }
     });
@@ -46,11 +59,11 @@ class NewEmployeeStep3Form extends Component {
     return (
       <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.PHONE_1} hasFeedback>
-          {decoratorManager.phone1Decorator(getPhone1Input())}
+          {decoratorManager.phone1Decorator(entries.getPhone1Input())}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.PHONE_2} hasFeedback>
-          {decoratorManager.phone2Decorator(getPhone2Input())}
+          {decoratorManager.phone2Decorator(entries.getPhone2Input())}
         </FormItem>
 
         <FormItem
@@ -58,11 +71,13 @@ class NewEmployeeStep3Form extends Component {
           label={LABELS.PERSONAL_EMAIL}
           hasFeedback
         >
-          {decoratorManager.personalEmailDecorator(getPersonalEmailInput())}
+          {decoratorManager.personalEmailDecorator(
+            entries.getPersonalEmailInput()
+          )}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.OFFICE_EMAIL} hasFeedback>
-          {decoratorManager.officeEmailDecorator(getOfficeEmailInput())}
+          {decoratorManager.officeEmailDecorator(entries.getOfficeEmailInput())}
         </FormItem>
 
         <StepNavigator {...this.props} submit={this.handleOnSubmit} />
@@ -73,9 +88,12 @@ class NewEmployeeStep3Form extends Component {
 
 NewEmployeeStep3Form.propTypes = {
   form: PropTypes.instanceOf(Object).isRequired,
+  employee: PropTypes.instanceOf(Object).isRequired,
   nextCallback: PropTypes.func.isRequired,
+  finishCallback: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
   maxStep: PropTypes.number.isRequired,
+  onRef: PropTypes.func.isRequired,
 };
 
 export default Form.create()(NewEmployeeStep3Form);

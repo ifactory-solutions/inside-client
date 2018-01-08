@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
-import { Form, message } from 'antd';
+import { Form } from 'antd';
 import PropTypes from 'prop-types';
 
-import {
-  getNickNameInput,
-  getFullNameInput,
-  getGenderSelector,
-  getMotherNameInput,
-  getFatherNameInput,
-  getNationalityInput,
-  getBirthDatePicker,
-  getMaritalStatusInput,
-  getSpouseNameInput,
-  getChildrenAmountInput,
-} from './step1Entries';
+import * as entries from './step1Entries';
 
 import { getDecoratorManager } from './step1Decorators';
 import { LABELS } from './step1Constants';
@@ -34,18 +23,36 @@ class NewEmployeeStep1Form extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { employee, form } = this.props;
+    form.setFieldsValue(employee.personalData);
+
+    this.props.onRef(this);
+  }
+
   handleOnSubmit(event) {
     event.preventDefault();
     const { form } = this.props;
 
     form.validateFields(error => {
       if (!error) {
-        const { currentStep, maxStep } = this.props;
+        const {
+          employee,
+          nextCallback,
+          finishCallback,
+          currentStep,
+          maxStep,
+        } = this.props;
+
+        const editedEmployee = {
+          ...employee,
+          personalData: form.getFieldsValue(),
+        };
 
         if (currentStep === maxStep) {
-          message.success('Dados salvos com sucesso!');
+          finishCallback(editedEmployee);
         } else {
-          this.props.nextCallback();
+          nextCallback(editedEmployee);
         }
       }
     });
@@ -53,31 +60,34 @@ class NewEmployeeStep1Form extends Component {
 
   render() {
     const { getFieldDecorator: fieldDecorator } = this.props.form;
-    const decoratorManager = getDecoratorManager(fieldDecorator);
+    const decoratorManager = getDecoratorManager(
+      fieldDecorator,
+      this.props.employee
+    );
 
     return (
       <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.FULL_NAME} hasFeedback>
-          {decoratorManager.fullNameDecorator(getFullNameInput())}
+          {decoratorManager.fullNameDecorator(entries.getFullNameInput())}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NICK_NAME} hasFeedback>
-          {decoratorManager.nickNameDecorator(getNickNameInput())}
+          {decoratorManager.nickNameDecorator(entries.getNickNameInput())}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT_2} label={LABELS.GENDER} hasFeedback>
-          {decoratorManager.genderDecorator(getGenderSelector())}
+          {decoratorManager.genderDecorator(entries.getGenderSelector())}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT_2} label={LABELS.BIRTH_DATE}>
-          {decoratorManager.birthDateDecorator(getBirthDatePicker())}
+          {decoratorManager.birthDateDecorator(entries.getBirthDatePicker())}
         </FormItem>
         <FormItem
           {...FORM_ITEM_LAYOUT}
           label={LABELS.FILIATION_FATHER}
           hasFeedback
         >
-          {decoratorManager.fatherNameDecorator(getFatherNameInput())}
+          {decoratorManager.fatherNameDecorator(entries.getFatherNameInput())}
         </FormItem>
 
         <FormItem
@@ -85,11 +95,11 @@ class NewEmployeeStep1Form extends Component {
           label={LABELS.FILIATION_MOTHER}
           hasFeedback
         >
-          {decoratorManager.motherNameDecorator(getMotherNameInput())}
+          {decoratorManager.motherNameDecorator(entries.getMotherNameInput())}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NATIONALITY} hasFeedback>
-          {decoratorManager.nationalityDecorator(getNationalityInput())}
+          {decoratorManager.nationalityDecorator(entries.getNationalityInput())}
         </FormItem>
 
         <FormItem
@@ -97,11 +107,13 @@ class NewEmployeeStep1Form extends Component {
           label={LABELS.MARITAL_STATUS}
           hasFeedback
         >
-          {decoratorManager.maritalStatusDecorator(getMaritalStatusInput())}
+          {decoratorManager.maritalStatusDecorator(
+            entries.getMaritalStatusInput()
+          )}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.SPOUSE_NAME} hasFeedback>
-          {getSpouseNameInput()}
+          {decoratorManager.spouseNameDecorator(entries.getSpouseNameInput())}
         </FormItem>
 
         <FormItem
@@ -109,7 +121,9 @@ class NewEmployeeStep1Form extends Component {
           label={LABELS.CHILDREN_AMOUNT}
           hasFeedback
         >
-          {getChildrenAmountInput()}
+          {decoratorManager.childAmountDecorator(
+            entries.getChildrenAmountInput()
+          )}
         </FormItem>
 
         <StepFormNavigator {...this.props} submit={this.handleOnSubmit} />
@@ -121,8 +135,11 @@ class NewEmployeeStep1Form extends Component {
 NewEmployeeStep1Form.propTypes = {
   form: PropTypes.instanceOf(Object).isRequired,
   nextCallback: PropTypes.func.isRequired,
+  employee: PropTypes.instanceOf(Object).isRequired,
+  finishCallback: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
   maxStep: PropTypes.number.isRequired,
+  onRef: PropTypes.func.isRequired,
 };
 
 export default Form.create()(NewEmployeeStep1Form);

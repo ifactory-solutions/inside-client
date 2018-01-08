@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Form, message } from 'antd';
+import { Form } from 'antd';
 import PropTypes from 'prop-types';
 
-import * as Step4Inputs from './step4Entries';
+import * as entries from './step4Entries';
 import { getDecoratorManager } from './step4Decorators';
 import { LABELS } from './step4Constants';
 import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormHelper';
@@ -17,6 +17,12 @@ class NewEmployeeStep4Form extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { employee, form } = this.props;
+    form.setFieldsValue(employee.documentation);
+    this.props.onRef(this);
+  }
+
   handleOnSubmit(event) {
     event.preventDefault();
 
@@ -24,12 +30,23 @@ class NewEmployeeStep4Form extends Component {
 
     form.validateFields(error => {
       if (!error) {
-        const { currentStep, maxStep } = this.props;
+        const {
+          employee,
+          currentStep,
+          maxStep,
+          finishCallback,
+          nextCallback,
+        } = this.props;
+
+        const editedEmployee = {
+          ...employee,
+          documentation: form.getFieldsValue(),
+        };
 
         if (currentStep === maxStep) {
-          message.success('Dados salvos com sucesso!');
+          finishCallback(editedEmployee);
         } else {
-          this.props.nextCallback();
+          nextCallback(editedEmployee);
         }
       }
     });
@@ -42,11 +59,11 @@ class NewEmployeeStep4Form extends Component {
     return (
       <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.CPF} hasFeedback>
-          {decoratorManager.CPFDecorator(Step4Inputs.getCPFInput())}
+          {decoratorManager.CPFDecorator(entries.getCPFInput())}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.RG.NUMERO} hasFeedback>
-          {decoratorManager.numeroRGDecorator(Step4Inputs.getNumeroRGInput())}
+          {decoratorManager.numeroRGDecorator(entries.getNumeroRGInput())}
         </FormItem>
 
         <FormItem
@@ -55,24 +72,22 @@ class NewEmployeeStep4Form extends Component {
           hasFeedback
         >
           {decoratorManager.dataEmissaoRGDecorator(
-            Step4Inputs.getDataEmissaoRGDatePicker()
+            entries.getDataEmissaoRGDatePicker()
           )}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.RG.EMISSOR} hasFeedback>
           {decoratorManager.orgaoEmissorRGDecorator(
-            Step4Inputs.getOrgaoEmissorRGInput()
+            entries.getOrgaoEmissorRGInput()
           )}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NUMERO_CTPS} hasFeedback>
-          {decoratorManager.numeroCTPSDecorator(
-            Step4Inputs.getNumeroCTPSInput()
-          )}
+          {decoratorManager.numeroCTPSDecorator(entries.getNumeroCTPSInput())}
         </FormItem>
 
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NUMERO_PIS} hasFeedback>
-          {decoratorManager.numeroPisDecorator(Step4Inputs.getNumeroPisInput())}
+          {decoratorManager.numeroPisDecorator(entries.getNumeroPisInput())}
         </FormItem>
 
         <FormItem
@@ -81,7 +96,7 @@ class NewEmployeeStep4Form extends Component {
           hasFeedback
         >
           {decoratorManager.numeroTituloEleitorDecorator(
-            Step4Inputs.getNumeroTituloEleitorInput()
+            entries.getNumeroTituloEleitorInput()
           )}
         </FormItem>
 
@@ -91,7 +106,7 @@ class NewEmployeeStep4Form extends Component {
           hasFeedback
         >
           {decoratorManager.numeroZonaEleitoralDecorator(
-            Step4Inputs.getNumeroZonaEleitoralInput()
+            entries.getNumeroZonaEleitoralInput()
           )}
         </FormItem>
 
@@ -101,7 +116,7 @@ class NewEmployeeStep4Form extends Component {
           hasFeedback
         >
           {decoratorManager.numeroSecaoEleitoralDecorator(
-            Step4Inputs.getNumeroSecaoEleitoralInput()
+            entries.getNumeroSecaoEleitoralInput()
           )}
         </FormItem>
 
@@ -111,7 +126,7 @@ class NewEmployeeStep4Form extends Component {
           hasFeedback
         >
           {decoratorManager.dataEmissaoTituloDecorator(
-            Step4Inputs.getDataEmissaoTituloDatePicker()
+            entries.getDataEmissaoTituloDatePicker()
           )}
         </FormItem>
 
@@ -120,7 +135,7 @@ class NewEmployeeStep4Form extends Component {
           label={LABELS.DADOS_BANCARIOS.NOME_BANCO}
           hasFeedback
         >
-          {decoratorManager.nomeBancoDecorator(Step4Inputs.getNomeBancoInput())}
+          {decoratorManager.nomeBancoDecorator(entries.getNomeBancoInput())}
         </FormItem>
 
         <FormItem
@@ -129,7 +144,7 @@ class NewEmployeeStep4Form extends Component {
           hasFeedback
         >
           {decoratorManager.numeroAgenciaDecorator(
-            Step4Inputs.getNumeroAgenciaInput()
+            entries.getNumeroAgenciaInput()
           )}
         </FormItem>
 
@@ -138,9 +153,7 @@ class NewEmployeeStep4Form extends Component {
           label={LABELS.DADOS_BANCARIOS.TIPO_CONTA}
           hasFeedback
         >
-          {decoratorManager.tipoContaDecorator(
-            Step4Inputs.getTipoContaSelector()
-          )}
+          {decoratorManager.tipoContaDecorator(entries.getTipoContaSelector())}
         </FormItem>
 
         <FormItem
@@ -148,9 +161,7 @@ class NewEmployeeStep4Form extends Component {
           label={LABELS.DADOS_BANCARIOS.CONTA}
           hasFeedback
         >
-          {decoratorManager.numeroContaDecorator(
-            Step4Inputs.getNumeroContaInput()
-          )}
+          {decoratorManager.numeroContaDecorator(entries.getNumeroContaInput())}
         </FormItem>
 
         <StepNavigator {...this.props} submit={this.handleOnSubmit} />
@@ -161,9 +172,12 @@ class NewEmployeeStep4Form extends Component {
 
 NewEmployeeStep4Form.propTypes = {
   form: PropTypes.instanceOf(Object).isRequired,
+  employee: PropTypes.instanceOf(Object).isRequired,
   nextCallback: PropTypes.func.isRequired,
+  finishCallback: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
   maxStep: PropTypes.number.isRequired,
+  onRef: PropTypes.func.isRequired,
 };
 
 export default Form.create()(NewEmployeeStep4Form);

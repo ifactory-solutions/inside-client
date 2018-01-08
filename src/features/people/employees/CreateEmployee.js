@@ -10,18 +10,22 @@ const { Step } = Steps;
 const steps = [
   {
     title: 'Informações Pessoais',
+    key: 'personalData',
     content: Step1Form,
   },
   {
     title: 'Endereço',
+    key: 'address',
     content: Step2Form,
   },
   {
     title: 'Contatos',
+    key: 'contacts',
     content: Step3Form,
   },
   {
     title: 'Documentação',
+    key: 'documentation',
     content: Step4Form,
   },
 ];
@@ -31,23 +35,66 @@ class CreateEmployee extends React.Component {
     super(props);
 
     this.state = {
-      formLayout: 'horizontal',
       currentStep: 0,
+      employee: {
+        personalData: {
+          gender: 'masculino',
+          maritalStatus: 'solteiro',
+        },
+        address: {},
+        contacts: {},
+        documentation: {},
+      },
     };
+
+    this.formChildren = {};
 
     this.renderItem = this.renderItem.bind(this);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
   }
 
-  next() {
+  next(employee) {
     const currentStep = this.state.currentStep + 1;
-    this.setState({ currentStep });
+    this.setState({ employee, currentStep });
   }
 
   previous() {
     const currentStep = this.state.currentStep - 1;
     this.setState({ currentStep });
+  }
+
+  finish(employee) {
+    this.setState({ employee });
+    message.success('Dados salvos com sucesso!');
+  }
+
+  validateAndMove(form, currentStep, nextStep) {
+    form.validateFields(error => {
+      if (!error) {
+        const { key } = steps[currentStep];
+        const employee = {
+          ...this.state.employee,
+          [key]: form.getFieldsValue(),
+        };
+
+        this.setState({ employee, currentStep: nextStep });
+      }
+    });
+  }
+
+  changeStep(event, nextStep) {
+    const { currentStep } = this.state;
+    const { props: { form } } = this.formChildren[currentStep];
+
+    if (nextStep <= currentStep || nextStep === currentStep + 1) {
+      this.validateAndMove(form, currentStep, nextStep);
+    } else {
+      const { title: nextStepTitle } = steps[nextStep];
+
+      form.validateFields();
+      message.warn(`Ainda não é possível ir para ${nextStepTitle}.`);
+    }
   }
 
   renderItem() {
@@ -57,11 +104,20 @@ class CreateEmployee extends React.Component {
     const stepProps = {
       currentStep,
       maxStep: steps.length - 1,
+      employee: this.state.employee,
       nextCallback: this.next.bind(this),
       previousCallback: this.previous.bind(this),
+      finishCallback: this.finish.bind(this),
     };
 
-    return <StepForm {...stepProps} />;
+    return (
+      <StepForm
+        {...stepProps}
+        onRef={ref => {
+          this.formChildren[currentStep] = ref;
+        }}
+      />
+    );
   }
 
   render() {
@@ -70,7 +126,14 @@ class CreateEmployee extends React.Component {
     return (
       <div>
         <Steps current={currentStep}>
-          {steps.map(item => <Step key={item.title} title={item.title} />)}
+          {steps.map((item, index) => (
+            <Step
+              onClick={event => this.changeStep(event, index)}
+              style={{ cursor: 'pointer' }}
+              key={item.title}
+              title={item.title}
+            />
+          ))}
         </Steps>
 
         <div className="steps-content">{this.renderItem()}</div>

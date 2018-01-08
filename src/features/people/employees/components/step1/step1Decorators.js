@@ -1,25 +1,25 @@
 const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 
 function getFullNameDecorator(decorator) {
-  return decorator('full_name', {
+  return decorator('fullName', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getNickNameDecorator(decorator) {
-  return decorator('nick_name', {
+  return decorator('nickname', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getFatherNameDecorator(decorator) {
-  return decorator('filiation_father', {
+  return decorator('fatherName', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getMotherNameDecorator(decorator) {
-  return decorator('filiation_mother', {
+  return decorator('motherName', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
@@ -31,13 +31,13 @@ function getNationalityDecorator(decorator) {
 }
 
 function getBirthDateDecorator(decorator) {
-  return decorator('birth_date', {
+  return decorator('birthdate', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getMaritalStatusDecorator(decorator) {
-  return decorator('marital_status', {
+  return decorator('maritalStatus', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
@@ -48,9 +48,19 @@ function getGenderDecorator(decorator) {
   });
 }
 
-export function getDecoratorManager(decorator) {
+function getSpouseNameDecorator(decorator) {
+  return decorator('spouseName', []);
+}
+
+function getChildAmountDecorator(decorator) {
+  return decorator('childAmount', []);
+}
+
+export function getDecoratorManager(decorator, employee) {
+  const { fullName } = employee.personalData;
+
   return {
-    fullNameDecorator: getFullNameDecorator(decorator),
+    fullNameDecorator: getFullNameDecorator(decorator, fullName),
     nickNameDecorator: getNickNameDecorator(decorator),
     fatherNameDecorator: getFatherNameDecorator(decorator),
     motherNameDecorator: getMotherNameDecorator(decorator),
@@ -58,5 +68,7 @@ export function getDecoratorManager(decorator) {
     birthDateDecorator: getBirthDateDecorator(decorator),
     maritalStatusDecorator: getMaritalStatusDecorator(decorator),
     genderDecorator: getGenderDecorator(decorator),
+    spouseNameDecorator: getSpouseNameDecorator(decorator),
+    childAmountDecorator: getChildAmountDecorator(decorator),
   };
 }

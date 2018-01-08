@@ -3,7 +3,7 @@ import { emailValidator, phoneValidator } from '../stepFormHelper';
 const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 
 function getPhone1Decorator(decorator) {
-  return decorator('phone_1', {
+  return decorator('phone1', {
     rules: [
       { required: true, message: REQUIRED_FIELD_MSG },
       { required: true, validator: phoneValidator },
@@ -12,7 +12,7 @@ function getPhone1Decorator(decorator) {
 }
 
 function getPhone2Decorator(decorator) {
-  return decorator('phone_2', {
+  return decorator('phone2', {
     rules: [
       { required: false, message: REQUIRED_FIELD_MSG },
       { required: false, validator: phoneValidator },
@@ -21,7 +21,7 @@ function getPhone2Decorator(decorator) {
 }
 
 function getPersonalEmailDecorator(decorator) {
-  return decorator('personal_email', {
+  return decorator('personalEmail', {
     rules: [
       { required: true, message: REQUIRED_FIELD_MSG },
       { required: true, validator: emailValidator },
@@ -30,7 +30,7 @@ function getPersonalEmailDecorator(decorator) {
 }
 
 function getOfficeEmailDecorator(decorator) {
-  return decorator('office_email', {
+  return decorator('officeEmail', {
     rules: [{ required: false, validator: emailValidator }],
   });
 }

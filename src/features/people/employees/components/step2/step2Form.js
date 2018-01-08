@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import { Form, message } from 'antd';
+import { Form } from 'antd';
 import PropTypes from 'prop-types';
 
-import {
-  getLine1Input,
-  getLine2Input,
-  getLine3Input,
-  getLine4Input,
-  getZipCodeInput,
-  getCityInput,
-  getStateInput,
-  getCountryInput,
-} from './step2Entries';
+import * as entries from './step2Entries';
 
 import { getDecoratorManager } from './step2Decorators';
 import { LABELS } from './step2Constants';
@@ -27,6 +18,13 @@ class NewEmployeeStep2Form extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { form, employee } = this.props;
+    form.setFieldsValue(employee.address);
+
+    this.props.onRef(this);
+  }
+
   handleOnSubmit(event) {
     event.preventDefault();
 
@@ -34,12 +32,23 @@ class NewEmployeeStep2Form extends Component {
 
     form.validateFields(error => {
       if (!error) {
-        const { currentStep, maxStep } = this.props;
+        const {
+          employee,
+          nextCallback,
+          finishCallback,
+          currentStep,
+          maxStep,
+        } = this.props;
+
+        const editedEmployee = {
+          ...employee,
+          address: form.getFieldsValue(),
+        };
 
         if (currentStep === maxStep) {
-          message.success('Dados salvos com sucesso!');
+          finishCallback(editedEmployee);
         } else {
-          this.props.nextCallback();
+          nextCallback(editedEmployee);
         }
       }
     });
@@ -52,35 +61,35 @@ class NewEmployeeStep2Form extends Component {
       <div>
         <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_1} hasFeedback>
-            {decoratorManager.line1Decorator(getLine1Input())}
+            {decoratorManager.line1Decorator(entries.getLine1Input())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_2} hasFeedback>
-            {decoratorManager.line2Decorator(getLine2Input())}
+            {decoratorManager.line2Decorator(entries.getLine2Input())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_3} hasFeedback>
-            {getLine3Input()}
+            {decoratorManager.line3Decorator(entries.getLine3Input())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_4} hasFeedback>
-            {decoratorManager.line4Decorator(getLine4Input())}
+            {decoratorManager.line4Decorator(entries.getLine4Input())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.ZIP_CODE} hasFeedback>
-            {decoratorManager.zipCodeDecorator(getZipCodeInput())}
+            {decoratorManager.zipCodeDecorator(entries.getZipCodeInput())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.CITY} hasFeedback>
-            {decoratorManager.cityDecorator(getCityInput())}
+            {decoratorManager.cityDecorator(entries.getCityInput())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.STATE} hasFeedback>
-            {decoratorManager.stateDecorator(getStateInput())}
+            {decoratorManager.stateDecorator(entries.getStateInput())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.COUNTRY} hasFeedback>
-            {decoratorManager.countryDecorator(getCountryInput())}
+            {decoratorManager.countryDecorator(entries.getCountryInput())}
           </FormItem>
         </Form>
         <StepNavigator {...this.props} submit={this.handleOnSubmit} />
@@ -91,9 +100,12 @@ class NewEmployeeStep2Form extends Component {
 
 NewEmployeeStep2Form.propTypes = {
   form: PropTypes.instanceOf(Object).isRequired,
+  employee: PropTypes.instanceOf(Object).isRequired,
   nextCallback: PropTypes.func.isRequired,
+  finishCallback: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
   maxStep: PropTypes.number.isRequired,
+  onRef: PropTypes.func.isRequired,
 };
 
 export default Form.create()(NewEmployeeStep2Form);
