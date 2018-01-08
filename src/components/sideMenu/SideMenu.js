@@ -89,11 +89,6 @@ const SideMenu = ({ collapsed, location }) => {
           {!collapsed && <span>inside</span>}
         </div>
       </div>
-      {/* <div>
-        <div id="logo">
-          <span>inside</span>
-        </div>
-      </div> */}
       <Menu
         mode="inline"
         theme="dark"

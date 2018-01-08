@@ -1,24 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
-/* body {
-  text-align: center;
-}
-body:before, body:after {
-  content: "";
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-}
-body:before {
-  z-index: 0;
-  background: url("https://cdn.pixabay.com/photo/2015/02/06/13/49/office-626097_960_720.jpg") no-repeat center/cover;
-  filter: blur(4px);
-}
-body:after {
-  z-index: 1;
-  background: rgba(0, 150, 200, 0.8);
-} */
+/* @import url("https://fonts.googleapis.com/css?family=Roboto+Slab"); */
 
 #logo {
   z-index: 2;
