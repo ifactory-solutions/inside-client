@@ -19,6 +19,7 @@ import { ListBadges, CreateBadge } from './features/careers/badges';
 import { ListInterviews, CreateInterview } from './features/people/interviews';
 import { Login } from './features/login';
 import NotFound from './features/error';
+import { ListVacations } from './features/people/vacations';
 
 import DefaultLayout from './layouts/Default';
 import PageLayout from './layouts/Page';
@@ -66,6 +67,8 @@ ReactDOM.render(
             {/* Interviews */}
             <DefaultLayout path="/interviews/new" component={CreateInterview} />
             <DefaultLayout path="/interviews" component={ListInterviews} />
+            {/* Vacation */}
+            <DefaultLayout path="/vacation" component={ListVacations} />
             <PageLayout path="/login" component={Login} />
             <DefaultLayout component={NotFound} />
           </Switch>
