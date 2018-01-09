@@ -72,28 +72,46 @@ class CreateEmployee extends React.Component {
   validateAndMove(form, currentStep, nextStep) {
     form.validateFields(error => {
       if (!error) {
-        const { key } = steps[currentStep];
-        const employee = {
-          ...this.state.employee,
-          [key]: form.getFieldsValue(),
-        };
-
-        this.setState({ employee, currentStep: nextStep });
+        this.moveToStep(form, currentStep, nextStep);
+      } else {
+        const { title: nextStepTitle } = steps[nextStep];
+        message.warn(`Ainda não é possível ir para ${nextStepTitle}.`);
       }
     });
+  }
+
+  moveToStep(form, currentStep, nextStep) {
+    const { key } = steps[currentStep];
+    const employee = {
+      ...this.state.employee,
+      [key]: form.getFieldsValue(),
+    };
+
+    this.setState({ employee, currentStep: nextStep });
   }
 
   changeStep(event, nextStep) {
     const { currentStep } = this.state;
     const { props: { form } } = this.formChildren[currentStep];
 
-    if (nextStep <= currentStep || nextStep === currentStep + 1) {
-      this.validateAndMove(form, currentStep, nextStep);
-    } else {
-      const { title: nextStepTitle } = steps[nextStep];
+    switch (true) {
+    case nextStep <= currentStep: {
+      this.moveToStep(form, currentStep, nextStep);
+      break;
+    }
 
-      form.validateFields();
+    case nextStep === currentStep + 1: {
+      this.validateAndMove(form, currentStep, nextStep);
+      break;
+    }
+
+    case nextStep > currentStep + 1: {
+      const { title: nextStepTitle } = steps[nextStep];
       message.warn(`Ainda não é possível ir para ${nextStepTitle}.`);
+      break;
+    }
+
+    default:
     }
   }
 
