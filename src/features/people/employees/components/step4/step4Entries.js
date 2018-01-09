@@ -67,7 +67,7 @@ export function getNumeroZonaEleitoralInput() {
   return (
     <Input
       id="numero_zona_eleitoral"
-      type="text"
+      type="number"
       placeholder={PLACEHOLDERS.TITULO_ELEITOR.ZONA}
     />
   );
@@ -77,7 +77,7 @@ export function getNumeroSecaoEleitoralInput() {
   return (
     <Input
       id="numero_secao_eleitoral"
-      type="text"
+      type="number"
       placeholder={PLACEHOLDERS.TITULO_ELEITOR.SECAO}
     />
   );
