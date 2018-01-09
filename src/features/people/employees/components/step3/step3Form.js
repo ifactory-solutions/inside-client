@@ -57,7 +57,11 @@ class NewEmployeeStep3Form extends Component {
     const decoratorManager = getDecoratorManager(fieldDecorator);
 
     return (
-      <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
+      <Form
+        id="form-step-3"
+        layout={HORIZONTAL_FORM_LAYOUT}
+        onSubmit={this.handleOnSubmit}
+      >
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.PHONE_1} hasFeedback>
           {decoratorManager.phone1Decorator(entries.getPhone1Input())}
         </FormItem>

@@ -57,7 +57,11 @@ class NewEmployeeStep4Form extends Component {
     const decoratorManager = getDecoratorManager(fieldDecorator);
 
     return (
-      <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
+      <Form
+        id="form-step-4"
+        layout={HORIZONTAL_FORM_LAYOUT}
+        onSubmit={this.handleOnSubmit}
+      >
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.CPF} hasFeedback>
           {decoratorManager.CPFDecorator(entries.getCPFInput())}
         </FormItem>

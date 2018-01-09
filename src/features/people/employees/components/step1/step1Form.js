@@ -66,7 +66,11 @@ class NewEmployeeStep1Form extends Component {
     );
 
     return (
-      <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
+      <Form
+        id="form-step-1"
+        layout={HORIZONTAL_FORM_LAYOUT}
+        onSubmit={this.handleOnSubmit}
+      >
         <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.FULL_NAME} hasFeedback>
           {decoratorManager.fullNameDecorator(entries.getFullNameInput())}
         </FormItem>

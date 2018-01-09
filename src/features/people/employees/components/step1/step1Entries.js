@@ -9,15 +9,11 @@ const { Option } = Select;
 // INPUT COMPONENTS
 
 export function getFullNameInput() {
-  return (
-    <Input id="full_name" type="text" placeholder={PLACEHOLDERS.FULL_NAME} />
-  );
+  return <Input type="text" placeholder={PLACEHOLDERS.FULL_NAME} />;
 }
 
 export function getNickNameInput() {
-  return (
-    <Input id="nick_name" type="text" placeholder={PLACEHOLDERS.NICK_NAME} />
-  );
+  return <Input type="text" placeholder={PLACEHOLDERS.NICK_NAME} />;
 }
 
 export function getGenderSelector() {
@@ -31,40 +27,21 @@ export function getGenderSelector() {
 }
 
 export function getFatherNameInput() {
-  return (
-    <Input
-      id="filiation_father"
-      type="text"
-      placeholder={PLACEHOLDERS.FILIATION_FATHER}
-    />
-  );
+  return <Input type="text" placeholder={PLACEHOLDERS.FILIATION_FATHER} />;
 }
 
 export function getMotherNameInput() {
-  return (
-    <Input
-      id="filiation_mother"
-      type="text"
-      placeholder={PLACEHOLDERS.FILIATION_MOTHER}
-    />
-  );
+  return <Input type="text" placeholder={PLACEHOLDERS.FILIATION_MOTHER} />;
 }
 
 export function getNationalityInput() {
-  return (
-    <Input
-      id="nationality"
-      type="text"
-      placeholder={PLACEHOLDERS.NATIONALITY}
-    />
-  );
+  return <Input type="text" placeholder={PLACEHOLDERS.NATIONALITY} />;
 }
 
 export function getBirthDatePicker() {
   return (
     <DatePicker
       style={{ width: '100%' }}
-      id="birth_date"
       format={DATE_FORMAT_PT_BR}
       placeholder={PLACEHOLDERS.BIRTH_DATE}
     />
@@ -82,21 +59,9 @@ export function getMaritalStatusInput() {
 }
 
 export function getSpouseNameInput() {
-  return (
-    <Input
-      id="spouse_name"
-      type="text"
-      placeholder={PLACEHOLDERS.SPOUSE_NAME}
-    />
-  );
+  return <Input type="text" placeholder={PLACEHOLDERS.SPOUSE_NAME} />;
 }
 
 export function getChildrenAmountInput() {
-  return (
-    <Input
-      id="chidren_amount"
-      type="number"
-      placeholder={PLACEHOLDERS.CHILDREN_AMOUNT}
-    />
-  );
+  return <Input type="number" placeholder={PLACEHOLDERS.CHILDREN_AMOUNT} />;
 }

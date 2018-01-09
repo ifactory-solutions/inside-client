@@ -17,6 +17,7 @@ class StepFormNavigator extends Component {
       <FormItem {...nextButtonLayout} className="steps-action">
         {this.props.currentStep > 0 && (
           <Button
+            id="previous"
             style={{ marginRight: 8 }}
             onClick={() => this.props.previousCallback()}
           >
@@ -25,6 +26,7 @@ class StepFormNavigator extends Component {
         )}
         {this.props.currentStep < this.props.maxStep && (
           <Button
+            id="next"
             type="primary"
             htmlType="submit"
             onClick={event => this.props.submit(event)}
@@ -34,6 +36,7 @@ class StepFormNavigator extends Component {
         )}
         {this.props.currentStep === this.props.maxStep && (
           <Button
+            id="done"
             type="primary"
             htmlType="submit"
             onClick={event => this.props.submit(event)}
