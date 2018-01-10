@@ -18,7 +18,12 @@ class ProfileHeader extends Component {
 
     return (
       <div>
-        <Row type="flex" justify="center" gutter={ROW_GUTTER}>
+        <Row
+          type="flex"
+          justify="center"
+          gutter={ROW_GUTTER}
+          className="profile-header"
+        >
           <Col {...PICTURE_LAYOUT}>
             <img className="avatar" alt="profile" src={IMAGE_SOURCE} />
           </Col>

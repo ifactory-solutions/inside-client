@@ -1,12 +1,26 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 
 import ProfileHeader from './header/ProfileHeader';
 import { PROFILE as profile } from '../../mock/profile';
 
-/* eslint arrow-body-style: ["error", "always"] */
-/* eslint-env es6 */
+import { ROW_GUTTER, COL_LAYOUT, renderCard } from './ProfileHelper';
+
 const Profile = () => {
-  return <ProfileHeader user={profile.user} />;
+  const cards = profile.facets.map(facet => (
+    <Col key={facet.id} {...COL_LAYOUT}>
+      {renderCard(facet)}
+    </Col>
+  ));
+
+  return (
+    <div>
+      <ProfileHeader user={profile.user} />
+      <Row type="flex" justify="left" gutter={ROW_GUTTER}>
+        {cards}
+      </Row>
+    </div>
+  );
 };
 
 export default Profile;
