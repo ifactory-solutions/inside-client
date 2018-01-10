@@ -27,6 +27,7 @@ import PageLayout from './layouts/Page';
 import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import { ListMedicalCertificates } from './features/people/medicalCertificates';
 
 const store = createStore(
   rootReducer,
@@ -69,6 +70,10 @@ ReactDOM.render(
             <DefaultLayout path="/interviews" component={ListInterviews} />
             {/* Vacation */}
             <DefaultLayout path="/vacation" component={ListVacations} />
+            {/* Medical Certificate */}
+            <DefaultLayout
+              path="/medical-certificate"
+              component={ListMedicalCertificates} />
             <PageLayout path="/login" component={Login} />
             <DefaultLayout component={NotFound} />
           </Switch>
