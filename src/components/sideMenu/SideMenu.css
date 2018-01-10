@@ -1,8 +1,8 @@
-/* @import url("https://fonts.googleapis.com/css?family=Roboto+Slab"); */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 #logo {
   z-index: 2;
-  font: 21px "Roboto Slab";
+  font: 21px 'Roboto Slab';
   color: #fff;
   display: inline-block;
   vertical-align: middle;
@@ -20,17 +20,18 @@
   overflow: hidden;
   transition: all 0.5s;
 }
-#logo:before, #logo:after {
+#logo:before,
+#logo:after {
   font-size: 25px;
   color: #fff;
   display: inline-block;
   vertical-align: middle;
 }
 #logo:before {
-  content: "[";
+  content: '[';
 }
 #logo:after {
-  content: "]";
+  content: ']';
 }
 #logo:hover span {
   max-width: 250px;
