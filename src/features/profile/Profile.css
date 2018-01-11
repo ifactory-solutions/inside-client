@@ -1,0 +1,19 @@
+@import '~bricklayer/dist/bricklayer.min.css';
+
+@media screen and (min-width: 1200px) {
+  .bricklayer-column-sizer {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bricklayer-column-sizer {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .bricklayer-column-sizer {
+    width: 100%;
+  }
+}
