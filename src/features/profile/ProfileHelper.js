@@ -1,29 +1,28 @@
 import React from 'react';
-import { IconCard, TextCard, StepCard } from './cards/index';
+import { IconCard, TextCard, StepCard, ChartCard } from './cards/index';
 
 export function renderCard(facet) {
   switch (facet.type) {
   case 'text-only':
-    return <TextCard {...facet.data} />;
+    return <TextCard {...facet.data} key={facet.id} />;
 
   case 'image-icons':
-    return <IconCard {...facet.data} />;
+    return <IconCard {...facet.data} key={facet.id} />;
 
   case 'steps':
-    return <StepCard {...facet.data} />;
+    return <StepCard {...facet.data} key={facet.id} />;
+
+  case 'charts':
+    return (
+      <ChartCard
+        {...facet.data}
+        key={facet.id}
+        dataKey="name"
+        valuesKey="value"
+      />
+    );
 
   default:
     return <div />;
   }
 }
-
-export const ROW_GUTTER = { xs: 8, sm: 16, md: 24 };
-
-export const COL_LAYOUT = {
-  xs: { span: 22 },
-  sm: { span: 22 },
-  md: { span: 22 },
-  lg: { span: 12 },
-  xl: { span: 12 },
-  xxl: { span: 12 },
-};

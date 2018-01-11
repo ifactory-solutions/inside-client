@@ -102,5 +102,35 @@ export const PROFILE = {
         ],
       },
     },
+    {
+      id: 5,
+      type: 'charts',
+      data: {
+        title: 'Technical Skills',
+        type: 'bar',
+        content: [
+          {
+            name: 'Angular JS',
+            value: 9,
+          },
+          {
+            name: 'React + Redux',
+            value: 8,
+          },
+          {
+            name: 'Java EE',
+            value: 5,
+          },
+          {
+            name: '.NET',
+            value: 5,
+          },
+          {
+            name: 'Vue JS',
+            value: 8,
+          },
+        ],
+      },
+    },
   ],
 };
