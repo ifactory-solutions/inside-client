@@ -111,7 +111,7 @@ export const PROFILE = {
         content: [
           {
             name: 'Angular JS',
-            value: 9,
+            value: 10,
           },
           {
             name: 'React + Redux',

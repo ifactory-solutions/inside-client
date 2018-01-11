@@ -4,22 +4,31 @@ import { IconCard, TextCard, StepCard, ChartCard } from './cards/index';
 export function renderCard(facet) {
   switch (facet.type) {
   case 'text-only':
-    return <TextCard {...facet.data} key={facet.id} />;
+    return (
+      <div className="masonry-item" key={facet.id}>
+        <TextCard {...facet.data} />{' '}
+      </div>
+    );
 
   case 'image-icons':
-    return <IconCard {...facet.data} key={facet.id} />;
+    return (
+      <div className="masonry-item" key={facet.id}>
+        <IconCard {...facet.data} />{' '}
+      </div>
+    );
 
   case 'steps':
-    return <StepCard {...facet.data} key={facet.id} />;
+    return (
+      <div className="masonry-item" key={facet.id}>
+        <StepCard {...facet.data} />{' '}
+      </div>
+    );
 
   case 'charts':
     return (
-      <ChartCard
-        {...facet.data}
-        key={facet.id}
-        dataKey="name"
-        valuesKey="value"
-      />
+      <div key={facet.id} className="masonry-item">
+        <ChartCard {...facet.data} dataKey="name" valuesKey="value" />
+      </div>
     );
 
   default:
