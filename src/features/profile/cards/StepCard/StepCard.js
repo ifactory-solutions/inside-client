@@ -19,7 +19,12 @@ export const StepCard = props => {
 
   return (
     <Card title={props.title.toUpperCase()} hoverable className="card">
-      <Steps progressDot direction="vertical" current={0}>
+      <Steps
+        progressDot
+        direction="vertical"
+        current={0}
+        className="card-steps"
+      >
         {steps}
       </Steps>
     </Card>
