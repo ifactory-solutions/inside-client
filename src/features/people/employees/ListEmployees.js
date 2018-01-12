@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { Icon } from 'antd';
+import { Divider } from 'antd';
 
-import EmployeeListTable from '../../../components/employeeListTable';
-import EmployeeListGrid from '../../../components/employeeListGrid';
+import EmployeeListTable from './components/employeeListTable';
+import EmployeeListGrid from './components/employeeListGrid';
+import EmployeeListHeader from './components/employeeListHeader';
 
-/* eslint arrow-body-style: ["error", "always"] */
-/* eslint-env es6 */
 class EmployeeList extends Component {
   constructor(props) {
     super(props);
-    this.state = { showAsTable: true };
+    this.state = { showAsTable: false };
     this.content = <EmployeeListTable />;
+
+    this.toggleVisualization = this.toggleVisualization.bind(this);
   }
 
   toggleVisualization() {
@@ -26,16 +27,18 @@ class EmployeeList extends Component {
   }
 
   render() {
+    const headerProps = {
+      showAsTable: this.state.showAsTable,
+      toggleVisualization: this.toggleVisualization,
+      history: this.props.history, //eslint-disable-line
+    };
+
     return (
       <div>
-        <Icon
-          type={this.state.showAsTable ? 'bars' : 'appstore-o'}
-          style={{ cursor: 'pointer', fontSize: 25 }}
-          onClick={() => {
-            this.toggleVisualization();
-          }}
-        />
-
+        <div>
+          <EmployeeListHeader {...headerProps} />
+        </div>
+        <Divider />
         <div>{this.content}</div>
       </div>
     );

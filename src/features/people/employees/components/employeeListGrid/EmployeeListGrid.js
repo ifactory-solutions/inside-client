@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import EmployeeCard from '../employeeCard';
+import EmployeeCard from '../../../../../components/employeeCard/EmployeeCard';
 
 /* eslint arrow-body-style: ["error", "always"] */
 /* eslint-env es6 */
@@ -14,12 +14,12 @@ const EmployeeListGrid = () => {
             md={{ span: 24 }}
             lg={{ span: 12 }}
             xl={{ span: 8 }}
-            style={{ marginBottom: '20px' }}>
+            style={{ marginBottom: '20px' }}
+          >
             <EmployeeCard />
           </Col>
         );
-      })
-      }
+      })}
     </Row>
   );
 };
