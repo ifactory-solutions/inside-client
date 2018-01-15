@@ -5,11 +5,13 @@ import EmployeeListTable from './components/employeeListTable';
 import EmployeeListGrid from './components/employeeListGrid';
 import EmployeeListHeader from './components/employeeListHeader';
 
+import USERS_DATA from '../../../mock/user_list';
+
 class EmployeeList extends Component {
   constructor(props) {
     super(props);
     this.state = { showAsTable: true };
-    this.content = <EmployeeListGrid />;
+    this.content = <EmployeeListGrid data={USERS_DATA} />;
 
     this.toggleVisualization = this.toggleVisualization.bind(this);
   }
@@ -20,9 +22,9 @@ class EmployeeList extends Component {
     });
 
     if (this.state.showAsTable) {
-      this.content = <EmployeeListTable />;
+      this.content = <EmployeeListTable data={USERS_DATA} />;
     } else {
-      this.content = <EmployeeListGrid />;
+      this.content = <EmployeeListGrid data={USERS_DATA} />;
     }
   }
 

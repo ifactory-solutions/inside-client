@@ -1,27 +1,23 @@
 import React from 'react';
 import { Row, Table } from 'antd';
-import data from '../../../../../mock/employees';
+import PropTypes from 'prop-types';
 
-/* eslint arrow-body-style: ["error", "always"] */
-/* eslint-env es6 */
-const EmployeeListTable = () => {
+const EmployeeListTable = props => {
   const columns = [
     {
       title: 'Nome',
-      dataIndex: 'name',
+      dataIndex: 'nickname',
       key: 'name',
-      render: text => {
-        return <a href="#">{text}</a>;
-      },
+      render: text => <a href="#">{text}</a>,
     },
     {
       title: 'Cargo',
-      dataIndex: 'level',
+      dataIndex: 'jobTitle',
       key: 'level',
     },
     {
       title: 'Alocação',
-      dataIndex: 'alocation',
+      dataIndex: 'city',
       key: 'alocation',
     },
     {
@@ -36,12 +32,16 @@ const EmployeeListTable = () => {
       <Row>
         <Table
           columns={columns}
-          dataSource={data}
-          pagination={{ pageSize: 2 }}
+          dataSource={props.data}
+          pagination={{ pageSize: 8 }}
         />
       </Row>
     </div>
   );
+};
+
+EmployeeListTable.propTypes = {
+  data: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default EmployeeListTable;
