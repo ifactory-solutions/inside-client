@@ -8,8 +8,8 @@ import EmployeeListHeader from './components/employeeListHeader';
 class EmployeeList extends Component {
   constructor(props) {
     super(props);
-    this.state = { showAsTable: false };
-    this.content = <EmployeeListTable />;
+    this.state = { showAsTable: true };
+    this.content = <EmployeeListGrid />;
 
     this.toggleVisualization = this.toggleVisualization.bind(this);
   }
