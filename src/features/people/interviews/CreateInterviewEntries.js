@@ -50,7 +50,7 @@ export function getDueDatePicker() {
 }
 
 export function getInterviewerAutoComplete() {
-  const userDataSource = USER_LIST_MOCK.map(user => user.full_name);
+  const userDataSource = USER_LIST_MOCK.map(user => user.nickname);
   return (
     <AutoComplete
       dataSource={userDataSource}

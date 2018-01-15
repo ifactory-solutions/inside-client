@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import './IconCard.css';
 
-// const CardGrid = Card.Grid;
 const PLACEHOLDER_PATH = 'https://goo.gl/fr3HCz';
 
 const COL_LAYOUT = {

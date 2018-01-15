@@ -2,26 +2,17 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import EmployeeCard from '../../../../../components/employeeCard/EmployeeCard';
 
-/* eslint arrow-body-style: ["error", "always"] */
-/* eslint-env es6 */
-const EmployeeListGrid = () => {
-  return (
-    <Row type="flex" justify="start">
-      {[1, 2, 3, 4, 5].map(i => {
-        return (
-          <Col
-            key={i}
-            md={{ span: 24 }}
-            lg={{ span: 12 }}
-            xl={{ span: 8 }}
-            style={{ marginBottom: '20px' }}
-          >
-            <EmployeeCard />
-          </Col>
-        );
-      })}
-    </Row>
-  );
-};
+import USER_LIST from '../../../../../mock/user_list';
+import { ROW_GUTTER, CARD_LAYOUT } from './EmployeeListConstants';
+
+const EmployeeListGrid = () => (
+  <Row type="flex" justify="start" gutter={ROW_GUTTER}>
+    {USER_LIST.map(user => (
+      <Col {...CARD_LAYOUT} key={user.id} style={{ paddingBottom: '12px' }}>
+        <EmployeeCard user={user} />
+      </Col>
+    ))}
+  </Row>
+);
 
 export default EmployeeListGrid;
