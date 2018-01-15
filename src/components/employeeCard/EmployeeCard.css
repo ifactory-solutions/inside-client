@@ -37,10 +37,10 @@
 .employee-card .details {
   font-family: 'Roboto Condensed', sans-serif;
   text-align: right;
-  height: 100%;
 
   display: flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
 }
 
 .employee-card .details .top {
