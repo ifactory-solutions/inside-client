@@ -16,8 +16,9 @@ describe('Loader', () => {
 
   it('has a loading message', () => {
     const loadingDivs = wrapper.find('.loader');
+    const loadingMsgDiv = loadingDivs.find('.wrapper').find('.text');
 
     expect(loadingDivs.length).toBe(1);
-    expect(loadingDivs.prop('children')).toBe('CARREGANDO...');
+    expect(loadingMsgDiv.prop('children')).toBe('CARREGANDO...');
   });
 });

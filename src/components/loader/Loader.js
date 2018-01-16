@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import styles from './Loader.scss';
+import './Loader.scss';
 
 const Loader = props => {
   const { loading, fullScreen } = props;
 
   return (
     <div
-      className={classNames(styles.loader, {
-        [styles.hidden]: !loading,
-        [styles.fullScreen]: fullScreen,
+      className={classNames('loader', {
+        hidden: !loading,
+        fullScreen,
       })}
     >
-      <div className={styles.wrapper}>
-        <div className={styles.inner} />
-        <div className={styles.text}>CARREGANDO...</div>
+      <div className="wrapper">
+        <div className="inner" />
+        <div className="text">CARREGANDO...</div>
       </div>
     </div>
   );
