@@ -9,7 +9,7 @@ import {
   PLACEHOLDER_PATH,
 } from './EmployeeCardConstants';
 
-import './EmployeeCard.css';
+import './EmployeeCard.scss';
 
 const EmployeeCard = props => {
   const { user } = props;
