@@ -65,6 +65,7 @@ class ListPermissions extends React.Component {
 
         <Row>
           <Table
+            rowKey="id"
             size="middle"
             columns={columns}
             dataSource={UserList}
