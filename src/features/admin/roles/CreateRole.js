@@ -21,19 +21,19 @@ class CreateRole extends React.Component {
 
     return (
       <Form layout={formLayout}>
-        <FormItem
-          label="Nome"
-          {...formItemLayout}
-        >
+        <FormItem label="Nome" {...formItemLayout}>
           <Input />
         </FormItem>
+
         <FormItem
           wrapperCol={{
             xs: { span: 24, offset: 0 },
             sm: { span: 16, offset: 4 },
           }}
         >
-          <Button type="primary" htmlType="submit">Cadastrar</Button>
+          <Button type="primary" htmlType="submit">
+            Cadastrar
+          </Button>
         </FormItem>
       </Form>
     );
