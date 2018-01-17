@@ -25,7 +25,11 @@ class ProfileHeader extends Component {
           className="profile-header"
         >
           <Col {...PICTURE_LAYOUT}>
-            <img className="avatar" alt="profile" src={IMAGE_SOURCE} />
+            <img
+              className="avatar"
+              alt="profile"
+              src={user.imgSrc || IMAGE_SOURCE}
+            />
           </Col>
 
           <Col {...USER_INFO_LAYOUT} className="user-info">

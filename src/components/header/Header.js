@@ -1,19 +1,69 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Icon } from 'antd';
+import { Layout, Icon, Menu, Badge, Divider } from 'antd';
+
+import { PROFILE } from '../../mock/profile';
+
+import './Header.scss';
 
 const { Header } = Layout;
-/* eslint arrow-body-style: ["error", "always"] */
-/* eslint-env es6 */
+const { SubMenu } = Menu;
+const { user: UserMock } = PROFILE;
+
 const MyHeader = props => {
   const { collapsed, toggleMenu } = props;
   return (
-    <Header style={{ background: '#fff', padding: 0 }}>
-      <Icon
-        className="trigger"
-        type={collapsed ? 'menu-unfold' : 'menu-fold'}
-        onClick={toggleMenu}
-      />
+    <Header className="header" style={{ background: '#fff', padding: 0 }}>
+      <div>
+        <Icon
+          className="trigger"
+          type={collapsed ? 'menu-unfold' : 'menu-fold'}
+          onClick={toggleMenu}
+        />
+      </div>
+
+      <div className={'rightWrapper'}>
+        <div className={'button'}>
+          <Badge count={0}>
+            <Icon type="bell" />
+          </Badge>
+        </div>
+
+        <div className={'button'}>
+          <Badge count={1}>
+            <Icon type="message" />
+          </Badge>
+        </div>
+
+        <Menu mode="horizontal">
+          <SubMenu
+            title={
+              <span>
+                <Icon type="user" />
+                {UserMock.nickname}
+              </span>
+            }
+          >
+            <Menu.Item key="edit_rofile">
+              <Icon type="edit" /> Editar Perfil
+            </Menu.Item>
+
+            <Menu.Item key="settings">
+              <Icon type="setting" /> Configurações
+            </Menu.Item>
+
+            <Menu.Item key="logout">
+              <Icon type="logout" /> Logout
+            </Menu.Item>
+
+            <Divider style={{ margin: 0 }} />
+
+            <Menu.Item key="about">
+              <Icon type="info-circle-o" /> Sobre
+            </Menu.Item>
+          </SubMenu>
+        </Menu>
+      </div>
     </Header>
   );
 };
