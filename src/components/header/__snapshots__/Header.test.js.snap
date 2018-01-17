@@ -20,30 +20,567 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <Icon
-        className="trigger"
-        onClick={[Function]}
-        type="menu-fold"
-/>,
+      "children": Array [
+        <div>
+          <Icon
+                    className="trigger"
+                    onClick={[Function]}
+                    type="menu-fold"
+          />
+</div>,
+        <div
+          className="rightWrapper"
+>
+          <div
+                    className="button"
+          >
+                    <Badge
+                              count={0}
+                              dot={false}
+                              overflowCount={99}
+                              prefixCls="ant-badge"
+                              scrollNumberPrefixCls="ant-scroll-number"
+                              showZero={false}
+                    >
+                              <Icon
+                                        type="bell"
+                              />
+                    </Badge>
+          </div>
+          <div
+                    className="button"
+          >
+                    <Badge
+                              count={1}
+                              dot={false}
+                              overflowCount={99}
+                              prefixCls="ant-badge"
+                              scrollNumberPrefixCls="ant-scroll-number"
+                              showZero={false}
+                    >
+                              <Icon
+                                        type="message"
+                              />
+                    </Badge>
+          </div>
+          <Menu
+                    className=""
+                    mode="horizontal"
+                    prefixCls="ant-menu"
+                    theme="light"
+          >
+                    <SubMenu
+                              title={
+                                        <span>
+                                                  <Icon
+                                                            type="user"
+                                                  />
+                                                  John Doe
+                                        </span>
+                              }
+                    >
+                              <MenuItem>
+                                        <Icon
+                                                  type="edit"
+                                        />
+                                         Editar Perfil
+                              </MenuItem>
+                              <MenuItem>
+                                        <Icon
+                                                  type="setting"
+                                        />
+                                         Configurações
+                              </MenuItem>
+                              <MenuItem>
+                                        <Icon
+                                                  type="logout"
+                                        />
+                                         Logout
+                              </MenuItem>
+                              <Divider
+                                        style={
+                                                  Object {
+                                                            "margin": 0,
+                                                          }
+                                        }
+                              />
+                              <MenuItem>
+                                        <Icon
+                                                  type="info-circle-o"
+                                        />
+                                         Sobre
+                              </MenuItem>
+                    </SubMenu>
+          </Menu>
+</div>,
+      ],
+      "className": "header",
       "style": Object {
         "background": "#fff",
         "padding": 0,
       },
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "className": "trigger",
-        "onClick": [Function],
-        "type": "menu-fold",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Icon
+            className="trigger"
+            onClick={[Function]}
+            type="menu-fold"
+/>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "className": "trigger",
+            "onClick": [Function],
+            "type": "menu-fold",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
       },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="button"
+>
+              <Badge
+                            count={0}
+                            dot={false}
+                            overflowCount={99}
+                            prefixCls="ant-badge"
+                            scrollNumberPrefixCls="ant-scroll-number"
+                            showZero={false}
+              >
+                            <Icon
+                                          type="bell"
+                            />
+              </Badge>
+</div>,
+            <div
+              className="button"
+>
+              <Badge
+                            count={1}
+                            dot={false}
+                            overflowCount={99}
+                            prefixCls="ant-badge"
+                            scrollNumberPrefixCls="ant-scroll-number"
+                            showZero={false}
+              >
+                            <Icon
+                                          type="message"
+                            />
+              </Badge>
+</div>,
+            <Menu
+              className=""
+              mode="horizontal"
+              prefixCls="ant-menu"
+              theme="light"
+>
+              <SubMenu
+                            title={
+                                          <span>
+                                                        <Icon
+                                                                      type="user"
+                                                        />
+                                                        John Doe
+                                          </span>
+                            }
+              >
+                            <MenuItem>
+                                          <Icon
+                                                        type="edit"
+                                          />
+                                           Editar Perfil
+                            </MenuItem>
+                            <MenuItem>
+                                          <Icon
+                                                        type="setting"
+                                          />
+                                           Configurações
+                            </MenuItem>
+                            <MenuItem>
+                                          <Icon
+                                                        type="logout"
+                                          />
+                                           Logout
+                            </MenuItem>
+                            <Divider
+                                          style={
+                                                        Object {
+                                                                      "margin": 0,
+                                                                    }
+                                          }
+                            />
+                            <MenuItem>
+                                          <Icon
+                                                        type="info-circle-o"
+                                          />
+                                           Sobre
+                            </MenuItem>
+              </SubMenu>
+</Menu>,
+          ],
+          "className": "rightWrapper",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Badge
+                count={0}
+                dot={false}
+                overflowCount={99}
+                prefixCls="ant-badge"
+                scrollNumberPrefixCls="ant-scroll-number"
+                showZero={false}
+>
+                <Icon
+                                type="bell"
+                />
+</Badge>,
+              "className": "button",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Icon
+                  type="bell"
+/>,
+                "count": 0,
+                "dot": false,
+                "overflowCount": 99,
+                "prefixCls": "ant-badge",
+                "scrollNumberPrefixCls": "ant-scroll-number",
+                "showZero": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "type": "bell",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Badge
+                count={1}
+                dot={false}
+                overflowCount={99}
+                prefixCls="ant-badge"
+                scrollNumberPrefixCls="ant-scroll-number"
+                showZero={false}
+>
+                <Icon
+                                type="message"
+                />
+</Badge>,
+              "className": "button",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Icon
+                  type="message"
+/>,
+                "count": 1,
+                "dot": false,
+                "overflowCount": 99,
+                "prefixCls": "ant-badge",
+                "scrollNumberPrefixCls": "ant-scroll-number",
+                "showZero": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "type": "message",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <SubMenu
+                title={
+                                <span>
+                                                <Icon
+                                                                type="user"
+                                                />
+                                                John Doe
+                                </span>
+                }
+>
+                <MenuItem>
+                                <Icon
+                                                type="edit"
+                                />
+                                 Editar Perfil
+                </MenuItem>
+                <MenuItem>
+                                <Icon
+                                                type="setting"
+                                />
+                                 Configurações
+                </MenuItem>
+                <MenuItem>
+                                <Icon
+                                                type="logout"
+                                />
+                                 Logout
+                </MenuItem>
+                <Divider
+                                style={
+                                                Object {
+                                                                "margin": 0,
+                                                              }
+                                }
+                />
+                <MenuItem>
+                                <Icon
+                                                type="info-circle-o"
+                                />
+                                 Sobre
+                </MenuItem>
+</SubMenu>,
+              "className": "",
+              "mode": "horizontal",
+              "prefixCls": "ant-menu",
+              "theme": "light",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <MenuItem>
+                    <Icon
+                                        type="edit"
+                    />
+                     Editar Perfil
+</MenuItem>,
+                  <MenuItem>
+                    <Icon
+                                        type="setting"
+                    />
+                     Configurações
+</MenuItem>,
+                  <MenuItem>
+                    <Icon
+                                        type="logout"
+                    />
+                     Logout
+</MenuItem>,
+                  <Divider
+                    style={
+                                        Object {
+                                                            "margin": 0,
+                                                          }
+                    }
+/>,
+                  <MenuItem>
+                    <Icon
+                                        type="info-circle-o"
+                    />
+                     Sobre
+</MenuItem>,
+                ],
+                "title": <span>
+                  <Icon
+                                    type="user"
+                  />
+                  John Doe
+</span>,
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "edit_rofile",
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <Icon
+                        type="edit"
+/>,
+                      " Editar Perfil",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "type": "edit",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    " Editar Perfil",
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": "settings",
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <Icon
+                        type="setting"
+/>,
+                      " Configurações",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "type": "setting",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    " Configurações",
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": "logout",
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <Icon
+                        type="logout"
+/>,
+                      " Logout",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "type": "logout",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    " Logout",
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "style": Object {
+                      "margin": 0,
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": "about",
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <Icon
+                        type="info-circle-o"
+/>,
+                      " Sobre",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "type": "info-circle-o",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    " Sobre",
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -52,30 +589,567 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <Icon
-          className="trigger"
-          onClick={[Function]}
-          type="menu-fold"
-/>,
+        "children": Array [
+          <div>
+            <Icon
+                        className="trigger"
+                        onClick={[Function]}
+                        type="menu-fold"
+            />
+</div>,
+          <div
+            className="rightWrapper"
+>
+            <div
+                        className="button"
+            >
+                        <Badge
+                                    count={0}
+                                    dot={false}
+                                    overflowCount={99}
+                                    prefixCls="ant-badge"
+                                    scrollNumberPrefixCls="ant-scroll-number"
+                                    showZero={false}
+                        >
+                                    <Icon
+                                                type="bell"
+                                    />
+                        </Badge>
+            </div>
+            <div
+                        className="button"
+            >
+                        <Badge
+                                    count={1}
+                                    dot={false}
+                                    overflowCount={99}
+                                    prefixCls="ant-badge"
+                                    scrollNumberPrefixCls="ant-scroll-number"
+                                    showZero={false}
+                        >
+                                    <Icon
+                                                type="message"
+                                    />
+                        </Badge>
+            </div>
+            <Menu
+                        className=""
+                        mode="horizontal"
+                        prefixCls="ant-menu"
+                        theme="light"
+            >
+                        <SubMenu
+                                    title={
+                                                <span>
+                                                            <Icon
+                                                                        type="user"
+                                                            />
+                                                            John Doe
+                                                </span>
+                                    }
+                        >
+                                    <MenuItem>
+                                                <Icon
+                                                            type="edit"
+                                                />
+                                                 Editar Perfil
+                                    </MenuItem>
+                                    <MenuItem>
+                                                <Icon
+                                                            type="setting"
+                                                />
+                                                 Configurações
+                                    </MenuItem>
+                                    <MenuItem>
+                                                <Icon
+                                                            type="logout"
+                                                />
+                                                 Logout
+                                    </MenuItem>
+                                    <Divider
+                                                style={
+                                                            Object {
+                                                                        "margin": 0,
+                                                                      }
+                                                }
+                                    />
+                                    <MenuItem>
+                                                <Icon
+                                                            type="info-circle-o"
+                                                />
+                                                 Sobre
+                                    </MenuItem>
+                        </SubMenu>
+            </Menu>
+</div>,
+        ],
+        "className": "header",
         "style": Object {
           "background": "#fff",
           "padding": 0,
         },
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "className": "trigger",
-          "onClick": [Function],
-          "type": "menu-fold",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Icon
+              className="trigger"
+              onClick={[Function]}
+              type="menu-fold"
+/>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "className": "trigger",
+              "onClick": [Function],
+              "type": "menu-fold",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
         },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="button"
+>
+                <Badge
+                                count={0}
+                                dot={false}
+                                overflowCount={99}
+                                prefixCls="ant-badge"
+                                scrollNumberPrefixCls="ant-scroll-number"
+                                showZero={false}
+                >
+                                <Icon
+                                                type="bell"
+                                />
+                </Badge>
+</div>,
+              <div
+                className="button"
+>
+                <Badge
+                                count={1}
+                                dot={false}
+                                overflowCount={99}
+                                prefixCls="ant-badge"
+                                scrollNumberPrefixCls="ant-scroll-number"
+                                showZero={false}
+                >
+                                <Icon
+                                                type="message"
+                                />
+                </Badge>
+</div>,
+              <Menu
+                className=""
+                mode="horizontal"
+                prefixCls="ant-menu"
+                theme="light"
+>
+                <SubMenu
+                                title={
+                                                <span>
+                                                                <Icon
+                                                                                type="user"
+                                                                />
+                                                                John Doe
+                                                </span>
+                                }
+                >
+                                <MenuItem>
+                                                <Icon
+                                                                type="edit"
+                                                />
+                                                 Editar Perfil
+                                </MenuItem>
+                                <MenuItem>
+                                                <Icon
+                                                                type="setting"
+                                                />
+                                                 Configurações
+                                </MenuItem>
+                                <MenuItem>
+                                                <Icon
+                                                                type="logout"
+                                                />
+                                                 Logout
+                                </MenuItem>
+                                <Divider
+                                                style={
+                                                                Object {
+                                                                                "margin": 0,
+                                                                              }
+                                                }
+                                />
+                                <MenuItem>
+                                                <Icon
+                                                                type="info-circle-o"
+                                                />
+                                                 Sobre
+                                </MenuItem>
+                </SubMenu>
+</Menu>,
+            ],
+            "className": "rightWrapper",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Badge
+                  count={0}
+                  dot={false}
+                  overflowCount={99}
+                  prefixCls="ant-badge"
+                  scrollNumberPrefixCls="ant-scroll-number"
+                  showZero={false}
+>
+                  <Icon
+                                    type="bell"
+                  />
+</Badge>,
+                "className": "button",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <Icon
+                    type="bell"
+/>,
+                  "count": 0,
+                  "dot": false,
+                  "overflowCount": 99,
+                  "prefixCls": "ant-badge",
+                  "scrollNumberPrefixCls": "ant-scroll-number",
+                  "showZero": false,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "type": "bell",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Badge
+                  count={1}
+                  dot={false}
+                  overflowCount={99}
+                  prefixCls="ant-badge"
+                  scrollNumberPrefixCls="ant-scroll-number"
+                  showZero={false}
+>
+                  <Icon
+                                    type="message"
+                  />
+</Badge>,
+                "className": "button",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <Icon
+                    type="message"
+/>,
+                  "count": 1,
+                  "dot": false,
+                  "overflowCount": 99,
+                  "prefixCls": "ant-badge",
+                  "scrollNumberPrefixCls": "ant-scroll-number",
+                  "showZero": false,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "type": "message",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <SubMenu
+                  title={
+                                    <span>
+                                                      <Icon
+                                                                        type="user"
+                                                      />
+                                                      John Doe
+                                    </span>
+                  }
+>
+                  <MenuItem>
+                                    <Icon
+                                                      type="edit"
+                                    />
+                                     Editar Perfil
+                  </MenuItem>
+                  <MenuItem>
+                                    <Icon
+                                                      type="setting"
+                                    />
+                                     Configurações
+                  </MenuItem>
+                  <MenuItem>
+                                    <Icon
+                                                      type="logout"
+                                    />
+                                     Logout
+                  </MenuItem>
+                  <Divider
+                                    style={
+                                                      Object {
+                                                                        "margin": 0,
+                                                                      }
+                                    }
+                  />
+                  <MenuItem>
+                                    <Icon
+                                                      type="info-circle-o"
+                                    />
+                                     Sobre
+                  </MenuItem>
+</SubMenu>,
+                "className": "",
+                "mode": "horizontal",
+                "prefixCls": "ant-menu",
+                "theme": "light",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <MenuItem>
+                      <Icon
+                                            type="edit"
+                      />
+                       Editar Perfil
+</MenuItem>,
+                    <MenuItem>
+                      <Icon
+                                            type="setting"
+                      />
+                       Configurações
+</MenuItem>,
+                    <MenuItem>
+                      <Icon
+                                            type="logout"
+                      />
+                       Logout
+</MenuItem>,
+                    <Divider
+                      style={
+                                            Object {
+                                                                  "margin": 0,
+                                                                }
+                      }
+/>,
+                    <MenuItem>
+                      <Icon
+                                            type="info-circle-o"
+                      />
+                       Sobre
+</MenuItem>,
+                  ],
+                  "title": <span>
+                    <Icon
+                                        type="user"
+                    />
+                    John Doe
+</span>,
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "edit_rofile",
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <Icon
+                          type="edit"
+/>,
+                        " Editar Perfil",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "type": "edit",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      " Editar Perfil",
+                    ],
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "settings",
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <Icon
+                          type="setting"
+/>,
+                        " Configurações",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "type": "setting",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      " Configurações",
+                    ],
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "logout",
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <Icon
+                          type="logout"
+/>,
+                        " Logout",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "type": "logout",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      " Logout",
+                    ],
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "style": Object {
+                        "margin": 0,
+                      },
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "about",
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <Icon
+                          type="info-circle-o"
+/>,
+                        " Sobre",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "type": "info-circle-o",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      " Sobre",
+                    ],
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
       "type": [Function],
     },
   ],
