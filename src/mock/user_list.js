@@ -7,6 +7,8 @@ export default [
     city: 'Solna',
     imgSrc: 'https://robohash.org/suntestnemo.png?size=200x200&set=set1',
     jobTitle: 'Research Nurse',
+    role: 'Administrador',
+    status: 'Ativo',
     project: 'Support',
   },
   {
@@ -17,7 +19,9 @@ export default [
     city: 'Costa Sacate',
     imgSrc: 'https://robohash.org/quivelititaque.png?size=200x200&set=set1',
     jobTitle: 'Sales Associate',
-    project: 'Marketing',
+    role: 'Human Resources',
+    status: 'Ativo',
+    project: 'Recursos Humanos',
   },
   {
     id: 3,
@@ -27,6 +31,8 @@ export default [
     city: 'Huanshan',
     imgSrc: 'https://robohash.org/adasperioresaut.png?size=200x200&set=set1',
     jobTitle: 'Geological Engineer',
+    role: 'Gerente de Projeto',
+    status: 'Ativo',
     project: 'Training',
   },
   {
@@ -38,6 +44,8 @@ export default [
     imgSrc:
       'https://robohash.org/laborumreprehenderitquam.png?size=200x200&set=set1',
     jobTitle: 'Marketing Assistant',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Accounting',
   },
   {
@@ -49,6 +57,8 @@ export default [
     imgSrc:
       'https://robohash.org/laborumreprehenderitquam.png?size=200x200&set=set1',
     jobTitle: 'VP Sales',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Sales',
   },
   {
@@ -59,6 +69,8 @@ export default [
     city: 'Ráquira',
     imgSrc: 'https://robohash.org/quaeatqueofficiis.png?size=200x200&set=set1',
     jobTitle: 'Geologist I',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Business Development',
   },
   {
@@ -69,6 +81,8 @@ export default [
     city: 'Kapsabet',
     imgSrc: 'https://robohash.org/ullametlabore.png?size=200x200&set=set1',
     jobTitle: 'Software Consultant',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Services',
   },
   {
@@ -80,6 +94,8 @@ export default [
     imgSrc:
       'https://robohash.org/dolorembeataeadipisci.png?size=200x200&set=set1',
     jobTitle: 'Administrative Officer',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Research and Development',
   },
   {
@@ -91,6 +107,8 @@ export default [
     imgSrc:
       'https://robohash.org/similiqueveroconsequatur.png?size=200x200&set=set1',
     jobTitle: 'Analog Circuit Design manager',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Engineering',
   },
   {
@@ -101,6 +119,8 @@ export default [
     city: 'Ubatã',
     imgSrc: 'https://robohash.org/incidunteafugit.png?size=200x200&set=set1',
     jobTitle: 'Chief Design Engineer',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Support',
   },
   {
@@ -112,6 +132,8 @@ export default [
     imgSrc:
       'https://robohash.org/voluptassintrepellat.png?size=200x200&set=set1',
     jobTitle: 'Statistician III',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Accounting',
   },
   {
@@ -122,6 +144,8 @@ export default [
     city: 'Sharga',
     imgSrc: 'https://robohash.org/doloreosdistinctio.png?size=200x200&set=set1',
     jobTitle: 'Administrative Assistant II',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Services',
   },
   {
@@ -132,6 +156,8 @@ export default [
     city: 'Porvenir',
     imgSrc: 'https://robohash.org/inciduntvelratione.png?size=200x200&set=set1',
     jobTitle: 'Executive Secretary',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Accounting',
   },
   {
@@ -142,6 +168,8 @@ export default [
     city: 'Milaor',
     imgSrc: 'https://robohash.org/animifacereodio.png?size=200x200&set=set1',
     jobTitle: 'Operator',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Support',
   },
   {
@@ -153,6 +181,8 @@ export default [
     imgSrc:
       'https://robohash.org/laborumreprehenderitquam.png?size=200x200&set=set1',
     jobTitle: 'Statistician II',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Product Management',
   },
   {
@@ -163,6 +193,8 @@ export default [
     city: 'Siruma',
     imgSrc: 'https://robohash.org/consequunturetex.png?size=200x200&set=set1',
     jobTitle: 'Sales Representative',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Accounting',
   },
   {
@@ -174,6 +206,8 @@ export default [
     imgSrc:
       'https://robohash.org/laboriosamcumquequae.png?size=200x200&set=set1',
     jobTitle: 'Professor',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Business Development',
   },
   {
@@ -184,6 +218,8 @@ export default [
     city: 'Gävle',
     imgSrc: 'https://robohash.org/autquoiure.png?size=200x200&set=set1',
     jobTitle: 'Professor',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Marketing',
   },
   {
@@ -195,6 +231,8 @@ export default [
     imgSrc:
       'https://robohash.org/necessitatibusinipsa.png?size=200x200&set=set1',
     jobTitle: 'Analyst Programmer',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Research and Development',
   },
   {
@@ -205,6 +243,8 @@ export default [
     city: 'Wonosobo',
     imgSrc: 'https://robohash.org/uteosassumenda.png?size=200x200&set=set1',
     jobTitle: 'Mechanical Systems Engineer',
+    role: 'Usuário',
+    status: 'Ativo',
     project: 'Training',
   },
 ];

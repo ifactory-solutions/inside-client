@@ -20,6 +20,7 @@ import { ListInterviews, CreateInterview } from './features/people/interviews';
 import { Login } from './features/login';
 import NotFound from './features/error';
 import { ListVacations } from './features/people/vacations';
+import { ListPermissions } from './features/admin/permissions';
 
 import DefaultLayout from './layouts/Default';
 import PageLayout from './layouts/Page';
@@ -43,10 +44,12 @@ ReactDOM.render(
             <DefaultLayout
               exact
               path={`${process.env.PUBLIC_URL}/`}
-              component={Home} />
+              component={Home}
+            />
             {/* Admin */}
             <DefaultLayout path="/roles/new" component={CreateRole} />
             <DefaultLayout path="/roles" component={ListRoles} />
+            <DefaultLayout path="/permissions" component={ListPermissions} />
             {/* Projects */}
             <DefaultLayout path="/projects/new" component={CreateProject} />
             <DefaultLayout path="/projects" component={ListProjects} />
@@ -73,7 +76,8 @@ ReactDOM.render(
             {/* Medical Certificate */}
             <DefaultLayout
               path="/medical-certificate"
-              component={ListMedicalCertificates} />
+              component={ListMedicalCertificates}
+            />
             <PageLayout path="/login" component={Login} />
             <DefaultLayout component={NotFound} />
           </Switch>
