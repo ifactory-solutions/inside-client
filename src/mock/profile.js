@@ -7,6 +7,7 @@ export const PROFILE = {
     birthdate: 'Nov. 05, 1991',
     location: 'NashVille, USA',
     email: 'john.doe@ifactory.com',
+    imgSrc: 'https://robohash.org/suntestnemo.png?size=200x200&set=set1',
   },
 
   facets: [
