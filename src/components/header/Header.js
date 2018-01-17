@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Icon, Menu, Badge, Divider } from 'antd';
+import { Layout, Icon, Menu, Badge } from 'antd';
 
 import { PROFILE } from '../../mock/profile';
 
@@ -55,8 +55,6 @@ const MyHeader = props => {
             <Menu.Item key="logout">
               <Icon type="logout" /> Logout
             </Menu.Item>
-
-            <Divider style={{ margin: 0 }} />
 
             <Menu.Item key="about">
               <Icon type="info-circle-o" /> Sobre
