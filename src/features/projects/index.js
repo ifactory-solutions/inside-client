@@ -1,8 +1,4 @@
 import ListProjects from './ListProjects';
-import CreateProject from './CreateProject';
+import CreateProject from './CreateProject/CreateProject';
 
-export {
-  ListProjects,
-  CreateProject,
-};
-
+export { ListProjects, CreateProject };
