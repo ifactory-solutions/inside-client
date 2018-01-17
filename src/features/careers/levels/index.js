@@ -1,8 +1,4 @@
 import ListLevels from './ListLevels';
-import CreateLevel from './CreateLevel';
+import CreateLevel from './CreateLevels/CreateLevel';
 
-export {
-  ListLevels,
-  CreateLevel,
-};
-
+export { ListLevels, CreateLevel };

@@ -1,7 +1,9 @@
 import React from 'react';
-import { Form, Input, DatePicker, Button, Tag, Icon, AutoComplete } from 'antd';
+import { Form, Button, Tag, Icon, AutoComplete, message } from 'antd';
+import PropTypes from 'prop-types';
 
-const { TextArea } = Input;
+import * as entries from './CreateProjectEntries';
+import { getDecoratorManager } from './CreateProjectDecorators';
 
 const FormItem = Form.Item;
 
@@ -19,24 +21,33 @@ class CreateProject extends React.Component {
         'C#',
         'WSO2',
         'Ruby',
-        'Inglês avançadíssimo'],
+        'Inglês avançadíssimo',
+      ],
     };
+
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
   getTechs() {
-    return this.state.techs
-      .filter(s => this.state.selectedTechs.indexOf(s) === -1);
+    return this.state.techs.filter(
+      s => this.state.selectedTechs.indexOf(s) === -1
+    );
   }
+
   handleClose(removedTech) {
-    const selectedTechs = this.state.selectedTechs
-      .filter(tech => tech !== removedTech);
+    const selectedTechs = this.state.selectedTechs.filter(
+      tech => tech !== removedTech
+    );
     this.setState({ selectedTechs });
   }
+
   saveInputRef = input => {
     this.input = input;
-  }
+  };
+
   showInput = () => {
     this.setState({ inputVisible: true }, () => this.input.focus());
-  }
+  };
+
   handleSelectChange = tech => {
     const state = this.state;
     let selectedTechs = state.selectedTechs;
@@ -47,54 +58,55 @@ class CreateProject extends React.Component {
       selectedTechs,
       inputVisible: false,
     });
+  };
+
+  handleOnSubmit(event) {
+    event.preventDefault();
+
+    const { form } = this.props;
+    form.validateFields(error => {
+      if (!error) {
+        message.success('Projeto criado com sucesso');
+        this.props.history.push('/projects');
+      }
+    });
   }
+
   render() {
     const { getFieldDecorator } = this.props.form; // eslint-disable-line
+    const decorators = getDecoratorManager(getFieldDecorator);
+
     const { formLayout, inputVisible } = this.state;
+
     const formItemLayout = {
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
     };
 
     return (
-      <Form layout={formLayout}>
-        <FormItem
-          label="Nome"
-          {...formItemLayout}
-        >
-          <Input />
+      <Form layout={formLayout} onSubmit={this.handleOnSubmit}>
+        <FormItem label="Nome" {...formItemLayout} hasFeedback>
+          {decorators.nameDecorator(entries.getNameInput())}
         </FormItem>
-        <FormItem
-          label="Descrição"
-          {...formItemLayout}
-        >
-          <TextArea rows={4} />
+        <FormItem label="Descrição" {...formItemLayout} hasFeedback>
+          {decorators.descriptionDecorator(entries.getDescriptionInput())}
         </FormItem>
-        <FormItem
-          label="Data de Início"
-          {...formItemLayout}
-        >
-          <DatePicker placeholder="Selecione uma data" />
+        <FormItem label="Data de Início" {...formItemLayout} hasFeedback>
+          {decorators.startDateDecorator(entries.getStartDatePicker())}
         </FormItem>
-        <FormItem
-          label="Data de Término"
-          {...formItemLayout}
-        >
-          <DatePicker placeholder="Selecione uma data" />
+        <FormItem label="Data de Término" {...formItemLayout} hasFeedback>
+          {decorators.finishDateDecorator(entries.getFinishDatePicker())}
         </FormItem>
-        <FormItem
-          label="Tecnologias"
-          {...formItemLayout}
-        >
-          {
-            this.state.selectedTechs.map(tech =>
-              <Tag
-                key={`tech_option${tech}`}
-                closable
-                afterClose={() => this.handleClose(tech)}>
-                {tech}
-              </Tag>)
-          }
+        <FormItem label="Tecnologias" {...formItemLayout}>
+          {this.state.selectedTechs.map(tech => (
+            <Tag
+              key={`tech_option${tech}`}
+              closable
+              afterClose={() => this.handleClose(tech)}
+            >
+              {tech}
+            </Tag>
+          ))}
           {inputVisible && (
             <AutoComplete
               ref={this.saveInputRef}
@@ -104,7 +116,8 @@ class CreateProject extends React.Component {
               placeholder="digita alguma coisa"
               onSelect={this.handleSelectChange}
               filterOption={(inputValue, option) =>
-                option.props.children.toUpperCase()
+                option.props.children
+                  .toUpperCase()
                   .indexOf(inputValue.toUpperCase()) !== -1
               }
             />
@@ -124,12 +137,19 @@ class CreateProject extends React.Component {
             sm: { span: 16, offset: 4 },
           }}
         >
-          <Button type="primary" htmlType="submit">Cadastrar</Button>
+          <Button type="primary" htmlType="submit">
+            Cadastrar
+          </Button>
         </FormItem>
       </Form>
     );
   }
 }
+
+CreateProject.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
+  form: PropTypes.instanceOf(Object).isRequired,
+};
 
 const WrappedCreateProjectForm = Form.create()(CreateProject);
 
