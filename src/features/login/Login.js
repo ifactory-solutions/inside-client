@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import { userLoginRequestAction } from './actions/loginActions';
-import '../../styles/login.css';
+import './login.css';
 
 import {
   validateEmail,

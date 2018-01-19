@@ -3,7 +3,7 @@ import { Steps, Button, message } from 'antd'; //eslint-disable-line
 
 import { Step1Form, Step2Form, Step3Form, Step4Form } from './components/index';
 
-import '../../../styles/createEmployee.css';
+import './createEmployee.css';
 
 const { Step } = Steps;
 
