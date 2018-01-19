@@ -56,7 +56,6 @@ class ListPermissions extends React.Component {
         <Row type="flex" justify="end">
           <Input.Search
             placeholder="Pesquisar"
-            onSearch={value => console.log(value)}
             style={{ width: 200 }}
           />
         </Row>

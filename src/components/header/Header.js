@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout, Icon, Menu, Badge } from 'antd';
+import { Link } from 'react-router-dom';
 
 import { PROFILE } from '../../mock/profile';
 
@@ -53,7 +54,10 @@ const MyHeader = props => {
             </Menu.Item>
 
             <Menu.Item key="logout">
-              <Icon type="logout" /> Logout
+              <Link to="login">
+                <Icon type="logout" />
+                <span>Logout</span>
+              </Link>
             </Menu.Item>
 
             <Menu.Item key="about">

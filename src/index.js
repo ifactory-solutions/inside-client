@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { LocaleProvider } from 'antd';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-
+import { Router, Switch } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
-
 import enUS from 'antd/lib/locale-provider/en_US';
-import Home from './features/home';
 
+import history from './browserHistory';
+import Home from './features/home';
 import { ListRoles, CreateRole } from './features/admin/roles';
 import { ListProjects, CreateProject } from './features/projects';
 import { ListEmployees, CreateEmployee } from './features/people/employees';
@@ -48,7 +47,8 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
   <Provider store={store}>
     <LocaleProvider locale={enUS}>
-      <Router>
+      <Router
+        history={history}>
         <div style={{ height: '100%' }}>
           <Switch>
             <DefaultLayout
