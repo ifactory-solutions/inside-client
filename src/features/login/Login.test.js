@@ -1,8 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Login from './Login';
+import { shallow, mount } from 'enzyme';
+import { LoginWithoutRedux as Login } from './Login';
 
 describe('feature(Login)', () => {
+  it('conforms to snapshot', () => {
+    const wrapper = shallow(<Login />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders properly', () => {
     const wrapper = mount(<Login />);
     const inputs = wrapper.find('input');
