@@ -1,7 +1,15 @@
 import { all } from 'redux-saga/effects';
 
-import { loginWatcher } from '../features/login/saga/loginSaga';
+import {
+  loginWatcher,
+  loginRequestSucceededWatcher,
+  loginRequestFailsWatcher,
+} from '../features/login/saga/index';
 
 export function* rootSaga() {
-  yield all([loginWatcher()]);
+  yield all([
+    loginWatcher(),
+    loginRequestSucceededWatcher(),
+    loginRequestFailsWatcher(),
+  ]);
 }

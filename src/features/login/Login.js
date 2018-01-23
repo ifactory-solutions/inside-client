@@ -3,7 +3,7 @@ import { Form, Input, Button } from 'antd';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import { userLoginRequestAction } from './actions/loginActions';
+import { loginRequestAction } from './actions/loginActions';
 import './login.css';
 
 import {
@@ -31,7 +31,7 @@ class Login extends Component {
 
     form.validateFields(error => {
       if (!error) {
-        this.props.userLoginRequestAction({
+        this.props.loginRequestAction({
           email: form.getFieldValue('username'),
           password: form.getFieldValue('password'),
         });
@@ -107,11 +107,11 @@ class Login extends Component {
 Login.propTypes = {
   history: PropTypes.object,
   form: PropTypes.object,
-  userLoginRequestAction: PropTypes.func,
+  loginRequestAction: PropTypes.func,
 };
 /* eslint-enable */
 
-const connectedLoginForm = connect(null, { userLoginRequestAction })(Login);
+const connectedLoginForm = connect(null, { loginRequestAction })(Login);
 const LoginForm = Form.create()(connectedLoginForm);
 
 export const LoginWithoutRedux = Form.create()(Login);
