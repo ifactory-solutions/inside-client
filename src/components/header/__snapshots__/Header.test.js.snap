@@ -92,18 +92,18 @@ ShallowWrapper {
                                          Configurações
                               </MenuItem>
                               <MenuItem>
-                                        <Icon
-                                                  type="logout"
-                                        />
-                                         Logout
+                                        <Link
+                                                  replace={false}
+                                                  to="login"
+                                        >
+                                                  <Icon
+                                                            type="logout"
+                                                  />
+                                                  <span>
+                                                            Logout
+                                                  </span>
+                                        </Link>
                               </MenuItem>
-                              <Divider
-                                        style={
-                                                  Object {
-                                                            "margin": 0,
-                                                          }
-                                        }
-                              />
                               <MenuItem>
                                         <Icon
                                                   type="info-circle-o"
@@ -216,18 +216,18 @@ ShallowWrapper {
                                            Configurações
                             </MenuItem>
                             <MenuItem>
-                                          <Icon
-                                                        type="logout"
-                                          />
-                                           Logout
+                                          <Link
+                                                        replace={false}
+                                                        to="login"
+                                          >
+                                                        <Icon
+                                                                      type="logout"
+                                                        />
+                                                        <span>
+                                                                      Logout
+                                                        </span>
+                                          </Link>
                             </MenuItem>
-                            <Divider
-                                          style={
-                                                        Object {
-                                                                      "margin": 0,
-                                                                    }
-                                          }
-                            />
                             <MenuItem>
                                           <Icon
                                                         type="info-circle-o"
@@ -371,18 +371,18 @@ ShallowWrapper {
                                  Configurações
                 </MenuItem>
                 <MenuItem>
-                                <Icon
-                                                type="logout"
-                                />
-                                 Logout
+                                <Link
+                                                replace={false}
+                                                to="login"
+                                >
+                                                <Icon
+                                                                type="logout"
+                                                />
+                                                <span>
+                                                                Logout
+                                                </span>
+                                </Link>
                 </MenuItem>
-                <Divider
-                                style={
-                                                Object {
-                                                                "margin": 0,
-                                                              }
-                                }
-                />
                 <MenuItem>
                                 <Icon
                                                 type="info-circle-o"
@@ -415,18 +415,18 @@ ShallowWrapper {
                      Configurações
 </MenuItem>,
                   <MenuItem>
-                    <Icon
-                                        type="logout"
-                    />
-                     Logout
+                    <Link
+                                        replace={false}
+                                        to="login"
+                    >
+                                        <Icon
+                                                            type="logout"
+                                        />
+                                        <span>
+                                                            Logout
+                                        </span>
+                    </Link>
 </MenuItem>,
-                  <Divider
-                    style={
-                                        Object {
-                                                            "margin": 0,
-                                                          }
-                    }
-/>,
                   <MenuItem>
                     <Icon
                                         type="info-circle-o"
@@ -506,41 +506,62 @@ ShallowWrapper {
                   "key": "logout",
                   "nodeType": "class",
                   "props": Object {
-                    "children": Array [
+                    "children": <Link
+                      replace={false}
+                      to="login"
+>
                       <Icon
-                        type="logout"
+                                            type="logout"
+                      />
+                      <span>
+                                            Logout
+                      </span>
+</Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <Icon
+                          type="logout"
 />,
-                      " Logout",
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "function",
-                      "props": Object {
-                        "type": "logout",
+                        <span>
+                          Logout
+</span>,
+                      ],
+                      "replace": false,
+                      "to": "login",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "type": "logout",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
                       },
-                      "ref": null,
-                      "rendered": null,
-                      "type": [Function],
-                    },
-                    " Logout",
-                  ],
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "function",
-                  "props": Object {
-                    "style": Object {
-                      "margin": 0,
-                    },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Logout",
+                        },
+                        "ref": null,
+                        "rendered": "Logout",
+                        "type": "span",
+                      },
+                    ],
+                    "type": [Function],
                   },
-                  "ref": null,
-                  "rendered": null,
                   "type": [Function],
                 },
                 Object {
@@ -661,18 +682,18 @@ ShallowWrapper {
                                                  Configurações
                                     </MenuItem>
                                     <MenuItem>
-                                                <Icon
-                                                            type="logout"
-                                                />
-                                                 Logout
+                                                <Link
+                                                            replace={false}
+                                                            to="login"
+                                                >
+                                                            <Icon
+                                                                        type="logout"
+                                                            />
+                                                            <span>
+                                                                        Logout
+                                                            </span>
+                                                </Link>
                                     </MenuItem>
-                                    <Divider
-                                                style={
-                                                            Object {
-                                                                        "margin": 0,
-                                                                      }
-                                                }
-                                    />
                                     <MenuItem>
                                                 <Icon
                                                             type="info-circle-o"
@@ -785,18 +806,18 @@ ShallowWrapper {
                                                  Configurações
                                 </MenuItem>
                                 <MenuItem>
-                                                <Icon
-                                                                type="logout"
-                                                />
-                                                 Logout
+                                                <Link
+                                                                replace={false}
+                                                                to="login"
+                                                >
+                                                                <Icon
+                                                                                type="logout"
+                                                                />
+                                                                <span>
+                                                                                Logout
+                                                                </span>
+                                                </Link>
                                 </MenuItem>
-                                <Divider
-                                                style={
-                                                                Object {
-                                                                                "margin": 0,
-                                                                              }
-                                                }
-                                />
                                 <MenuItem>
                                                 <Icon
                                                                 type="info-circle-o"
@@ -940,18 +961,18 @@ ShallowWrapper {
                                      Configurações
                   </MenuItem>
                   <MenuItem>
-                                    <Icon
-                                                      type="logout"
-                                    />
-                                     Logout
+                                    <Link
+                                                      replace={false}
+                                                      to="login"
+                                    >
+                                                      <Icon
+                                                                        type="logout"
+                                                      />
+                                                      <span>
+                                                                        Logout
+                                                      </span>
+                                    </Link>
                   </MenuItem>
-                  <Divider
-                                    style={
-                                                      Object {
-                                                                        "margin": 0,
-                                                                      }
-                                    }
-                  />
                   <MenuItem>
                                     <Icon
                                                       type="info-circle-o"
@@ -984,18 +1005,18 @@ ShallowWrapper {
                        Configurações
 </MenuItem>,
                     <MenuItem>
-                      <Icon
-                                            type="logout"
-                      />
-                       Logout
+                      <Link
+                                            replace={false}
+                                            to="login"
+                      >
+                                            <Icon
+                                                                  type="logout"
+                                            />
+                                            <span>
+                                                                  Logout
+                                            </span>
+                      </Link>
 </MenuItem>,
-                    <Divider
-                      style={
-                                            Object {
-                                                                  "margin": 0,
-                                                                }
-                      }
-/>,
                     <MenuItem>
                       <Icon
                                             type="info-circle-o"
@@ -1075,41 +1096,62 @@ ShallowWrapper {
                     "key": "logout",
                     "nodeType": "class",
                     "props": Object {
-                      "children": Array [
+                      "children": <Link
+                        replace={false}
+                        to="login"
+>
                         <Icon
-                          type="logout"
+                                                type="logout"
+                        />
+                        <span>
+                                                Logout
+                        </span>
+</Link>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": Array [
+                          <Icon
+                            type="logout"
 />,
-                        " Logout",
-                      ],
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "function",
-                        "props": Object {
-                          "type": "logout",
+                          <span>
+                            Logout
+</span>,
+                        ],
+                        "replace": false,
+                        "to": "login",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "type": "logout",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
                         },
-                        "ref": null,
-                        "rendered": null,
-                        "type": [Function],
-                      },
-                      " Logout",
-                    ],
-                    "type": [Function],
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "function",
-                    "props": Object {
-                      "style": Object {
-                        "margin": 0,
-                      },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Logout",
+                          },
+                          "ref": null,
+                          "rendered": "Logout",
+                          "type": "span",
+                        },
+                      ],
+                      "type": [Function],
                     },
-                    "ref": null,
-                    "rendered": null,
                     "type": [Function],
                   },
                   Object {

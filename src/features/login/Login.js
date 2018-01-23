@@ -114,4 +114,5 @@ Login.propTypes = {
 const connectedLoginForm = connect(null, { userLoginRequestAction })(Login);
 const LoginForm = Form.create()(connectedLoginForm);
 
+export const LoginWithoutRedux = Form.create()(Login);
 export default LoginForm;
