@@ -1,8 +1,8 @@
 import {
-  USER_REQUEST_LOGIN,
+  LOGIN_REQUEST,
   LOGIN_PROCESSING,
   LOGIN_SUCCEEDED,
-  userLoginRequestAction,
+  loginRequestAction,
   loginProcessingAction,
   loginSucceedAction,
   LOGIN_ERROR,
@@ -17,11 +17,11 @@ describe('test login action creators', () => {
     };
 
     const action = {
-      type: USER_REQUEST_LOGIN,
+      type: LOGIN_REQUEST,
       payload: userCredentials,
     };
 
-    const createdAction = userLoginRequestAction(userCredentials);
+    const createdAction = loginRequestAction(userCredentials);
 
     expect(createdAction).toEqual(action);
   });
