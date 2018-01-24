@@ -6,11 +6,15 @@ import {
   LOGIN_REQUEST,
   loginRequestSucceededAction,
   loginRequestFailsAction,
-} from '../actions/loginActions';
+} from '../actions/authActions';
+
+import { pageStartLoadingAction } from '../../../layouts/actions/pageActions';
 
 import * as Api from '../../../utils/api';
 
 function* loginSaga(action) {
+  yield put(pageStartLoadingAction());
+
   try {
     const result = yield call(Api.doLogin, action.payload);
     yield put(loginRequestSucceededAction(result));

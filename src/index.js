@@ -18,7 +18,7 @@ import { ListLevels, CreateLevel } from './features/careers/levels';
 import { ListRequests } from './features/careers/requests';
 import { ListBadges, CreateBadge } from './features/careers/badges';
 import { ListInterviews, CreateInterview } from './features/people/interviews';
-import { Login } from './features/login';
+import { Login } from './features/auth';
 import NotFound from './features/error';
 import { ListVacations } from './features/people/vacations';
 import { ListPermissions } from './features/admin/permissions';
@@ -47,8 +47,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
   <Provider store={store}>
     <LocaleProvider locale={enUS}>
-      <Router
-        history={history}>
+      <Router history={history}>
         <div style={{ height: '100%' }}>
           <Switch>
             <DefaultLayout

@@ -1,29 +1,19 @@
 import {
   LOGIN_SUCCEEDED,
   LOGIN_ERROR,
-  LOGIN_PROCESSING,
-} from '../actions/loginActions';
+  LOGOUT_SUCCEEDED,
+} from '../actions/authActions';
 
-export default function loginReducer(state = {}, action) {
+export default function authReducer(state = {}, action) {
   if (!action) return state;
 
   switch (action.type) {
-  case LOGIN_PROCESSING: {
-    return {
-      ...state,
-      loading: true,
-      loaded: false,
-    };
-  }
-
   case LOGIN_SUCCEEDED: {
     const { token } = action.payload;
     const error = null;
 
     return {
       ...state,
-      loading: false,
-      loaded: true,
       token,
       error,
     };
@@ -35,10 +25,16 @@ export default function loginReducer(state = {}, action) {
 
     return {
       ...state,
-      loading: false,
-      loaded: false,
       token,
       error,
+    };
+  }
+
+  case LOGOUT_SUCCEEDED: {
+    return {
+      ...state,
+      token: null,
+      error: null,
     };
   }
 
