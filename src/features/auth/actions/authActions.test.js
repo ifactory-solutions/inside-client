@@ -1,13 +1,11 @@
 import {
   LOGIN_REQUEST,
-  LOGIN_PROCESSING,
   LOGIN_SUCCEEDED,
   loginRequestAction,
-  loginProcessingAction,
   loginSucceedAction,
   LOGIN_ERROR,
   loginErrorAction,
-} from './loginActions';
+} from './authActions';
 
 describe('test login action creators', () => {
   it('creates the "userLoginRequest" action', () => {
@@ -22,16 +20,6 @@ describe('test login action creators', () => {
     };
 
     const createdAction = loginRequestAction(userCredentials);
-
-    expect(createdAction).toEqual(action);
-  });
-
-  it('creates the "loginProcessing action"', () => {
-    const action = {
-      type: LOGIN_PROCESSING,
-    };
-
-    const createdAction = loginProcessingAction();
 
     expect(createdAction).toEqual(action);
   });

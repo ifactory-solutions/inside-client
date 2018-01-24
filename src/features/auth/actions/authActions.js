@@ -1,12 +1,13 @@
 // LOGIN SAGA ACTIONS
-export const LOGIN_REQUEST = '[LOGIN] USER REQUEST LOGIN';
-export const LOGIN_REQUEST_SUCCEEDED = '[LOGIN] LOGIN REQUEST SUCEEDED';
-export const LOGIN_REQUEST_FAILS = '[LOGIN] LOGIN REQUEST FAILS';
+export const LOGIN_REQUEST = '[AUTH] USER REQUEST LOGIN';
+export const LOGIN_REQUEST_SUCCEEDED = '[AUTH] LOGIN REQUEST SUCEEDED';
+export const LOGIN_REQUEST_FAILS = '[AUTH] LOGIN REQUEST FAILS';
+export const LOGOUT_REQUEST = '[AUTH] LOGOUT REQUEST';
 
 // LOGIN REDUX ACTIONS
-export const LOGIN_PROCESSING = '[LOGIN] LOGIN PROCESSING';
-export const LOGIN_SUCCEEDED = '[LOGIN] LOGIN SUCEEDED';
-export const LOGIN_ERROR = '[LOGIN] LOGIN ERROR';
+export const LOGIN_SUCCEEDED = '[AUTH] LOGIN SUCEEDED';
+export const LOGIN_ERROR = '[AUTH] LOGIN ERROR';
+export const LOGOUT_SUCCEEDED = '[AUTH] LOGOUT SUCCEEDED';
 
 export function loginRequestAction(userLoginCredentials) {
   return {
@@ -29,12 +30,6 @@ export function loginRequestFailsAction(error) {
   };
 }
 
-export function loginProcessingAction() {
-  return {
-    type: LOGIN_PROCESSING,
-  };
-}
-
 export function loginSucceedAction(credentials) {
   return {
     type: LOGIN_SUCCEEDED,
@@ -46,5 +41,17 @@ export function loginErrorAction(error) {
   return {
     type: LOGIN_ERROR,
     payload: error,
+  };
+}
+
+export function logoutRequestAction() {
+  return {
+    type: LOGOUT_REQUEST,
+  };
+}
+
+export function logoutSucceededAction() {
+  return {
+    type: LOGOUT_SUCCEEDED,
   };
 }

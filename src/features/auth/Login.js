@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Alert, Row, Col } from 'antd';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import { loginRequestAction } from './actions/loginActions';
+import {
+  loginRequestAction,
+  loginSucceedAction,
+  loginErrorAction,
+} from './actions/authActions';
 import './login.css';
 
 import {
@@ -66,38 +70,53 @@ class Login extends Component {
     });
 
     return (
-      <div className="login-form">
-        <div className="logo">
-          <h2> Login </h2>
+      <div>
+        {this.props.error && (
+          <Row type="flex" justify="center">
+            <Col span={10}>
+              <Alert
+                message={`Não foi possível realizar login.
+                Por favor, verifique suas credenciais.`}
+                type="error"
+                closable
+                style={{ margin: 20 }}
+              />
+            </Col>
+          </Row>
+        )}
+        <div className="login-form">
+          <div className="logo">
+            <h2> Login </h2>
+          </div>
+
+          <Form onSubmit={this.handleOnSubmit}>
+            <FormItem>
+              {usernameDecorator(
+                <Input
+                  id="userName"
+                  prefix={getIconPrefix('user')}
+                  type="email"
+                  placeholder="E-mail"
+                />
+              )}
+            </FormItem>
+
+            <FormItem>
+              {passwordDecorator(
+                <Input
+                  id="password"
+                  prefix={getIconPrefix('lock')}
+                  type="password"
+                  placeholder="Senha"
+                />
+              )}
+            </FormItem>
+
+            <Button type="primary" htmlType="submit">
+              Entrar
+            </Button>
+          </Form>
         </div>
-
-        <Form onSubmit={this.handleOnSubmit}>
-          <FormItem>
-            {usernameDecorator(
-              <Input
-                id="userName"
-                prefix={getIconPrefix('user')}
-                type="email"
-                placeholder="E-mail"
-              />
-            )}
-          </FormItem>
-
-          <FormItem>
-            {passwordDecorator(
-              <Input
-                id="password"
-                prefix={getIconPrefix('lock')}
-                type="password"
-                placeholder="Senha"
-              />
-            )}
-          </FormItem>
-
-          <Button type="primary" htmlType="submit">
-            Entrar
-          </Button>
-        </Form>
       </div>
     );
   }
@@ -108,10 +127,22 @@ Login.propTypes = {
   history: PropTypes.object,
   form: PropTypes.object,
   loginRequestAction: PropTypes.func,
+  error: PropTypes.instanceOf(Object),
 };
 /* eslint-enable */
 
-const connectedLoginForm = connect(null, { loginRequestAction })(Login);
+function mapStateToProps({ login }) {
+  return {
+    error: login.error,
+  };
+}
+
+const connectedLoginForm = connect(mapStateToProps, {
+  loginRequestAction,
+  loginSucceedAction,
+  loginErrorAction,
+})(Login);
+
 const LoginForm = Form.create()(connectedLoginForm);
 
 export const LoginWithoutRedux = Form.create()(Login);

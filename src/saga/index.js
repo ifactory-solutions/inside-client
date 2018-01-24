@@ -4,12 +4,14 @@ import {
   loginWatcher,
   loginRequestSucceededWatcher,
   loginRequestFailsWatcher,
-} from '../features/login/saga/index';
+  logoutRequestWatcher,
+} from '../features/auth/saga/index';
 
 export function* rootSaga() {
   yield all([
     loginWatcher(),
     loginRequestSucceededWatcher(),
     loginRequestFailsWatcher(),
+    logoutRequestWatcher(),
   ]);
 }
