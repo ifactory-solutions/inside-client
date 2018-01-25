@@ -17,12 +17,11 @@ const { Content } = Layout;
 class PageLayout extends React.Component {
   render() {
     const { loading, component: Component, ...rest } = this.props; //eslint-disable-line
-
     const renderComponent = matchProps => (
       <Layout id="page-layout" style={{ height: '100%' }}>
         <Content>
           <div>
-            {loading && <Loader loading fullScreen />}
+            <Loader loading={loading} fullScreen />
             {!loading && <Component {...matchProps} />}
           </div>
         </Content>

@@ -13,11 +13,11 @@ function* loginRequestSuccessSaga(action) {
   const successAction = loginSucceedAction(action.payload);
   const stopLoadingAction = pageStopLoadingAction();
 
-  setToken(token, 24);
-  history.push('/');
-
   yield put(successAction);
   yield put(stopLoadingAction);
+
+  setToken(token, 24);
+  history.push('/');
 }
 
 export function* loginRequestSucceededWatcher() {
