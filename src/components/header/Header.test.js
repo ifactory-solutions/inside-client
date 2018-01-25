@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from './Header';
+import { HeaderWithoutRedux } from './Header';
 
 describe('Header', () => {
   const mockToggleMenu = jest.fn();
   const props = { collapsed: false, toggleMenu: mockToggleMenu };
-  const header = shallow(<Header {...props} />);
+  const header = shallow(<HeaderWithoutRedux {...props} />);
 
   it('renders properly', () => {
     expect(header).toMatchSnapshot();

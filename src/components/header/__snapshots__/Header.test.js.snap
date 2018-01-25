@@ -92,9 +92,8 @@ ShallowWrapper {
                                          Configurações
                               </MenuItem>
                               <MenuItem>
-                                        <Link
-                                                  replace={false}
-                                                  to="login"
+                                        <div
+                                                  onClick={[Function]}
                                         >
                                                   <Icon
                                                             type="logout"
@@ -102,7 +101,7 @@ ShallowWrapper {
                                                   <span>
                                                             Logout
                                                   </span>
-                                        </Link>
+                                        </div>
                               </MenuItem>
                               <MenuItem>
                                         <Icon
@@ -216,9 +215,8 @@ ShallowWrapper {
                                            Configurações
                             </MenuItem>
                             <MenuItem>
-                                          <Link
-                                                        replace={false}
-                                                        to="login"
+                                          <div
+                                                        onClick={[Function]}
                                           >
                                                         <Icon
                                                                       type="logout"
@@ -226,7 +224,7 @@ ShallowWrapper {
                                                         <span>
                                                                       Logout
                                                         </span>
-                                          </Link>
+                                          </div>
                             </MenuItem>
                             <MenuItem>
                                           <Icon
@@ -371,9 +369,8 @@ ShallowWrapper {
                                  Configurações
                 </MenuItem>
                 <MenuItem>
-                                <Link
-                                                replace={false}
-                                                to="login"
+                                <div
+                                                onClick={[Function]}
                                 >
                                                 <Icon
                                                                 type="logout"
@@ -381,7 +378,7 @@ ShallowWrapper {
                                                 <span>
                                                                 Logout
                                                 </span>
-                                </Link>
+                                </div>
                 </MenuItem>
                 <MenuItem>
                                 <Icon
@@ -415,9 +412,8 @@ ShallowWrapper {
                      Configurações
 </MenuItem>,
                   <MenuItem>
-                    <Link
-                                        replace={false}
-                                        to="login"
+                    <div
+                                        onClick={[Function]}
                     >
                                         <Icon
                                                             type="logout"
@@ -425,7 +421,7 @@ ShallowWrapper {
                                         <span>
                                                             Logout
                                         </span>
-                    </Link>
+                    </div>
 </MenuItem>,
                   <MenuItem>
                     <Icon
@@ -506,9 +502,8 @@ ShallowWrapper {
                   "key": "logout",
                   "nodeType": "class",
                   "props": Object {
-                    "children": <Link
-                      replace={false}
-                      to="login"
+                    "children": <div
+                      onClick={[Function]}
 >
                       <Icon
                                             type="logout"
@@ -516,13 +511,13 @@ ShallowWrapper {
                       <span>
                                             Logout
                       </span>
-</Link>,
+</div>,
                   },
                   "ref": null,
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "host",
                     "props": Object {
                       "children": Array [
                         <Icon
@@ -532,8 +527,7 @@ ShallowWrapper {
                           Logout
 </span>,
                       ],
-                      "replace": false,
-                      "to": "login",
+                      "onClick": [Function],
                     },
                     "ref": null,
                     "rendered": Array [
@@ -560,7 +554,7 @@ ShallowWrapper {
                         "type": "span",
                       },
                     ],
-                    "type": [Function],
+                    "type": "div",
                   },
                   "type": [Function],
                 },
@@ -682,9 +676,8 @@ ShallowWrapper {
                                                  Configurações
                                     </MenuItem>
                                     <MenuItem>
-                                                <Link
-                                                            replace={false}
-                                                            to="login"
+                                                <div
+                                                            onClick={[Function]}
                                                 >
                                                             <Icon
                                                                         type="logout"
@@ -692,7 +685,7 @@ ShallowWrapper {
                                                             <span>
                                                                         Logout
                                                             </span>
-                                                </Link>
+                                                </div>
                                     </MenuItem>
                                     <MenuItem>
                                                 <Icon
@@ -806,9 +799,8 @@ ShallowWrapper {
                                                  Configurações
                                 </MenuItem>
                                 <MenuItem>
-                                                <Link
-                                                                replace={false}
-                                                                to="login"
+                                                <div
+                                                                onClick={[Function]}
                                                 >
                                                                 <Icon
                                                                                 type="logout"
@@ -816,7 +808,7 @@ ShallowWrapper {
                                                                 <span>
                                                                                 Logout
                                                                 </span>
-                                                </Link>
+                                                </div>
                                 </MenuItem>
                                 <MenuItem>
                                                 <Icon
@@ -961,9 +953,8 @@ ShallowWrapper {
                                      Configurações
                   </MenuItem>
                   <MenuItem>
-                                    <Link
-                                                      replace={false}
-                                                      to="login"
+                                    <div
+                                                      onClick={[Function]}
                                     >
                                                       <Icon
                                                                         type="logout"
@@ -971,7 +962,7 @@ ShallowWrapper {
                                                       <span>
                                                                         Logout
                                                       </span>
-                                    </Link>
+                                    </div>
                   </MenuItem>
                   <MenuItem>
                                     <Icon
@@ -1005,9 +996,8 @@ ShallowWrapper {
                        Configurações
 </MenuItem>,
                     <MenuItem>
-                      <Link
-                                            replace={false}
-                                            to="login"
+                      <div
+                                            onClick={[Function]}
                       >
                                             <Icon
                                                                   type="logout"
@@ -1015,7 +1005,7 @@ ShallowWrapper {
                                             <span>
                                                                   Logout
                                             </span>
-                      </Link>
+                      </div>
 </MenuItem>,
                     <MenuItem>
                       <Icon
@@ -1096,9 +1086,8 @@ ShallowWrapper {
                     "key": "logout",
                     "nodeType": "class",
                     "props": Object {
-                      "children": <Link
-                        replace={false}
-                        to="login"
+                      "children": <div
+                        onClick={[Function]}
 >
                         <Icon
                                                 type="logout"
@@ -1106,13 +1095,13 @@ ShallowWrapper {
                         <span>
                                                 Logout
                         </span>
-</Link>,
+</div>,
                     },
                     "ref": null,
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "class",
+                      "nodeType": "host",
                       "props": Object {
                         "children": Array [
                           <Icon
@@ -1122,8 +1111,7 @@ ShallowWrapper {
                             Logout
 </span>,
                         ],
-                        "replace": false,
-                        "to": "login",
+                        "onClick": [Function],
                       },
                       "ref": null,
                       "rendered": Array [
@@ -1150,7 +1138,7 @@ ShallowWrapper {
                           "type": "span",
                         },
                       ],
-                      "type": [Function],
+                      "type": "div",
                     },
                     "type": [Function],
                   },
