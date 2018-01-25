@@ -6,7 +6,6 @@ import './Loader.scss';
 
 const Loader = props => {
   const { loading, fullScreen } = props;
-
   return (
     <div
       className={classNames('loader', {
