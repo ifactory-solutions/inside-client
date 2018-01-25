@@ -15,7 +15,6 @@ const { user: UserMock } = PROFILE;
 class MyHeader extends React.Component {
   constructor(props) {
     super(props);
-
     this.onLogoutClick = this.onLogoutClick.bind(this);
   }
 
@@ -86,7 +85,8 @@ class MyHeader extends React.Component {
 MyHeader.propTypes = {
   collapsed: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
-  logoutRequestAction: PropTypes.func.isRequired,
+  logoutRequestAction: PropTypes.func, //eslint-disable-line
 };
 
+export const HeaderWithoutRedux = MyHeader;
 export default connect(null, { logoutRequestAction })(MyHeader);

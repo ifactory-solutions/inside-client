@@ -8,10 +8,7 @@ describe('test login reducer', () => {
   });
 
   it('test an invalid action in a valid state', () => {
-    const state = {
-      loading: true,
-      loaded: false,
-    };
+    const state = {};
 
     const newState = authReducer(state, undefined);
 
@@ -19,10 +16,7 @@ describe('test login reducer', () => {
   });
 
   it('test login success state', () => {
-    const state = {
-      loading: true,
-      loaded: false,
-    };
+    const state = {};
 
     const auth = {
       token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9',
@@ -31,8 +25,6 @@ describe('test login reducer', () => {
     const action = loginSucceedAction(auth);
     const newState = authReducer(state, action);
     const expectedState = {
-      loading: false,
-      loaded: true,
       token: auth.token,
       error: null,
     };
@@ -41,10 +33,7 @@ describe('test login reducer', () => {
   });
 
   it('test login error state', () => {
-    const state = {
-      loading: true,
-      loaded: false,
-    };
+    const state = {};
 
     const error = {
       statusCode: 400,
@@ -56,8 +45,6 @@ describe('test login reducer', () => {
 
     const newState = authReducer(state, action);
     const expectedState = {
-      loading: false,
-      loaded: false,
       token: null,
       error,
     };
