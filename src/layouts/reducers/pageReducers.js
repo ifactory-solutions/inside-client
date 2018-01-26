@@ -1,6 +1,10 @@
 import { PAGE_START_LOADING, PAGE_STOP_LOADING } from '../actions/pageActions';
 
-export function pageReducer(state = {}, action) {
+const defaultState = {
+  loading: false,
+};
+
+export function pageReducer(state = defaultState, action) {
   if (!action) return state;
 
   switch (action.type) {

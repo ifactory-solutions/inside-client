@@ -24,7 +24,7 @@ import { ListVacations } from './features/people/vacations';
 import { ListPermissions } from './features/admin/permissions';
 
 import DefaultLayout from './layouts/Default';
-import PageLayout from './layouts/Page';
+import Container from './layouts/Container';
 
 import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
@@ -87,7 +87,7 @@ ReactDOM.render(
               path="/medical-certificate"
               component={ListMedicalCertificates}
             />
-            <PageLayout path="/login" component={Login} />
+            <Container path="/login" component={Login} />
             <DefaultLayout component={NotFound} />
           </Switch>
         </div>
