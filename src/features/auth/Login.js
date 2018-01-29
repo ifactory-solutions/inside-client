@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Alert, Row, Col } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
@@ -71,19 +71,6 @@ class Login extends Component {
 
     return (
       <div>
-        {this.props.error && (
-          <Row type="flex" justify="center">
-            <Col span={10}>
-              <Alert
-                message={`Não foi possível realizar login.
-                Por favor, verifique suas credenciais.`}
-                type="error"
-                closable
-                style={{ margin: 20 }}
-              />
-            </Col>
-          </Row>
-        )}
         <div className="login-form">
           <div className="logo">
             <h2> Login </h2>

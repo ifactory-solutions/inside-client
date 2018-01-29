@@ -1,3 +1,5 @@
+import { message } from 'antd';
+
 import { takeEvery, put } from 'redux-saga/effects';
 
 import { LOGIN_REQUEST_FAILS, loginErrorAction } from '../actions/authActions';
@@ -9,6 +11,10 @@ function* loginRequestFailsSaga(action) {
 
   yield put(loginErrorAction(error));
   yield put(stopLoadingAction);
+
+  message.error(
+    'Não foi possível realizar login. Por favor, verifique suas credenciais.'
+  );
 }
 
 export function* loginRequestFailsWatcher() {

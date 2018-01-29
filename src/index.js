@@ -23,8 +23,7 @@ import NotFound from './features/error';
 import { ListVacations } from './features/people/vacations';
 import { ListPermissions } from './features/admin/permissions';
 
-import DefaultLayout from './layouts/Default';
-import Container from './layouts/Container';
+import { Container, PageLayout, DefaultLayout } from './layouts/index';
 
 import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
@@ -50,45 +49,115 @@ ReactDOM.render(
       <Router history={history}>
         <div style={{ height: '100%' }}>
           <Switch>
-            <DefaultLayout
+            <Container
               exact
               path={`${process.env.PUBLIC_URL}/`}
+              parent={DefaultLayout}
               component={Home}
             />
             {/* Admin */}
-            <DefaultLayout path="/roles/new" component={CreateRole} />
-            <DefaultLayout path="/roles" component={ListRoles} />
-            <DefaultLayout path="/permissions" component={ListPermissions} />
+            <Container
+              path="/roles/new"
+              parent={DefaultLayout}
+              component={CreateRole}
+            />
+            <Container
+              path="/roles"
+              parent={DefaultLayout}
+              component={ListRoles}
+            />
+            <Container
+              path="/permissions"
+              parent={DefaultLayout}
+              component={ListPermissions}
+            />
             {/* Projects */}
-            <DefaultLayout path="/projects/new" component={CreateProject} />
-            <DefaultLayout path="/projects" component={ListProjects} />
+            <Container
+              path="/projects/new"
+              parent={DefaultLayout}
+              component={CreateProject}
+            />
+            <Container
+              path="/projects"
+              parent={DefaultLayout}
+              component={ListProjects}
+            />
             {/* Employees */}
-            <DefaultLayout path="/employees/new" component={CreateEmployee} />
-            <DefaultLayout path="/employees" component={ListEmployees} />
+            <Container
+              path="/employees/new"
+              parent={DefaultLayout}
+              component={CreateEmployee}
+            />
+            <Container
+              path="/employees"
+              parent={DefaultLayout}
+              component={ListEmployees}
+            />
             {/* Profile */}
-            <DefaultLayout path="/profile" component={Profile} />
+            <Container
+              path="/profile"
+              parent={DefaultLayout}
+              component={Profile}
+            />
             {/* Careers */}
-            <DefaultLayout path="/careers" component={ListCareers} />
+            <Container
+              path="/careers"
+              parent={DefaultLayout}
+              component={ListCareers}
+            />
             {/* Levels */}
-            <DefaultLayout path="/levels/new" component={CreateLevel} />
-            <DefaultLayout path="/levels" component={ListLevels} />
+            <Container
+              path="/levels/new"
+              parent={DefaultLayout}
+              component={CreateLevel}
+            />
+            <Container
+              path="/levels"
+              parent={DefaultLayout}
+              component={ListLevels}
+            />
             {/* Requests */}
-            <DefaultLayout path="/requests" component={ListRequests} />
+            <Container
+              path="/requests"
+              parent={DefaultLayout}
+              component={ListRequests}
+            />
             {/* Badges */}
-            <DefaultLayout path="/badges/new" component={CreateBadge} />
-            <DefaultLayout path="/badges" component={ListBadges} />
+            <Container
+              path="/badges/new"
+              parent={DefaultLayout}
+              component={CreateBadge}
+            />
+            <Container
+              path="/badges"
+              parent={DefaultLayout}
+              component={ListBadges}
+            />
             {/* Interviews */}
-            <DefaultLayout path="/interviews/new" component={CreateInterview} />
-            <DefaultLayout path="/interviews" component={ListInterviews} />
+            <Container
+              path="/interviews/new"
+              parent={DefaultLayout}
+              component={CreateInterview}
+            />
+            <Container
+              path="/interviews"
+              parent={DefaultLayout}
+              component={ListInterviews}
+            />
             {/* Vacation */}
-            <DefaultLayout path="/vacation" component={ListVacations} />
+            <Container
+              path="/vacation"
+              parent={DefaultLayout}
+              component={ListVacations}
+            />
             {/* Medical Certificate */}
-            <DefaultLayout
+            <Container
               path="/medical-certificate"
+              parent={DefaultLayout}
               component={ListMedicalCertificates}
             />
-            <Container path="/login" component={Login} />
-            <DefaultLayout component={NotFound} />
+            <Container path="/login" parent={PageLayout} component={Login} />
+            <Container parent={DefaultLayout} component={NotFound} />
           </Switch>
         </div>
       </Router>
