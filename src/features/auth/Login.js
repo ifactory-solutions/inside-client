@@ -18,6 +18,8 @@ import {
   EMPTY_PASSWORD_MSG,
 } from './LoginHelper';
 
+import i18n from '../../i18n';
+
 const FormItem = Form.Item;
 
 class Login extends Component {
@@ -100,7 +102,7 @@ class Login extends Component {
             </FormItem>
 
             <Button type="primary" htmlType="submit">
-              Entrar
+              {i18n.t('LOGIN')}
             </Button>
           </Form>
         </div>
