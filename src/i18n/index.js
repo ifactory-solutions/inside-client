@@ -1,3 +1,3 @@
-import configI18n from './config';
+import i18next from './config';
 
-export default configI18n;
+export default i18next;
