@@ -1,4 +1,7 @@
-import { emailValidator, phoneValidator } from '../stepFormHelper';
+import {
+  emailValidator,
+  phoneValidator,
+} from '../../components/stepFormHelper';
 
 const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 

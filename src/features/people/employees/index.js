@@ -1,7 +1,2 @@
-import ListEmployees from './ListEmployees';
-import CreateEmployee from './CreateEmployee';
-
-export {
-  ListEmployees,
-  CreateEmployee,
-};
+export { CreateEmployee } from './containers/CreateEmployee';
+export { ListEmployees } from './containers/ListEmployees';

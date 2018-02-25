@@ -10,9 +10,9 @@ import {
   FORM_ITEM_LAYOUT,
   FORM_ITEM_LAYOUT_2,
   HORIZONTAL_FORM_LAYOUT,
-} from '../stepFormHelper';
+} from '../../components/stepFormHelper';
 
-import StepFormNavigator from '../stepFormNavigator';
+import StepFormNavigator from '../../components/stepFormNavigator';
 
 const FormItem = Form.Item;
 

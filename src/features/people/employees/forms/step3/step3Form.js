@@ -5,8 +5,11 @@ import PropTypes from 'prop-types';
 import * as entries from './step3Entries';
 import { getDecoratorManager } from './step3Decorators';
 import { LABELS } from './step3Constants';
-import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormHelper';
-import StepNavigator from '../stepFormNavigator';
+import {
+  FORM_ITEM_LAYOUT,
+  HORIZONTAL_FORM_LAYOUT,
+} from '../../components/stepFormHelper';
+import StepNavigator from '../../components/stepFormNavigator';
 
 const FormItem = Form.Item;
 

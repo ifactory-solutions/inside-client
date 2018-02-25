@@ -6,9 +6,12 @@ import * as entries from './step2Entries';
 
 import { getDecoratorManager } from './step2Decorators';
 import { LABELS } from './step2Constants';
-import { FORM_ITEM_LAYOUT, HORIZONTAL_FORM_LAYOUT } from '../stepFormHelper';
+import {
+  FORM_ITEM_LAYOUT,
+  HORIZONTAL_FORM_LAYOUT,
+} from '../../components/stepFormHelper';
 
-import StepNavigator from '../stepFormNavigator';
+import StepNavigator from '../../components/stepFormNavigator';
 
 const FormItem = Form.Item;
 

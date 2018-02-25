@@ -1,7 +1,7 @@
 import React from 'react';
-import { Steps, Button, message } from 'antd'; //eslint-disable-line
+import { Steps, message } from 'antd';
 
-import { Step1Form, Step2Form, Step3Form, Step4Form } from './components/index';
+import { Step1Form, Step2Form, Step3Form, Step4Form } from '../../forms';
 
 import './createEmployee.css';
 
@@ -159,5 +159,4 @@ class CreateEmployee extends React.Component {
     );
   }
 }
-
 export default CreateEmployee;
