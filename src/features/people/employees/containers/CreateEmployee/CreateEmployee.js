@@ -1,35 +1,11 @@
 import React from 'react';
 import { Steps, message } from 'antd';
 
-import { Step1Form, Step2Form, Step3Form, Step4Form } from '../../forms';
+import { formSteps as steps } from './CreateEmployeeHelper';
 
 import './createEmployee.css';
 
 const { Step } = Steps;
-
-const steps = [
-  {
-    title: 'Informações Pessoais',
-    key: 'personalData',
-    content: Step1Form,
-  },
-  {
-    title: 'Endereço',
-    key: 'address',
-    content: Step2Form,
-  },
-  {
-    title: 'Contatos',
-    key: 'contacts',
-    content: Step3Form,
-  },
-  {
-    title: 'Documentação',
-    key: 'documentation',
-    content: Step4Form,
-  },
-];
-
 class CreateEmployee extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +13,7 @@ class CreateEmployee extends React.Component {
     this.state = {
       currentStep: 0,
       employee: {
-        personalData: {
+        personalInfo: {
           gender: 'masculino',
           maritalStatus: 'solteiro',
         },
@@ -57,16 +33,21 @@ class CreateEmployee extends React.Component {
   next(employee) {
     const currentStep = this.state.currentStep + 1;
     this.setState({ employee, currentStep });
+
+    // this.props.nextStepAction(employee);
   }
 
   previous() {
     const currentStep = this.state.currentStep - 1;
     this.setState({ currentStep });
+    // this.props.previousStepAction(employee);
   }
 
   finish(employee) {
     this.setState({ employee });
     message.success('Dados salvos com sucesso!');
+
+    // this.props.finish(employee);
   }
 
   validateAndMove(form, currentStep, nextStep) {
@@ -88,6 +69,8 @@ class CreateEmployee extends React.Component {
     };
 
     this.setState({ employee, currentStep: nextStep });
+
+    // this.props.moveToStepAction(employee, nextStep);
   }
 
   changeStep(event, nextStep) {

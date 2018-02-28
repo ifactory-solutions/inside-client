@@ -3,8 +3,17 @@ import { GET_EMPLOYEES_SUCCESS, TOGGLE_LIST_MODE } from '../actions';
 
 const defaultState = {
   showAsTable: false,
+  currentStep: 0,
   employees: {},
-  employee: {},
+  employee: {
+    personalInfo: {
+      gender: 'masculino',
+      maritalStatus: 'solteiro',
+    },
+    address: {},
+    contacts: {},
+    documentation: {},
+  },
 };
 
 export const employeesReducer = (state = defaultState, action) => {

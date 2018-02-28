@@ -1,11 +1,12 @@
 import { getActionNames } from 'utils/actionNames';
 
-const actionNames = getActionNames('get', 'employees');
-export const GET_EMPLOYEES = actionNames.action;
-export const GET_EMPLOYEES_SUCCESS = actionNames.success;
-export const GET_EMPLOYEES_FAILS = actionNames.fail;
+export const {
+  GET_EMPLOYEES,
+  GET_EMPLOYEES_SUCCESS,
+  GET_EMPLOYEES_FAILS,
+} = getActionNames('get', 'employees');
 
-export const TOGGLE_LIST_MODE = 'TOGGLE LIST MODE';
+export const TOGGLE_LIST_MODE = '[EMPLOYEE] TOGGLE LIST MODE';
 
 export const getEmployees = companyId => ({
   type: GET_EMPLOYEES,

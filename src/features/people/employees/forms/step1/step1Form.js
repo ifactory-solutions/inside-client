@@ -25,7 +25,7 @@ class NewEmployeeStep1Form extends Component {
 
   componentDidMount() {
     const { employee, form } = this.props;
-    form.setFieldsValue(employee.personalData);
+    form.setFieldsValue(employee.personalInfo);
 
     this.props.onRef(this);
   }
@@ -46,7 +46,7 @@ class NewEmployeeStep1Form extends Component {
 
         const editedEmployee = {
           ...employee,
-          personalData: form.getFieldsValue(),
+          personalInfo: form.getFieldsValue(),
         };
 
         if (currentStep === maxStep) {

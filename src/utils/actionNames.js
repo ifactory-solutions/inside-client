@@ -1,8 +1,12 @@
 export const getActionNames = (type, name) => {
+  const actionKey = `${type.toUpperCase()}_${name.toUpperCase()}`;
+  const successKey = `${actionKey}_SUCCESS`;
+  const failKey = `${actionKey}_FAILS`;
   const action = `${type}/${name}`;
+
   return {
-    action,
-    success: `${action}/done`,
-    fail: `${action}/fail`,
+    [actionKey]: action,
+    [successKey]: `${action}/done`,
+    [failKey]: `${action}/fail`,
   };
 };

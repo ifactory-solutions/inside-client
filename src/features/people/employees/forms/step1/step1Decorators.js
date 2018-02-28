@@ -57,7 +57,7 @@ function getChildAmountDecorator(decorator) {
 }
 
 export function getDecoratorManager(decorator, employee) {
-  const { fullName } = employee.personalData;
+  const { fullName } = employee.personalInfo;
 
   return {
     fullNameDecorator: getFullNameDecorator(decorator, fullName),
