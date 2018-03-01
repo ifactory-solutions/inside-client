@@ -13,6 +13,11 @@ import {
   getCitiesWatcher,
 } from '../features/locations/sagas';
 
+import {
+  getEmployeesWatcher,
+  postEmployeeWatcher,
+} from '../features/people/employees/sagas';
+
 export function* rootSaga() {
   yield all([
     loginWatcher(),
@@ -23,5 +28,8 @@ export function* rootSaga() {
     getCountriesWatcher(),
     getStatesWatcher(),
     getCitiesWatcher(),
+
+    getEmployeesWatcher(),
+    postEmployeeWatcher(),
   ]);
 }
