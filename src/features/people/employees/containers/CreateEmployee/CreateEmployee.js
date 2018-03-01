@@ -1,7 +1,16 @@
 import React from 'react';
 import { Steps, message } from 'antd';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { formSteps as steps } from './CreateEmployeeHelper';
+
+import {
+  toggleListMode,
+  goToPreviousStep,
+  goToNextStep,
+  moveToStep,
+} from '../../actions';
 
 import './createEmployee.css';
 
@@ -10,44 +19,23 @@ class CreateEmployee extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      currentStep: 0,
-      employee: {
-        personalInfo: {
-          gender: 'masculino',
-          maritalStatus: 'solteiro',
-        },
-        address: {},
-        contacts: {},
-        documentation: {},
-      },
-    };
-
     this.formChildren = {};
-
-    this.renderItem = this.renderItem.bind(this);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
+    this.renderItem = this.renderItem.bind(this);
   }
 
   next(employee) {
-    const currentStep = this.state.currentStep + 1;
-    this.setState({ employee, currentStep });
-
-    // this.props.nextStepAction(employee);
+    this.props.goToNextStep(employee);
   }
 
-  previous() {
-    const currentStep = this.state.currentStep - 1;
-    this.setState({ currentStep });
-    // this.props.previousStepAction(employee);
+  previous(employee) {
+    this.props.goToPreviousStep(employee);
   }
 
   finish(employee) {
     this.setState({ employee });
     message.success('Dados salvos com sucesso!');
-
-    // this.props.finish(employee);
   }
 
   validateAndMove(form, currentStep, nextStep) {
@@ -62,19 +50,17 @@ class CreateEmployee extends React.Component {
   }
 
   moveToStep(form, currentStep, nextStep) {
-    const { key } = steps[currentStep];
+    const { formSection } = steps[currentStep];
     const employee = {
-      ...this.state.employee,
-      [key]: form.getFieldsValue(),
+      ...this.props.employee,
+      [formSection]: form.getFieldsValue(),
     };
 
-    this.setState({ employee, currentStep: nextStep });
-
-    // this.props.moveToStepAction(employee, nextStep);
+    this.props.moveToStep({ employee, currentStep: nextStep });
   }
 
   changeStep(event, nextStep) {
-    const { currentStep } = this.state;
+    const { currentStep } = this.props;
     const { props: { form } } = this.formChildren[currentStep];
 
     switch (true) {
@@ -99,13 +85,13 @@ class CreateEmployee extends React.Component {
   }
 
   renderItem() {
-    const { content: StepForm } = steps[this.state.currentStep];
-    const { currentStep } = this.state;
+    const { content: StepForm } = steps[this.props.currentStep];
+    const { currentStep } = this.props;
 
     const stepProps = {
       currentStep,
       maxStep: steps.length - 1,
-      employee: this.state.employee,
+      employee: this.props.employee,
       nextCallback: this.next.bind(this),
       previousCallback: this.previous.bind(this),
       finishCallback: this.finish.bind(this),
@@ -122,8 +108,7 @@ class CreateEmployee extends React.Component {
   }
 
   render() {
-    const { currentStep } = this.state;
-
+    const { currentStep } = this.props;
     return (
       <div>
         <Steps current={currentStep}>
@@ -142,4 +127,27 @@ class CreateEmployee extends React.Component {
     );
   }
 }
-export default CreateEmployee;
+
+CreateEmployee.propTypes = {
+  goToPreviousStep: PropTypes.instanceOf(Object).isRequired,
+  goToNextStep: PropTypes.instanceOf(Object).isRequired,
+  moveToStep: PropTypes.instanceOf(Object).isRequired,
+  currentStep: PropTypes.number.isRequired,
+  employee: PropTypes.instanceOf(Object).isRequired,
+};
+
+const mapStateToProps = ({ employees, locations }) => ({
+  showAsTable: employees.showAsTable,
+  currentStep: employees.currentStep,
+  employee: employees.employee,
+  countries: locations.countries,
+  states: locations.states,
+  cities: locations.cities,
+});
+
+export default connect(mapStateToProps, {
+  toggleListMode,
+  goToPreviousStep,
+  goToNextStep,
+  moveToStep,
+})(CreateEmployee);

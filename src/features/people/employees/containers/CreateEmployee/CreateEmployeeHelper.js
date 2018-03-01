@@ -3,7 +3,7 @@ import { Step1Form, Step2Form, Step3Form, Step4Form } from '../../forms';
 export const formSteps = [
   {
     title: 'Informações Pessoais',
-    key: 'personalInfo',
+    formSection: 'personalInfo',
     content: Step1Form,
   },
   {

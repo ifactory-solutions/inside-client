@@ -1,5 +1,11 @@
 import _ from 'lodash';
-import { GET_EMPLOYEES_SUCCESS, TOGGLE_LIST_MODE } from '../actions';
+import {
+  GET_EMPLOYEES_SUCCESS,
+  TOGGLE_LIST_MODE,
+  GO_NEXT_STEP,
+  GO_PREVIOUS_STEP,
+  MOVE_TO_STEP,
+} from '../actions';
 
 const defaultState = {
   showAsTable: false,
@@ -31,6 +37,30 @@ export const employeesReducer = (state = defaultState, action) => {
     return {
       ...state,
       showAsTable: !state.showAsTable,
+    };
+  }
+
+  case GO_NEXT_STEP: {
+    return {
+      ...state,
+      currentStep: state.currentStep + 1,
+      employee: action.payload,
+    };
+  }
+
+  case GO_PREVIOUS_STEP: {
+    return {
+      ...state,
+      currentStep: state.currentStep - 1,
+      employee: action.payload,
+    };
+  }
+
+  case MOVE_TO_STEP: {
+    return {
+      ...state,
+      currentStep: action.payload.currentStep,
+      employee: action.payload.employee,
     };
   }
 

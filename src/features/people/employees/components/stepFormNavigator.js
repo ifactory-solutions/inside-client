@@ -19,7 +19,7 @@ class StepFormNavigator extends Component {
           <Button
             id="previous"
             style={{ marginRight: 8 }}
-            onClick={() => this.props.previousCallback()}
+            onClick={() => this.props.previousCallback(this.props.employee)}
           >
             Anterior
           </Button>
@@ -54,6 +54,7 @@ StepFormNavigator.propTypes = {
   maxStep: PropTypes.number.isRequired,
   previousCallback: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
+  employee: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default StepFormNavigator;
