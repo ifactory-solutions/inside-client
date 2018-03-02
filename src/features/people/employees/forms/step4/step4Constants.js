@@ -16,13 +16,6 @@ export const LABELS = {
     SECAO: 'Seção',
     DATA_EMISSAO: 'Data de Emissão',
   },
-
-  DADOS_BANCARIOS: {
-    NOME_BANCO: 'Banco',
-    TIPO_CONTA: 'Tipo de Conta',
-    AGENCIA: 'Agência',
-    CONTA: 'Conta',
-  },
 };
 
 export const PLACEHOLDERS = {
@@ -43,22 +36,4 @@ export const PLACEHOLDERS = {
     SECAO: 'Digite o número da seção eleitoral',
     DATA_EMISSAO: 'Selecione a data de emissão',
   },
-
-  DADOS_BANCARIOS: {
-    NOME_BANCO: 'Digite o Nome do Banco',
-    TIPO_CONTA: 'Selecione o Tipo de Conta',
-    AGENCIA: 'Digite o número da Agência',
-    CONTA: 'Digite o número da Conta',
-  },
 };
-
-export const TIPOS_CONTA_BANCARIA = [
-  {
-    value: 'conta_corrente',
-    label: 'Conta Corrente',
-  },
-  {
-    value: 'conta_poupança',
-    label: 'Poupança',
-  },
-];

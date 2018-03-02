@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Form } from 'antd';
 import PropTypes from 'prop-types';
 
-import * as entries from './step4Entries';
-import { getDecoratorManager } from './step4Decorators';
-import { LABELS } from './step4Constants';
+import * as entries from './step5Entries';
+import { getDecoratorManager } from './step5Decorators';
+import { LABELS } from './step5Constants';
 import {
   FORM_ITEM_LAYOUT,
   HORIZONTAL_FORM_LAYOUT,
@@ -13,7 +13,7 @@ import StepNavigator from '../../components/stepFormNavigator';
 
 const FormItem = Form.Item;
 
-class NewEmployeeStep4Form extends Component {
+class NewEmployeeStep5Form extends Component {
   constructor(props) {
     super(props);
 
@@ -22,7 +22,7 @@ class NewEmployeeStep4Form extends Component {
 
   componentDidMount() {
     const { employee, form } = this.props;
-    form.setFieldsValue(employee.documentation);
+    form.setFieldsValue(employee.bankAccount);
     this.props.onRef(this);
   }
 
@@ -61,80 +61,42 @@ class NewEmployeeStep4Form extends Component {
 
     return (
       <Form
-        id="form-step-4"
+        id="form-step-5"
         layout={HORIZONTAL_FORM_LAYOUT}
         onSubmit={this.handleOnSubmit}
       >
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.CPF} hasFeedback>
-          {decoratorManager.CPFDecorator(entries.getCPFInput())}
-        </FormItem>
-
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.RG.NUMERO} hasFeedback>
-          {decoratorManager.numeroRGDecorator(entries.getNumeroRGInput())}
+        <FormItem
+          {...FORM_ITEM_LAYOUT}
+          label={LABELS.DADOS_BANCARIOS.NOME_BANCO}
+          hasFeedback
+        >
+          {decoratorManager.nomeBancoDecorator(entries.getNomeBancoInput())}
         </FormItem>
 
         <FormItem
           {...FORM_ITEM_LAYOUT}
-          label={LABELS.RG.DATA_EMISSAO}
+          label={LABELS.DADOS_BANCARIOS.AGENCIA}
           hasFeedback
         >
-          {decoratorManager.dataEmissaoRGDecorator(
-            entries.getDataEmissaoRGDatePicker()
-          )}
-        </FormItem>
-
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.RG.EMISSOR} hasFeedback>
-          {decoratorManager.orgaoEmissorRGDecorator(
-            entries.getOrgaoEmissorRGInput()
-          )}
-        </FormItem>
-
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NUMERO_CTPS} hasFeedback>
-          {decoratorManager.numeroCTPSDecorator(entries.getNumeroCTPSInput())}
-        </FormItem>
-
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NUMERO_PIS} hasFeedback>
-          {decoratorManager.numeroPisDecorator(entries.getNumeroPisInput())}
-        </FormItem>
-
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.TITULO_ELEITOR.NUMERO}
-          hasFeedback
-        >
-          {decoratorManager.numeroTituloEleitorDecorator(
-            entries.getNumeroTituloEleitorInput()
+          {decoratorManager.numeroAgenciaDecorator(
+            entries.getNumeroAgenciaInput()
           )}
         </FormItem>
 
         <FormItem
           {...FORM_ITEM_LAYOUT}
-          label={LABELS.TITULO_ELEITOR.ZONA}
+          label={LABELS.DADOS_BANCARIOS.TIPO_CONTA}
           hasFeedback
         >
-          {decoratorManager.numeroZonaEleitoralDecorator(
-            entries.getNumeroZonaEleitoralInput()
-          )}
+          {decoratorManager.tipoContaDecorator(entries.getTipoContaSelector())}
         </FormItem>
 
         <FormItem
           {...FORM_ITEM_LAYOUT}
-          label={LABELS.TITULO_ELEITOR.SECAO}
+          label={LABELS.DADOS_BANCARIOS.CONTA}
           hasFeedback
         >
-          {decoratorManager.numeroSecaoEleitoralDecorator(
-            entries.getNumeroSecaoEleitoralInput()
-          )}
-        </FormItem>
-
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.TITULO_ELEITOR.DATA_EMISSAO}
-          hasFeedback
-        >
-          {decoratorManager.dataEmissaoTituloDecorator(
-            entries.getDataEmissaoTituloDatePicker()
-          )}
+          {decoratorManager.numeroContaDecorator(entries.getNumeroContaInput())}
         </FormItem>
 
         <StepNavigator {...this.props} submit={this.handleOnSubmit} />
@@ -143,7 +105,7 @@ class NewEmployeeStep4Form extends Component {
   }
 }
 
-NewEmployeeStep4Form.propTypes = {
+NewEmployeeStep5Form.propTypes = {
   form: PropTypes.instanceOf(Object).isRequired,
   employee: PropTypes.instanceOf(Object).isRequired,
   nextCallback: PropTypes.func.isRequired,
@@ -153,4 +115,4 @@ NewEmployeeStep4Form.propTypes = {
   onRef: PropTypes.func.isRequired,
 };
 
-export default Form.create()(NewEmployeeStep4Form);
+export default Form.create()(NewEmployeeStep5Form);
