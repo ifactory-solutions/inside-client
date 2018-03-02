@@ -1,19 +1,19 @@
 const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 
 function getNumeroRGDecorator(decorator) {
-  return decorator('rg.numero', {
+  return decorator('numeroRG', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getDataEmissaoRGDecorator(decorator) {
-  return decorator('data_emissao_rg', {
+  return decorator('dataEmissaoRG', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getOrgaoEmissorRGDecorator(decorator) {
-  return decorator('orgao_emissor_rg', {
+  return decorator('orgaoEmissorRG', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
@@ -25,61 +25,61 @@ function getCPFDecorator(decorator) {
 }
 
 function getNumeroCTPSDecorator(decorator) {
-  return decorator('numero_ctps', {
+  return decorator('numeroCTPS', {
     rules: [],
   });
 }
 
 function getNumeroPisDecorator(decorator) {
-  return decorator('numero_pis', {
+  return decorator('numeroPIS', {
     rules: [],
   });
 }
 
 function getNumeroTituloEleitorDecorator(decorator) {
-  return decorator('numero_titulo', {
+  return decorator('numeroTitulo', {
     rules: [],
   });
 }
 
 function getNumeroZonaEleitoralDecorator(decorator) {
-  return decorator('numero_zona_eleitoral', {
+  return decorator('numeroZonaEleitoral', {
     rules: [],
   });
 }
 
 function getNumeroSecaoEleitoralDecorator(decorator) {
-  return decorator('numero_secao_eleitoral', {
+  return decorator('numeroSecaoEleitoral', {
     rules: [],
   });
 }
 
 function getDataEmissaoTituloDecorator(decorator) {
-  return decorator('data_emissao_titulo_eleitor', {
+  return decorator('dataEmissaoTituloEleitor', {
     rules: [],
   });
 }
 
 function getNomeBancoDecorator(decorator) {
-  return decorator('nome_banco', {
+  return decorator('nomeBanco', {
     rules: [],
   });
 }
 
 function getTipoContaDecorator(decorator) {
-  return decorator('tipo_conta_bancaria', {
+  return decorator('tipoContaBancaria', {
     rules: [],
   });
 }
 
 function getNumeroAgenciaDecorator(decorator) {
-  return decorator('numero_agencia_bancaria', {
+  return decorator('numeroAgenciaBancaria', {
     rules: [],
   });
 }
 
 function getNumeroContaDecorator(decorator) {
-  return decorator('numero_conta_bancaria', {
+  return decorator('numeroContaBancaria', {
     rules: [],
   });
 }

@@ -1,25 +1,25 @@
 const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 
 function getLine1Decorator(decorator) {
-  return decorator('line1', {
+  return decorator('streetAddress', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getLine2Decorator(decorator) {
-  return decorator('line2', {
+  return decorator('number', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
 
 function getLine3Decorator(decorator) {
-  return decorator('line3', {
+  return decorator('apNumber', {
     rules: [],
   });
 }
 
 function getLine4Decorator(decorator) {
-  return decorator('line4', {
+  return decorator('neighborhood', {
     rules: [{ required: true, message: REQUIRED_FIELD_MSG }],
   });
 }
