@@ -22,3 +22,33 @@ export const formSteps = [
     content: Step4Form,
   },
 ];
+
+export const mapFieldsToEmployee = fields => {
+  const {
+    nomeBanco,
+    tipoContaBancaria,
+    numeroAgenciaBancaria,
+    numeroContaBancaria,
+    ...documentation
+  } = fields.documentation;
+  return {
+    documentation,
+    personalInfo: fields.personalInfo,
+    address: fields.address,
+    bankAccount: {
+      nomeBanco,
+      tipoContaBancaria,
+      numeroAgenciaBancaria,
+      numeroContaBancaria,
+    },
+  };
+};
+
+export const mapEmployeeToFields = employee => ({
+  personalInfo: employee.personalInfo,
+  address: employee.address,
+  documentation: {
+    ...employee.bankAccount,
+    ...employee.documentation,
+  },
+});

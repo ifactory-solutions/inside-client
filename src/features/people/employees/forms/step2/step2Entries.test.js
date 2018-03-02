@@ -3,7 +3,7 @@ import * as entries from './step2Entries';
 
 describe('feature(StepEntries => STEP 2)', () => {
   it('should create a line 1 input', () => {
-    const wrapper = shallow(entries.getLine1Input());
+    const wrapper = shallow(entries.getStreetAddressInput());
     const inputs = wrapper.find('input');
     const input = inputs.first();
 
@@ -12,7 +12,7 @@ describe('feature(StepEntries => STEP 2)', () => {
   });
 
   it('should create a line 2 input', () => {
-    const wrapper = shallow(entries.getLine2Input());
+    const wrapper = shallow(entries.getNumberInput());
     const inputs = wrapper.find('input');
     const input = inputs.first();
 
@@ -21,7 +21,7 @@ describe('feature(StepEntries => STEP 2)', () => {
   });
 
   it('should create a line 3 input', () => {
-    const wrapper = shallow(entries.getLine3Input());
+    const wrapper = shallow(entries.getApNumberInput());
     const inputs = wrapper.find('input');
     const input = inputs.first();
 
@@ -30,7 +30,7 @@ describe('feature(StepEntries => STEP 2)', () => {
   });
 
   it('should create a line 4 input', () => {
-    const wrapper = shallow(entries.getLine4Input());
+    const wrapper = shallow(entries.getNeighborhoodInput());
     const inputs = wrapper.find('input');
     const input = inputs.first();
 

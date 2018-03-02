@@ -67,20 +67,28 @@ class NewEmployeeStep2Form extends Component {
           layout={HORIZONTAL_FORM_LAYOUT}
           onSubmit={this.handleOnSubmit}
         >
-          <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_1} hasFeedback>
-            {decoratorManager.line1Decorator(entries.getLine1Input())}
+          <FormItem
+            {...FORM_ITEM_LAYOUT}
+            label={LABELS.STREET_ADDRESS}
+            hasFeedback
+          >
+            {decoratorManager.line1Decorator(entries.getStreetAddressInput())}
           </FormItem>
 
-          <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_2} hasFeedback>
-            {decoratorManager.line2Decorator(entries.getLine2Input())}
+          <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.NUMBER} hasFeedback>
+            {decoratorManager.line2Decorator(entries.getNumberInput())}
           </FormItem>
 
-          <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_3} hasFeedback>
-            {decoratorManager.line3Decorator(entries.getLine3Input())}
+          <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.AP_NUMBER} hasFeedback>
+            {decoratorManager.line3Decorator(entries.getApNumberInput())}
           </FormItem>
 
-          <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.LINE_4} hasFeedback>
-            {decoratorManager.line4Decorator(entries.getLine4Input())}
+          <FormItem
+            {...FORM_ITEM_LAYOUT}
+            label={LABELS.NEIGHBOORHOOD}
+            hasFeedback
+          >
+            {decoratorManager.line4Decorator(entries.getNeighborhoodInput())}
           </FormItem>
 
           <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.ZIP_CODE} hasFeedback>
