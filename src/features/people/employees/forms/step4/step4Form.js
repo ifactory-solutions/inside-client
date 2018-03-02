@@ -137,40 +137,6 @@ class NewEmployeeStep4Form extends Component {
           )}
         </FormItem>
 
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.DADOS_BANCARIOS.NOME_BANCO}
-          hasFeedback
-        >
-          {decoratorManager.nomeBancoDecorator(entries.getNomeBancoInput())}
-        </FormItem>
-
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.DADOS_BANCARIOS.AGENCIA}
-          hasFeedback
-        >
-          {decoratorManager.numeroAgenciaDecorator(
-            entries.getNumeroAgenciaInput()
-          )}
-        </FormItem>
-
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.DADOS_BANCARIOS.TIPO_CONTA}
-          hasFeedback
-        >
-          {decoratorManager.tipoContaDecorator(entries.getTipoContaSelector())}
-        </FormItem>
-
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.DADOS_BANCARIOS.CONTA}
-          hasFeedback
-        >
-          {decoratorManager.numeroContaDecorator(entries.getNumeroContaInput())}
-        </FormItem>
-
         <StepNavigator {...this.props} submit={this.handleOnSubmit} />
       </Form>
     );

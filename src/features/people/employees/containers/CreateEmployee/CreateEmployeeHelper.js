@@ -1,4 +1,10 @@
-import { Step1Form, Step2Form, Step3Form, Step4Form } from '../../forms';
+import {
+  Step1Form,
+  Step2Form,
+  Step3Form,
+  Step4Form,
+  Step5Form,
+} from '../../forms';
 
 export const formSteps = [
   {
@@ -20,6 +26,11 @@ export const formSteps = [
     title: 'Documentação',
     key: 'documentation',
     content: Step4Form,
+  },
+  {
+    title: 'Dados Bancários',
+    key: 'bankAccount',
+    content: Step5Form,
   },
 ];
 

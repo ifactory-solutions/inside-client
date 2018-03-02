@@ -19,6 +19,7 @@ const defaultState = {
     address: {},
     contacts: {},
     documentation: {},
+    bankAccount: {},
   },
 };
 
