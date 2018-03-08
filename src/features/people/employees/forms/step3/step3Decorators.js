@@ -5,8 +5,8 @@ import {
 
 const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 
-function getPhone1Decorator(decorator) {
-  return decorator('phone1', {
+export function getPhoneDecorator(id, decorator) {
+  return decorator(id, {
     rules: [
       { required: true, message: REQUIRED_FIELD_MSG },
       { required: true, validator: phoneValidator },
@@ -14,11 +14,10 @@ function getPhone1Decorator(decorator) {
   });
 }
 
-function getPhone2Decorator(decorator) {
-  return decorator('phone2', {
+export function getPhoneTypeDecorator(id, decorator) {
+  return decorator(id, {
     rules: [
-      { required: false, message: REQUIRED_FIELD_MSG },
-      { required: false, validator: phoneValidator },
+      { required: true, message: REQUIRED_FIELD_MSG },
     ],
   });
 }
@@ -40,8 +39,6 @@ function getOfficeEmailDecorator(decorator) {
 
 export function getDecoratorManager(decorator) {
   return {
-    phone1Decorator: getPhone1Decorator(decorator),
-    phone2Decorator: getPhone2Decorator(decorator),
     personalEmailDecorator: getPersonalEmailDecorator(decorator),
     officeEmailDecorator: getOfficeEmailDecorator(decorator),
   };

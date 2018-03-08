@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import shortid from 'shortid';
+
 import {
   GET_EMPLOYEES_SUCCESS,
   TOGGLE_LIST_MODE,
@@ -10,7 +12,7 @@ import {
 
 const defaultState = {
   showAsTable: true,
-  currentStep: 0,
+  currentStep: 2,
   employees: {},
   employee: {
     personalInfo: {
@@ -18,7 +20,14 @@ const defaultState = {
       maritalStatus: 'solteiro',
     },
     address: {},
-    contacts: {},
+    contacts: {
+      telephones: [{
+        hash: shortid.generate(),
+      }],
+      emails: [{
+        hash: shortid.generate(),
+      }],
+    },
     documentation: {},
     bankAccount: {},
   },

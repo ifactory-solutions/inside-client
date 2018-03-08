@@ -1,7 +1,27 @@
 import React from 'react';
-import { Input } from 'antd';
+import { Input, Select } from 'antd';
 
-import { PLACEHOLDERS } from './step3Constants';
+import { PLACEHOLDERS, PHONE_OPTIONS } from './step3Constants';
+
+const { Option } = Select;
+
+export const getPhoneInput = () => (
+  <Input type="text" placeholder={PLACEHOLDERS.PHONE} />
+);
+
+export const getPhoneSelector = () => {
+  const phoneOptions = PHONE_OPTIONS.map((m, i) => {
+    const optionKey = `${m.key}-${i}`;
+
+    return (
+      <Option key={optionKey} value={m.value}>
+        {m.label}
+      </Option>
+    );
+  });
+
+  return <Select>{phoneOptions}</Select>;
+};
 
 export function getPhone1Input() {
   return <Input id="phone_1" type="text" placeholder={PLACEHOLDERS.PHONE_1} />;
