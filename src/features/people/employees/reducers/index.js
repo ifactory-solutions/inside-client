@@ -5,6 +5,7 @@ import {
   GO_NEXT_STEP,
   GO_PREVIOUS_STEP,
   MOVE_TO_STEP,
+  POST_EMPLOYEES_SUCCESS,
 } from '../actions';
 
 const defaultState = {
@@ -31,6 +32,13 @@ export const employeesReducer = (state = defaultState, action) => {
     return {
       ...state,
       employees: _.mapKeys(action.response, 'id'),
+    };
+  }
+
+  case POST_EMPLOYEES_SUCCESS: {
+    return {
+      ...state,
+      employee: defaultState,
     };
   }
 

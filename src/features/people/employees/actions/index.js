@@ -32,17 +32,17 @@ export const getEmployeesFails = error => ({
   payload: error,
 });
 
-export const postEmployees = employee => ({
+export const postEmployee = employee => ({
   type: POST_EMPLOYEES,
   data: employee,
 });
 
-export const postEmployeesSuccess = result => ({
+export const postEmployeeSuccess = result => ({
   type: POST_EMPLOYEES_SUCCESS,
   payload: result,
 });
 
-export const postEmployeesFails = error => ({
+export const postEmployeeFails = error => ({
   type: POST_EMPLOYEES_FAILS,
   payload: error,
 });

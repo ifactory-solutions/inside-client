@@ -1,6 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import history from '../../../browserHistory';
-import { dropToken } from '../../../utils/token';
+import history from 'utils/browserHistory';
+import { dropToken } from 'utils/token';
 import { LOGOUT_REQUEST, logoutSucceededAction } from '../actions/authActions';
 
 function* logoutRequestSaga() {

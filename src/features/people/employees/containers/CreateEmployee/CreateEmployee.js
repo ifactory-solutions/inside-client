@@ -10,6 +10,7 @@ import {
   goToPreviousStep,
   goToNextStep,
   moveToStep,
+  postEmployee,
 } from '../../actions';
 
 import './createEmployee.css';
@@ -34,7 +35,7 @@ class CreateEmployee extends React.Component {
   }
 
   finish(employee) {
-    this.setState({ employee });
+    this.props.postEmployee({ companyId: 1, employee });
     message.success('Dados salvos com sucesso!');
   }
 
@@ -50,10 +51,10 @@ class CreateEmployee extends React.Component {
   }
 
   moveToStep(form, currentStep, nextStep) {
-    const { formSection } = steps[currentStep];
+    const { key } = steps[currentStep];
     const employee = {
       ...this.props.employee,
-      [formSection]: form.getFieldsValue(),
+      [key]: form.getFieldsValue(),
     };
 
     this.props.moveToStep({ employee, currentStep: nextStep });
@@ -129,11 +130,12 @@ class CreateEmployee extends React.Component {
 }
 
 CreateEmployee.propTypes = {
-  goToPreviousStep: PropTypes.instanceOf(Object).isRequired,
-  goToNextStep: PropTypes.instanceOf(Object).isRequired,
-  moveToStep: PropTypes.instanceOf(Object).isRequired,
+  goToPreviousStep: PropTypes.func.isRequired,
+  goToNextStep: PropTypes.func.isRequired,
+  moveToStep: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
   employee: PropTypes.instanceOf(Object).isRequired,
+  postEmployee: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ employees, locations }) => ({
@@ -150,4 +152,5 @@ export default connect(mapStateToProps, {
   goToPreviousStep,
   goToNextStep,
   moveToStep,
+  postEmployee,
 })(CreateEmployee);

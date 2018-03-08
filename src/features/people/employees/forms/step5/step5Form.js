@@ -43,7 +43,7 @@ class NewEmployeeStep5Form extends Component {
 
         const editedEmployee = {
           ...employee,
-          documentation: form.getFieldsValue(),
+          bankAccount: form.getFieldsValue(),
         };
 
         if (currentStep === maxStep) {
