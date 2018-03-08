@@ -6,7 +6,7 @@ const EmployeeListTable = props => {
   const columns = [
     {
       title: 'Nome',
-      dataIndex: 'nickname',
+      dataIndex: 'personalInfo.nickname',
       key: 'name',
       render: text => <a href="#">{text}</a>,
     },

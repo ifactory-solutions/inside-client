@@ -13,7 +13,7 @@ import './EmployeeCard.scss';
 
 const EmployeeCard = props => {
   const { user } = props;
-
+  const { personalInfo } = user;
   return (
     <div className="employee-card">
       <Row
@@ -33,18 +33,18 @@ const EmployeeCard = props => {
 
         <Col {...DETAILS_LAYOUT} className="details">
           <div className="top">
-            <h3>{user.nickname.toUpperCase()}</h3>
-            <h5>{user.jobTitle.toUpperCase()}</h5>
+            <h3>{personalInfo.nickname.toUpperCase()}</h3>
+            <h5>{user.jobTitle || 'CARGO INDISPONÍVEL'}</h5>
           </div>
 
           <div className="middle">
-            <h5>{user.email}</h5>
-            <h5>{user.phone}</h5>
-            <h5>{user.city}</h5>
+            <h5>{user.email || 'Email indisponível'}</h5>
+            <h5>{user.phone || 'Telefone indisponível'}</h5>
+            <h5>{user.city || 'Cidade indisponível' }</h5>
           </div>
 
           <div className="bottom">
-            <h5>Time: {user.project}</h5>
+            <h5>Time: {user.project || 'Projeto indisponível'}</h5>
           </div>
         </Col>
       </Row>

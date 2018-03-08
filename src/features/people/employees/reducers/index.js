@@ -9,7 +9,7 @@ import {
 } from '../actions';
 
 const defaultState = {
-  showAsTable: false,
+  showAsTable: true,
   currentStep: 0,
   employees: {},
   employee: {
@@ -38,7 +38,8 @@ export const employeesReducer = (state = defaultState, action) => {
   case POST_EMPLOYEES_SUCCESS: {
     return {
       ...state,
-      employee: defaultState,
+      currentStep: defaultState.currentStep,
+      employee: defaultState.employee,
     };
   }
 
