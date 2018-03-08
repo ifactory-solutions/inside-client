@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import * as entries from './step3Entries';
 import {
-  getDecoratorManager,
+  getEmailDecorator,
   getPhoneDecorator,
 } from './step3Decorators';
 
@@ -59,13 +59,9 @@ class NewEmployeeStep3Form extends Component {
     });
   }
 
-  render() {
-    const { getFieldDecorator: fieldDecorator } = this.props.form; //eslint-disable-line
-    const decoratorManager = getDecoratorManager(fieldDecorator);
-
+  renderTelephones(fieldDecorator) {
     const { telephones } = this.props.employee.contacts;
-
-    const telComponents = telephones.map(tel => {
+    return telephones.map(tel => {
       const phoneDecorator = getPhoneDecorator(
         `tel-${tel.hash}`,
         fieldDecorator,
@@ -86,6 +82,35 @@ class NewEmployeeStep3Form extends Component {
           </Row>
         </FormItem>);
     });
+  }
+
+  renderEmails(fieldDecorator) {
+    const { emails } = this.props.employee.contacts;
+    return emails.map(email => {
+      const emailDecorator = getEmailDecorator(
+        `tel-${email.hash}`,
+        fieldDecorator,
+      );
+
+      return (
+        <FormItem
+          {...FORM_ITEM_LAYOUT}
+          label={LABELS.PHONE}
+          key={email.hash}>
+          <Row gutter={8}>
+            <Col span={12}>
+              {emailDecorator(entries.getEmailInput())}
+            </Col>
+            <Col span={8}>
+              {entries.getEmailSelector()}
+            </Col>
+          </Row>
+        </FormItem>);
+    });
+  }
+
+  render() {
+    const { getFieldDecorator: fieldDecorator } = this.props.form; //eslint-disable-line
 
     return (
       <Form
@@ -93,22 +118,8 @@ class NewEmployeeStep3Form extends Component {
         layout={HORIZONTAL_FORM_LAYOUT}
         onSubmit={this.handleOnSubmit}
       >
-
-        {telComponents}
-
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.PERSONAL_EMAIL}
-          hasFeedback
-        >
-          {decoratorManager.personalEmailDecorator(
-            entries.getPersonalEmailInput()
-          )}
-        </FormItem>
-
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.OFFICE_EMAIL} hasFeedback>
-          {decoratorManager.officeEmailDecorator(entries.getOfficeEmailInput())}
-        </FormItem>
+        {this.renderTelephones(fieldDecorator)}
+        {this.renderEmails(fieldDecorator)}
 
         <StepNavigator {...this.props} submit={this.handleOnSubmit} />
       </Form>
