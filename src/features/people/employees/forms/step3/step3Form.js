@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Form } from 'antd';
+import { Form, Row, Col } from 'antd';
 import PropTypes from 'prop-types';
 
 import * as entries from './step3Entries';
-import { getDecoratorManager } from './step3Decorators';
+import {
+  getDecoratorManager,
+  getPhoneDecorator,
+} from './step3Decorators';
+
 import { LABELS } from './step3Constants';
 import {
   FORM_ITEM_LAYOUT,
@@ -59,19 +63,38 @@ class NewEmployeeStep3Form extends Component {
     const { getFieldDecorator: fieldDecorator } = this.props.form; //eslint-disable-line
     const decoratorManager = getDecoratorManager(fieldDecorator);
 
+    const { telephones } = this.props.employee.contacts;
+
+    const telComponents = telephones.map(tel => {
+      const phoneDecorator = getPhoneDecorator(
+        `tel-${tel.hash}`,
+        fieldDecorator,
+      );
+
+      return (
+        <FormItem
+          {...FORM_ITEM_LAYOUT}
+          label={LABELS.PHONE}
+          key={tel.hash}>
+          <Row gutter={8}>
+            <Col span={12}>
+              {phoneDecorator(entries.getPhoneInput())}
+            </Col>
+            <Col span={8}>
+              {entries.getPhoneSelector()}
+            </Col>
+          </Row>
+        </FormItem>);
+    });
+
     return (
       <Form
         id="form-step-3"
         layout={HORIZONTAL_FORM_LAYOUT}
         onSubmit={this.handleOnSubmit}
       >
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.PHONE_1} hasFeedback>
-          {decoratorManager.phone1Decorator(entries.getPhone1Input())}
-        </FormItem>
 
-        <FormItem {...FORM_ITEM_LAYOUT} label={LABELS.PHONE_2} hasFeedback>
-          {decoratorManager.phone2Decorator(entries.getPhone2Input())}
-        </FormItem>
+        {telComponents}
 
         <FormItem
           {...FORM_ITEM_LAYOUT}
