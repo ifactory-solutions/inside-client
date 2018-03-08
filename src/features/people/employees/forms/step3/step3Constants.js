@@ -1,14 +1,11 @@
 export const LABELS = {
   PHONE: 'Telefone',
-  OFFICE_EMAIL: 'Email da Empresa',
-  PERSONAL_EMAIL: 'Email Pessoal',
+  EMAIL: 'Email',
 };
 
 export const PLACEHOLDERS = {
-  PHONE_1: 'Digite o telefone',
-  PHONE_2: 'Digite o telefone',
-  PERSONAL_EMAIL: 'Digite o email pessoal',
-  OFFICE_EMAIL: 'Digite o email da empresa',
+  PHONE: 'Digite o telefone',
+  EMAIL: 'Digite o email',
 };
 
 export const PHONE_OPTIONS = [
@@ -21,5 +18,18 @@ export const PHONE_OPTIONS = [
     value: 'MOBILE_PHONE',
     key: 'mobile',
     label: 'Celular',
+  },
+];
+
+export const EMAIL_OPTIONS = [
+  {
+    value: 'PERSONAL_EMAIL',
+    key: 'personal_email',
+    label: 'Pessoal',
+  },
+  {
+    value: 'COMPANY_EMAIL',
+    key: 'company_email',
+    label: 'Escritório',
   },
 ];
