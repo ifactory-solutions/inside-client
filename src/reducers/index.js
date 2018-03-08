@@ -4,6 +4,7 @@ import testReducer from './testReducer';
 
 import { pageReducer } from '../layouts/reducers/pageReducers';
 import authReducer from '../features/auth/reducers/authReducer';
+import { projectsReducer } from '../features/projects/reducers';
 import { employeesReducer } from '../features/people/employees/reducers';
 import { locationReducer } from '../features/locations/reducers';
 
@@ -16,8 +17,9 @@ const rootReducer = combineReducers({
 
   page: pageReducer,
   login: authReducer,
-  employees: employeesReducer,
+  projects: projectsReducer,
   locations: locationReducer,
+  employees: employeesReducer,
 });
 
 export default rootReducer;
