@@ -1,60 +1,89 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Table, Row, Button, Divider } from 'antd';
-import data from '../../mock/projects';
 
-const columns = [{
-  title: 'Nome',
-  dataIndex: 'name',
-  key: 'name',
-}, {
-  title: 'Descrição',
-  dataIndex: 'description',
-  key: 'description',
-}, {
-  title: 'Data de Início',
-  dataIndex: 'startDate',
-  key: 'startDate',
-}, {
-  title: 'Data de Finalização',
-  dataIndex: 'endDate',
-  key: 'endDate',
-}, {
-  title: 'Stack',
-  dataIndex: 'stack',
-  key: 'stack',
-}, {
-  title: 'Status',
-  dataIndex: 'status',
-  key: 'status',
-}];
+import PropTypes from 'prop-types';
+import { getProjects } from './actions';
 
-/* eslint arrow-body-style: ["error", "always"] */
-/* eslint-env es6 */
-const ListProjects = ({ history }) => {
-  return (
-    <div>
-      <Row type="flex" justify="end">
-        <Button
-          type="primary"
-          onClick={() => { history.push('/projects/new'); }}>
+const columns = [
+  {
+    key: 'name',
+    title: 'Nome',
+    dataIndex: 'name',
+  },
+  {
+    key: 'description',
+    title: 'Descrição',
+    dataIndex: 'description',
+  },
+  {
+    key: 'startDate',
+    dataIndex: 'startDate',
+    title: 'Data de Início',
+  },
+  {
+    key: 'endDate',
+    dataIndex: 'endDate',
+    title: 'Data de Finalização',
+  },
+  {
+    key: 'stack',
+    title: 'Stack',
+    dataIndex: 'technologies',
+  },
+  {
+    key: 'status',
+    title: 'Status',
+    dataIndex: 'status',
+  },
+];
+
+class ListProjects extends Component {
+  static propTypes = {
+    history: PropTypes.object, // eslint-disable-line
+    projects: PropTypes.array, // eslint-disable-line
+    getProjects: PropTypes.func.isRequired,
+  };
+
+  componentDidMount() {
+    this.props.getProjects();
+  }
+
+  _keyExtractor = project => project.id.toString();
+
+  render() {
+    const { history, projects } = this.props;
+    return (
+      <div>
+        <Row type="flex" justify="end">
+          <Button
+            type="primary"
+            onClick={() => {
+              history.push('/projects/new');
+            }}
+          >
             Novo Projeto
-        </Button>
-      </Row>
-      <Divider />
-      <Row>
-        <Table
-          columns={columns}
-          dataSource={data}
-          pagination={{ pageSize: 2 }} />
-      </Row>
-    </div>
-  );
-};
+          </Button>
+        </Row>
+        <Divider />
+        <Row>
+          <Table
+            columns={columns}
+            dataSource={projects}
+            rowKey={this._keyExtractor}
+            pagination={{ pageSize: 2 }}
+          />
+        </Row>
+      </div>
+    );
+  }
+}
 
-ListProjects.propTypes = {
-  history: PropTypes.object, // eslint-disable-line
-};
+const mapStateToProps = ({ projects }) => projects;
 
-export default withRouter(ListProjects);
+export default withRouter(
+  connect(mapStateToProps, {
+    getProjects,
+  })(ListProjects)
+);

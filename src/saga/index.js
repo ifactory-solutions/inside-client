@@ -19,6 +19,8 @@ import {
   postEmployeeSuccessWatcher,
 } from '../features/people/employees/sagas';
 
+import { getProjectsSagaWatcher } from '../features/projects/sagas';
+
 export function* rootSaga() {
   yield all([
     loginWatcher(),
@@ -33,5 +35,7 @@ export function* rootSaga() {
     getEmployeesWatcher(),
     postEmployeeWatcher(),
     postEmployeeSuccessWatcher(),
+
+    getProjectsSagaWatcher(),
   ]);
 }
