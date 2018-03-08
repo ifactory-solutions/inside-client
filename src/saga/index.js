@@ -16,6 +16,7 @@ import {
 import {
   getEmployeesWatcher,
   postEmployeeWatcher,
+  postEmployeeSuccessWatcher,
 } from '../features/people/employees/sagas';
 
 export function* rootSaga() {
@@ -31,5 +32,6 @@ export function* rootSaga() {
 
     getEmployeesWatcher(),
     postEmployeeWatcher(),
+    postEmployeeSuccessWatcher(),
   ]);
 }

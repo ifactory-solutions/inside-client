@@ -7,7 +7,7 @@ import { Router, Switch } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import enUS from 'antd/lib/locale-provider/en_US';
 
-import history from './browserHistory';
+import history from './utils/browserHistory';
 import Home from './features/home';
 import { ListRoles, CreateRole } from './features/admin/roles';
 import { ListProjects, CreateProject } from './features/projects';

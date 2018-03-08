@@ -1,6 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import history from '../../../browserHistory';
-import { setToken } from '../../../utils/token';
+import history from 'utils/browserHistory';
+import { setToken } from 'utils/token';
 import { pageStopLoadingAction } from '../../../layouts/actions/pageActions';
 
 import {

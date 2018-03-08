@@ -9,7 +9,7 @@ import {
 export const formSteps = [
   {
     title: 'Informações Pessoais',
-    formSection: 'personalInfo',
+    key: 'personalInfo',
     content: Step1Form,
   },
   {
@@ -33,33 +33,3 @@ export const formSteps = [
     content: Step5Form,
   },
 ];
-
-export const mapFieldsToEmployee = fields => {
-  const {
-    nomeBanco,
-    tipoContaBancaria,
-    numeroAgenciaBancaria,
-    numeroContaBancaria,
-    ...documentation
-  } = fields.documentation;
-  return {
-    documentation,
-    personalInfo: fields.personalInfo,
-    address: fields.address,
-    bankAccount: {
-      nomeBanco,
-      tipoContaBancaria,
-      numeroAgenciaBancaria,
-      numeroContaBancaria,
-    },
-  };
-};
-
-export const mapEmployeeToFields = employee => ({
-  personalInfo: employee.personalInfo,
-  address: employee.address,
-  documentation: {
-    ...employee.bankAccount,
-    ...employee.documentation,
-  },
-});
