@@ -14,11 +14,23 @@ export function getPhoneDecorator(id, decorator) {
   });
 }
 
+export function getPhoneTypeDecorator(id, decorator) {
+  return decorator(id, {
+    rules: [],
+  });
+}
+
 export function getEmailDecorator(id, decorator) {
   return decorator(id, {
     rules: [
       { required: true, message: REQUIRED_FIELD_MSG },
       { required: true, validator: emailValidator },
     ],
+  });
+}
+
+export function getEmailTypeDecorator(id, decorator) {
+  return decorator(id, {
+    rules: [],
   });
 }

@@ -10,6 +10,12 @@ export const FORM_ITEM_LAYOUT_2 = {
   wrapperCol: { span: 7 },
 };
 
+export const FORM_ITEM_LAYOUT_3 = {
+  ...FORM_ITEM_LAYOUT,
+  label: ' ',
+  colon: false,
+};
+
 export function emailValidator(rule, value, callback) {
   const INVALID_EMAIL_MSG = 'Endereço de email inválido';
   const EMAIL_REGEX = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; //eslint-disable-line

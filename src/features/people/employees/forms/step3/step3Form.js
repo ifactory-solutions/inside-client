@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import { Form, Row, Col } from 'antd';
+import { Form, Button } from 'antd';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
+import _ from 'lodash';
 
-import * as entries from './step3Entries';
 import {
-  getEmailDecorator,
-  getPhoneDecorator,
-} from './step3Decorators';
-
-import { LABELS } from './step3Constants';
-import {
-  FORM_ITEM_LAYOUT,
   HORIZONTAL_FORM_LAYOUT,
+  FORM_ITEM_LAYOUT_3,
 } from '../../components/stepFormHelper';
+import { TelephoneItems } from './telephoneItems';
 import StepNavigator from '../../components/stepFormNavigator';
+import { EmailItems } from './emailItems';
 
 const FormItem = Form.Item;
 
 class NewEmployeeStep3Form extends Component {
   constructor(props) {
     super(props);
+    const { telephones, emails } = this.props.employee.contacts;
+
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
+    this.handleAddEmail = this.handleAddEmail.bind(this);
+    this.handleRemoveEmail = this.handleRemoveEmail.bind(this);
+    this.handleAddTelephone = this.handleAddTelephone.bind(this);
+    this.handleRemoveTelephone = this.handleRemoveTelephone.bind(this);
+    this.state = { telephones, emails };
   }
 
   componentDidMount() {
@@ -45,9 +49,22 @@ class NewEmployeeStep3Form extends Component {
           finishCallback,
         } = this.props;
 
+        const fields = form.getFieldsValue();
+        const telephones = _.chain(fields)
+          .pickBy((value, key) => key.includes('tel-'))
+          .values()
+          .value();
+        const emails = _.chain(fields)
+          .pickBy((value, key) => key.includes('email-'))
+          .values()
+          .value();
+
         const editedEmployee = {
           ...employee,
-          contacts: form.getFieldsValue(),
+          contacts: {
+            telephones,
+            emails,
+          },
         };
 
         if (currentStep === maxStep) {
@@ -59,58 +76,42 @@ class NewEmployeeStep3Form extends Component {
     });
   }
 
-  renderTelephones(fieldDecorator) {
-    const { telephones } = this.props.employee.contacts;
-    return telephones.map(tel => {
-      const phoneDecorator = getPhoneDecorator(
-        `tel-${tel.hash}`,
-        fieldDecorator,
-      );
-
-      return (
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.PHONE}
-          key={tel.hash}>
-          <Row gutter={8}>
-            <Col span={12}>
-              {phoneDecorator(entries.getPhoneInput())}
-            </Col>
-            <Col span={8}>
-              {entries.getPhoneSelector()}
-            </Col>
-          </Row>
-        </FormItem>);
-    });
+  handleAddTelephone() {
+    const telephone = { hash: shortid.generate() };
+    const telephones = [...this.state.telephones, telephone];
+    this.setState({ telephones });
   }
 
-  renderEmails(fieldDecorator) {
-    const { emails } = this.props.employee.contacts;
-    return emails.map(email => {
-      const emailDecorator = getEmailDecorator(
-        `tel-${email.hash}`,
-        fieldDecorator,
-      );
+  handleRemoveTelephone(id) {
+    const telephones = _.filter(this.state.telephones, it => it.hash !== id);
+    this.setState({ telephones });
+  }
 
-      return (
-        <FormItem
-          {...FORM_ITEM_LAYOUT}
-          label={LABELS.PHONE}
-          key={email.hash}>
-          <Row gutter={8}>
-            <Col span={12}>
-              {emailDecorator(entries.getEmailInput())}
-            </Col>
-            <Col span={8}>
-              {entries.getEmailSelector()}
-            </Col>
-          </Row>
-        </FormItem>);
-    });
+  handleAddEmail() {
+    const email = { hash: shortid.generate() };
+    const emails = [...this.state.emails, email];
+    this.setState({ emails });
+  }
+
+  handleRemoveEmail(id) {
+    const emails = _.filter(this.state.emails, it => it.hash !== id);
+    this.setState({ emails });
   }
 
   render() {
     const { getFieldDecorator: fieldDecorator } = this.props.form; //eslint-disable-line
+    const { telephones, emails } = this.state;
+
+    const telProps = {
+      telephones,
+      fieldDecorator,
+      onRemove: this.handleRemoveTelephone,
+    };
+    const emailProps = {
+      emails,
+      fieldDecorator,
+      onRemove: this.handleRemoveEmail,
+    };
 
     return (
       <Form
@@ -118,8 +119,23 @@ class NewEmployeeStep3Form extends Component {
         layout={HORIZONTAL_FORM_LAYOUT}
         onSubmit={this.handleOnSubmit}
       >
-        {this.renderTelephones(fieldDecorator)}
-        {this.renderEmails(fieldDecorator)}
+        <TelephoneItems {...telProps} />
+        {telephones.length < 3 && (
+          <FormItem {...FORM_ITEM_LAYOUT_3}>
+            <Button onClick={this.handleAddTelephone}>
+            Adicionar Telefone
+            </Button>
+          </FormItem>
+        )}
+
+        <EmailItems {...emailProps} />
+        { emails.length < 3 && (
+          <FormItem {...FORM_ITEM_LAYOUT_3}>
+            <Button onClick={this.handleAddEmail}>
+            Adicionar Email
+            </Button>
+          </FormItem>
+        )}
 
         <StepNavigator {...this.props} submit={this.handleOnSubmit} />
       </Form>
