@@ -12,7 +12,7 @@ import {
 
 const defaultState = {
   showAsTable: true,
-  currentStep: 2,
+  currentStep: 0,
   employees: {},
   employee: {
     personalInfo: {
@@ -21,12 +21,16 @@ const defaultState = {
     },
     address: {},
     contacts: {
-      telephones: [{
-        hash: shortid.generate(),
-      }],
-      emails: [{
-        hash: shortid.generate(),
-      }],
+      telephones: [
+        {
+          hash: shortid.generate(),
+        },
+      ],
+      emails: [
+        {
+          hash: shortid.generate(),
+        },
+      ],
     },
     documentation: {},
     bankAccount: {},

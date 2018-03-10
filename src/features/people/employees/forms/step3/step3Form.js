@@ -49,15 +49,27 @@ class NewEmployeeStep3Form extends Component {
           finishCallback,
         } = this.props;
 
-        const fields = form.getFieldsValue();
-        const telephones = _.chain(fields)
-          .pickBy((value, key) => key.includes('tel-'))
-          .values()
-          .value();
-        const emails = _.chain(fields)
-          .pickBy((value, key) => key.includes('email-'))
-          .values()
-          .value();
+        const telephones = _.map(this.state.telephones, tel => {
+          const field = _.values(
+            form.getFieldsValue([`tel-${tel.hash}`])
+          ).shift();
+
+          return {
+            ...field,
+            hash: tel.hash,
+          };
+        });
+
+        const emails = _.map(this.state.emails, email => {
+          const field = _.values(
+            form.getFieldsValue([`email-${email.hash}`])
+          ).shift();
+
+          return {
+            ...field,
+            hash: email.hash,
+          };
+        });
 
         const editedEmployee = {
           ...employee,
@@ -123,17 +135,15 @@ class NewEmployeeStep3Form extends Component {
         {telephones.length < 3 && (
           <FormItem {...FORM_ITEM_LAYOUT_3}>
             <Button onClick={this.handleAddTelephone}>
-            Adicionar Telefone
+              Adicionar Telefone
             </Button>
           </FormItem>
         )}
 
         <EmailItems {...emailProps} />
-        { emails.length < 3 && (
+        {emails.length < 3 && (
           <FormItem {...FORM_ITEM_LAYOUT_3}>
-            <Button onClick={this.handleAddEmail}>
-            Adicionar Email
-            </Button>
+            <Button onClick={this.handleAddEmail}>Adicionar Email</Button>
           </FormItem>
         )}
 
