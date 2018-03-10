@@ -5,32 +5,36 @@ import {
 
 const REQUIRED_FIELD_MSG = 'Este campo é obrigatório';
 
-export function getPhoneDecorator(id, decorator) {
+export function getPhoneDecorator(id, decorator, initialValue = '') {
   return decorator(id, {
     rules: [
       { required: true, message: REQUIRED_FIELD_MSG },
       { required: true, validator: phoneValidator },
     ],
+    initialValue,
   });
 }
 
-export function getPhoneTypeDecorator(id, decorator) {
+export function getPhoneTypeDecorator(id, decorator, initialValue = '') {
   return decorator(id, {
     rules: [],
+    initialValue,
   });
 }
 
-export function getEmailDecorator(id, decorator) {
+export function getEmailDecorator(id, decorator, initialValue) {
   return decorator(id, {
     rules: [
       { required: true, message: REQUIRED_FIELD_MSG },
       { required: true, validator: emailValidator },
     ],
+    initialValue,
   });
 }
 
-export function getEmailTypeDecorator(id, decorator) {
+export function getEmailTypeDecorator(id, decorator, initialValue) {
   return decorator(id, {
     rules: [],
+    initialValue,
   });
 }

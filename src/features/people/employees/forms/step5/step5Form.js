@@ -41,8 +41,11 @@ class NewEmployeeStep5Form extends Component {
           nextCallback,
         } = this.props;
 
+        const { contacts, ...others } = employee;
+
         const editedEmployee = {
-          ...employee,
+          ...others,
+          ...contacts,
           bankAccount: form.getFieldsValue(),
         };
 
