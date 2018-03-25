@@ -21,6 +21,20 @@ import {
 
 import { getProjectsSagaWatcher } from '../features/projects/sagas';
 
+import {
+  getRolesWatcher,
+  getRoleWatcher,
+  postRoleWatcher,
+  postRoleSuccessWatcher,
+  postRoleFailsWatcher,
+  putRoleWatcher,
+  putRoleSuccessWatcher,
+  putRoleFailsWatcher,
+  deleteRoleWatcher,
+  deleteRoleSuccessWatcher,
+  deleteRoleFailsWatcher,
+} from '../features/admin/roles/saga';
+
 export function* rootSaga() {
   yield all([
     loginWatcher(),
@@ -37,5 +51,17 @@ export function* rootSaga() {
     postEmployeeSuccessWatcher(),
 
     getProjectsSagaWatcher(),
+
+    getRolesWatcher(),
+    getRoleWatcher(),
+    postRoleWatcher(),
+    postRoleSuccessWatcher(),
+    postRoleFailsWatcher(),
+    putRoleWatcher(),
+    putRoleSuccessWatcher(),
+    putRoleFailsWatcher(),
+    deleteRoleWatcher(),
+    deleteRoleSuccessWatcher(),
+    deleteRoleFailsWatcher(),
   ]);
 }
