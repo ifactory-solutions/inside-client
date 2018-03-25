@@ -7,6 +7,7 @@ import authReducer from '../features/auth/reducers/authReducer';
 import { projectsReducer } from '../features/projects/reducers';
 import { employeesReducer } from '../features/people/employees/reducers';
 import { locationReducer } from '../features/locations/reducers';
+import { roleReducer } from '../features/admin/roles/reducers';
 
 // Components Reducers
 import menu from '../components/sideMenu/reducer';
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   projects: projectsReducer,
   locations: locationReducer,
   employees: employeesReducer,
+  roles: roleReducer,
 });
 
 export default rootReducer;
