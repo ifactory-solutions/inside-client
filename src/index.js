@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { LocaleProvider } from 'antd';
 import { Router, Switch } from 'react-router-dom';
-import createSagaMiddleware from 'redux-saga';
 import enUS from 'antd/lib/locale-provider/en_US';
 
 import history from './utils/browserHistory';
@@ -25,24 +23,13 @@ import { ListPermissions } from './features/admin/permissions';
 
 import { PageLayout, DefaultLayout } from './layouts/index';
 
-import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import { ListMedicalCertificates } from './features/people/medicalCertificates';
-
-import { rootSaga } from './saga/index';
 
 import './utils/jwtTokenInterceptor';
 import './index.css';
 
-const sagaMiddleware = createSagaMiddleware();
-
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(sagaMiddleware)
-);
-
-sagaMiddleware.run(rootSaga);
+import { store } from './utils/store';
 
 ReactDOM.render(
   <Provider store={store}>

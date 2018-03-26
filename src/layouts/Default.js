@@ -13,10 +13,16 @@ import {
   pageStartLoadingAction,
   pageStopLoadingAction,
 } from './actions/pageActions';
+import { getUserMe } from '../features/admin/users/actions';
+
 import './index.css';
 
 const { Content } = Layout;
 class DefaultLayout extends React.Component {
+  componentWillMount() {
+    this.props.getUserMe();
+  }
+
   render() {
     const { component: Component, loading, location, ...rest } = this.props;
 
@@ -66,6 +72,7 @@ class DefaultLayout extends React.Component {
 
 DefaultLayout.propTypes = {
   component: PropTypes.instanceOf(Object).isRequired,
+  getUserMe: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
   onEnter: PropTypes.func, // eslint-disable-line
@@ -80,6 +87,7 @@ function mapStateToProps({ page }) {
 const connectedPage = connect(mapStateToProps, {
   pageStartLoadingAction,
   pageStopLoadingAction,
+  getUserMe,
 })(DefaultLayout);
 
 export default withRouter(connectedPage);
