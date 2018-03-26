@@ -1,4 +1,2 @@
-import ListRoles from './containers/ListRoles/ListRoles';
-import CreateRole from './CreateRole';
-
-export { ListRoles, CreateRole };
+export { CreateRole } from './containers/CreateRole';
+export { ListRoles } from './containers/ListRoles';

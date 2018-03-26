@@ -33,6 +33,7 @@ import {
   deleteRoleWatcher,
   deleteRoleSuccessWatcher,
   deleteRoleFailsWatcher,
+  getPermissionsWatcher,
 } from '../features/admin/roles/saga';
 
 import { getUsuarioMeWatcher } from '../features/admin/users/sagas';
@@ -67,5 +68,7 @@ export function* rootSaga() {
     deleteRoleFailsWatcher(),
 
     getUsuarioMeWatcher(),
+
+    getPermissionsWatcher(),
   ]);
 }

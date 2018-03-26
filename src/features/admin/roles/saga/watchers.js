@@ -12,6 +12,7 @@ import {
   deleteRoleWorker,
   deleteRoleSuccessWorker,
   deleteRoleFailsWorker,
+  getPermissionsWorker,
 } from './workers';
 
 import {
@@ -26,6 +27,7 @@ import {
   DELETE_ROLES,
   DELETE_ROLES_SUCCESS,
   DELETE_ROLES_FAILS,
+  GET_PERMISSIONS,
 } from '../actions';
 
 export const getRolesWatcher = makeSagaWatcher(GET_ROLES, getRolesWorker);
@@ -62,4 +64,9 @@ export const deleteRoleSuccessWatcher = makeSagaWatcher(
 export const deleteRoleFailsWatcher = makeSagaWatcher(
   DELETE_ROLES_FAILS,
   deleteRoleFailsWorker
+);
+
+export const getPermissionsWatcher = makeSagaWatcher(
+  GET_PERMISSIONS,
+  getPermissionsWorker
 );
