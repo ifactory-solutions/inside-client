@@ -8,6 +8,7 @@ import {
   POST_ROLES,
   PUT_ROLES,
   DELETE_ROLES,
+  GET_PERMISSIONS,
 } from '../actions';
 
 export const getRolesWorker = createApiSaga(GET_ROLES, {
@@ -76,3 +77,8 @@ export const deleteRoleSuccessWorker = function* deleteRoleSuccess() {
 export const deleteRoleFailsWorker = function* deleteRoleFails() {
   yield message.error('Não foi possível remover o perfil');
 };
+
+export const getPermissionsWorker = createApiSaga(GET_PERMISSIONS, {
+  path: '/permissions',
+  method: 'get',
+});

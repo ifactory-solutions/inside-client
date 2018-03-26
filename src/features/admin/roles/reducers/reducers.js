@@ -5,11 +5,13 @@ import {
   PUT_ROLES_SUCCESS,
   DELETE_ROLES_SUCCESS,
   GET_ROLE_SUCCESS,
+  GET_PERMISSIONS_SUCCESS,
 } from '../actions';
 
 const defaultState = {
   roles: {},
   role: {},
+  permissions: {},
 };
 
 export const roleReducer = (state = defaultState, action) => {
@@ -71,6 +73,14 @@ export const roleReducer = (state = defaultState, action) => {
     return {
       ...state,
       roles,
+    };
+  }
+
+  case GET_PERMISSIONS_SUCCESS: {
+    const permissions = _.mapKeys(action.response, 'id');
+    return {
+      ...state,
+      permissions,
     };
   }
 

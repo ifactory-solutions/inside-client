@@ -31,6 +31,12 @@ export const {
   DELETE_ROLES_FAILS,
 } = getActionNames('delete', 'roles');
 
+export const {
+  GET_PERMISSIONS,
+  GET_PERMISSIONS_SUCCESS,
+  GET_PERMISSIONS_FAILS,
+} = getActionNames('get', 'permissions');
+
 export const getRoles = makeActionCreator(GET_ROLES);
 export const getRolesSuccess = makeActionCreator(GET_ROLES_SUCCESS, 'data');
 export const getRolesFails = makeActionCreator(GET_ROLES_FAILS, 'error');
@@ -52,4 +58,14 @@ export const deleteRolesFails = makeActionCreator(DELETE_ROLES_FAILS, 'error');
 export const deleteRolesSuccess = makeActionCreator(
   DELETE_ROLES_SUCCESS,
   'data'
+);
+
+export const getPermissions = makeActionCreator(GET_PERMISSIONS);
+export const getPermissionsSuccess = makeActionCreator(
+  GET_PERMISSIONS_SUCCESS,
+  'data'
+);
+export const getPermissionsFails = makeActionCreator(
+  GET_PERMISSIONS_FAILS,
+  'error'
 );
