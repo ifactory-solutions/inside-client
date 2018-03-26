@@ -8,7 +8,7 @@ import { projectsReducer } from '../features/projects/reducers';
 import { employeesReducer } from '../features/people/employees/reducers';
 import { locationReducer } from '../features/locations/reducers';
 import { roleReducer } from '../features/admin/roles/reducers';
-
+import { userReducer } from '../features/admin/users/reducers';
 // Components Reducers
 import menu from '../components/sideMenu/reducer';
 
@@ -22,6 +22,7 @@ const rootReducer = combineReducers({
   locations: locationReducer,
   employees: employeesReducer,
   roles: roleReducer,
+  users: userReducer,
 });
 
 export default rootReducer;
