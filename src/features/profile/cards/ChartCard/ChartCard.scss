@@ -1,0 +1,11 @@
+@import "../cards.scss";
+
+.recharts-cartesian-axis-tick-line {
+  display: none !important;
+}
+
+svg {
+  .recharts-surface {
+    width: 100%;
+  }
+}

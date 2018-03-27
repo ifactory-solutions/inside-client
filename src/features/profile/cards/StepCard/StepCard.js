@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Steps } from 'antd';
 import PropTypes from 'prop-types';
 
-import './StepCard.css';
+import './StepCard.scss';
 
 const { Step } = Steps;
 
@@ -18,16 +18,18 @@ export const StepCard = props => {
   ));
 
   return (
-    <Card title={props.title.toUpperCase()} hoverable className="card">
-      <Steps
-        progressDot
-        direction="vertical"
-        current={0}
-        className="card-steps"
-      >
-        {steps}
-      </Steps>
-    </Card>
+    <div className="profile-card">
+      <Card title={props.title.toUpperCase()} hoverable>
+        <Steps
+          progressDot
+          direction="vertical"
+          current={0}
+          className="card-steps"
+        >
+          {steps}
+        </Steps>
+      </Card>
+    </div>
   );
 };
 

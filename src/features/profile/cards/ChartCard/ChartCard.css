@@ -1,9 +1,0 @@
-@import url('../cards.css');
-
-.recharts-cartesian-axis-tick-line {
-  display: none !important;
-}
-
-svg .recharts-surface {
-  width: 100%;
-}
