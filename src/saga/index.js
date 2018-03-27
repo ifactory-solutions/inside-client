@@ -36,7 +36,10 @@ import {
   getPermissionsWatcher,
 } from '../features/admin/roles/saga';
 
-import { getUsuarioMeWatcher } from '../features/admin/users/sagas';
+import {
+  getUserMeWatcher,
+  getUserMeSuccessWatcher,
+} from '../features/admin/users/sagas';
 
 export function* rootSaga() {
   yield all([
@@ -67,7 +70,8 @@ export function* rootSaga() {
     deleteRoleSuccessWatcher(),
     deleteRoleFailsWatcher(),
 
-    getUsuarioMeWatcher(),
+    getUserMeWatcher(),
+    getUserMeSuccessWatcher(),
 
     getPermissionsWatcher(),
   ]);

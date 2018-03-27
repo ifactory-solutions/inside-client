@@ -27,6 +27,13 @@ export default [
     route: '/roles/new',
   },
   {
+    id: '21',
+    mpid: '-1',
+    bpid: '21',
+    name: 'Visualizar Perfil',
+    route: '/roles/:id',
+  },
+  {
     id: '22',
     bpid: '2',
     mpid: '2',

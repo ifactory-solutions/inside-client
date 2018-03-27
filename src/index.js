@@ -7,7 +7,7 @@ import enUS from 'antd/lib/locale-provider/en_US';
 
 import history from './utils/browserHistory';
 import Home from './features/home';
-import { ListRoles, CreateRole } from './features/admin/roles';
+import { ListRoles, CreateRole, ViewRole } from './features/admin/roles';
 import { ListProjects, CreateProject } from './features/projects';
 import { ListEmployees, CreateEmployee } from './features/people/employees';
 import { Profile } from './features/profile';
@@ -55,6 +55,12 @@ ReactDOM.render(
               path="/roles"
               parent={DefaultLayout}
               component={ListRoles}
+            />
+            <DefaultLayout
+              exact
+              path="/roles/:id"
+              parent={DefaultLayout}
+              component={ViewRole}
             />
             <DefaultLayout
               exact
