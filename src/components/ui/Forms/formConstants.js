@@ -5,6 +5,10 @@ export const FORM_ITEM_LAYOUT = {
   wrapperCol: { span: 16 },
 };
 
+export const FORM_ITEM_LAYOUT_2 = {
+  wrapperCol: { offset: 5, span: 16 },
+};
+
 export const FORM_ITEM_SUBMIT_LAYOUT = {
   ...FORM_ITEM_LAYOUT,
   label: ' ',
