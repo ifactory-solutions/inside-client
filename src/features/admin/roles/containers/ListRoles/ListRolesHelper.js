@@ -1,12 +1,13 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 export const tableColumns = [
   {
     title: 'Nome',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a href="#">{text}</a>,
+    render: (text, record) => <Link to={`/roles/${record.id}`}>{text}</Link>,
   },
   {
     title: 'Data de Criação',

@@ -8,13 +8,17 @@ import {
   LOGIN_REQUEST_SUCCEEDED,
 } from '../actions/authActions';
 
+import { getUserMe } from '../../admin/users/actions';
+
 function* loginRequestSuccessSaga(action) {
   const { token } = action.payload;
   const successAction = loginSucceedAction(action.payload);
   const stopLoadingAction = pageStopLoadingAction();
+  const userMeAction = getUserMe();
 
   yield put(successAction);
   yield put(stopLoadingAction);
+  yield put(userMeAction);
 
   setToken(token, 24);
   history.push('/');
