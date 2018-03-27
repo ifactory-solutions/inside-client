@@ -1,0 +1,26 @@
+@import "../cards.scss";
+
+.icon-card-item {
+  font-family: "Roboto Condensed", sans-serif !important;
+  text-align: center;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 100vh;
+    border-color: #bdbdbd;
+  }
+
+  p {
+    margin-top: 8px;
+  }
+}
+
+div {
+  .ant-card-grid {
+    padding: 16px;
+    box-shadow: none;
+  }
+}

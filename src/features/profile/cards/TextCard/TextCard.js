@@ -2,12 +2,14 @@ import React from 'react';
 import { Card } from 'antd';
 import PropTypes from 'prop-types';
 
-import '../cards.css';
+import '../cards.scss';
 
 export const TextCard = props => (
-  <Card title={props.title} className="card" hoverable>
-    <p align="justify">{props.content}</p>
-  </Card>
+  <div className="profile-card">
+    <Card title={props.title} hoverable>
+      <p align="justify">{props.content}</p>
+    </Card>
+  </div>
 );
 
 TextCard.propTypes = {

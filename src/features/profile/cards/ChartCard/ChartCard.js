@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { Card } from 'antd';
 import { ResponsiveContainer, BarChart, YAxis, XAxis, Bar } from 'recharts';
 
-import './ChartCard.css';
+import './ChartCard.scss';
 
 export const ChartCard = props => {
   const { content, dataKey, valuesKey } = props;
@@ -16,15 +16,17 @@ export const ChartCard = props => {
     .value();
 
   return (
-    <Card title={props.title} className="card" hoverable>
-      <ResponsiveContainer width="100%" height={200}>
-        <BarChart data={dataset} layout="vertical" barCategoryGap={9}>
-          <XAxis type="number" hide />
-          <YAxis type="category" dataKey={dataKey} axisLine={false} />
-          <Bar dataKey={valuesKey} fill="#8884d8" />
-        </BarChart>
-      </ResponsiveContainer>
-    </Card>
+    <div className="profile-card">
+      <Card title={props.title} hoverable>
+        <ResponsiveContainer width="100%" height={200}>
+          <BarChart data={dataset} layout="vertical" barCategoryGap={9}>
+            <XAxis type="number" hide />
+            <YAxis type="category" dataKey={dataKey} axisLine={false} />
+            <Bar dataKey={valuesKey} fill="#8884d8" />
+          </BarChart>
+        </ResponsiveContainer>
+      </Card>
+    </div>
   );
 };
 

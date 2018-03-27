@@ -1,0 +1,26 @@
+@import "../cards.scss";
+
+.card-steps {
+  .ant-steps-item-wait .ant-steps-item-content .ant-steps-item-title {
+    font-family: "Roboto Condensed", sans-serif !important;
+    font-weight: bold;
+    color: #424242 !important;
+  }
+
+  .ant-steps-item-wait .ant-steps-item-content .ant-steps-item-description {
+    font-family: "Roboto Condensed", sans-serif !important;
+    font-weight: 400;
+    color: #616161;
+  }
+
+  .ant-steps-item-process .ant-steps-item-content .ant-steps-item-title {
+    font-family: "Roboto Condensed", sans-serif !important;
+    font-weight: bold;
+    color: #000000 !important;
+  }
+
+  .ant-steps-item-process .ant-steps-item-content .ant-steps-item-description {
+    font-family: "Roboto", sans-serif !important;
+    color: #212121;
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Row, Col } from 'antd';
 import PropTypes from 'prop-types';
 
-import './IconCard.css';
+import './IconCard.scss';
 
 const PLACEHOLDER_PATH = 'https://goo.gl/fr3HCz';
 
@@ -24,9 +24,11 @@ export const IconCard = props => {
   ));
 
   return (
-    <Card title={props.title} className="card" hoverable>
-      <Row gutter={8}>{icons}</Row>
-    </Card>
+    <div className="profile-card">
+      <Card title={props.title} hoverable>
+        <Row gutter={8}>{icons}</Row>
+      </Card>
+    </div>
   );
 };
 

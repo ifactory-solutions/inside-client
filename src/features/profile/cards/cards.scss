@@ -1,0 +1,22 @@
+.profile-card {
+  .ant-card {
+    margin-top: 16px !important;
+  }
+
+  div {
+    .ant-card-head {
+      border-bottom: 0;
+      padding: 0 16px 0 16px;
+    }
+
+    .ant-card-head-title {
+      font-family: "Roboto Condensed", sans-serif !important;
+      font-weight: bold !important;
+      text-transform: uppercase;
+    }
+
+    .ant-card-body {
+      padding: 16px;
+    }
+  }
+}
