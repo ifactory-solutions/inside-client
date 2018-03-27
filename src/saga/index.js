@@ -20,6 +20,7 @@ import {
 } from '../features/people/employees/sagas';
 
 import { getProjectsSagaWatcher } from '../features/projects/sagas';
+import { getClientsSagaWatcher } from '../features/clients/sagas';
 
 import {
   getRolesWatcher,
@@ -74,5 +75,6 @@ export function* rootSaga() {
     getUserMeSuccessWatcher(),
 
     getPermissionsWatcher(),
+    getClientsSagaWatcher(),
   ]);
 }

@@ -28,6 +28,7 @@ import { ListMedicalCertificates } from './features/people/medicalCertificates';
 
 import './utils/jwtTokenInterceptor';
 import './index.css';
+import ListClients from './features/clients/ListClients';
 
 import { store } from './utils/store';
 
@@ -167,6 +168,12 @@ ReactDOM.render(
               path="/medical-certificate"
               parent={DefaultLayout}
               component={ListMedicalCertificates}
+            />
+            <DefaultLayout
+              exact
+              path="/clients"
+              parent={DefaultLayout}
+              component={ListClients}
             />
             <PageLayout
               exact

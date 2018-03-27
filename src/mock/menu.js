@@ -173,4 +173,11 @@ export default [
     icon: 'clock-circle-o',
     route: '/time',
   },
+  {
+    id: '8',
+    bpid: '1',
+    name: 'Clientes',
+    icon: 'clock-circle-o',
+    route: '/clients',
+  },
 ];
