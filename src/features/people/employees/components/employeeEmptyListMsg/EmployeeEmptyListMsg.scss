@@ -1,0 +1,17 @@
+.add-user-component {
+  display: flex;
+  flex-direction: column;
+
+  .add-user-icon {
+    display: block;
+    max-width: 350px;
+    min-width: 250px;
+    max-height: 200px;
+    min-height: 170px;
+  }
+
+  span {
+    padding: 1rem;
+    text-align: center;
+  }
+}
