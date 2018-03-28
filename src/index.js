@@ -181,7 +181,7 @@ ReactDOM.render(
               parent={PageLayout}
               component={Login}
             />
-            <PageLayout exact parent={DefaultLayout} component={NotFound} />
+            <DefaultLayout exact parent={DefaultLayout} component={NotFound} />
           </Switch>
         </div>
       </Router>
