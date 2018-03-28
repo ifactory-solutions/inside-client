@@ -12,31 +12,37 @@ const { Sider } = Layout;
 /* eslint arrow-body-style: ["error", "always"] */
 const SideMenu = ({ collapsed, location }) => {
   // Generate Trees
-  const menuTree = arrayToTree(menus.filter(_ => _.mpid !== '-1'), // eslint-disable-line
-    'id', 'mpid');
+  const menuTree = arrayToTree(
+    menus.filter(_ => _.menuParentCode !== '-1'), // eslint-disable-line
+    'code',
+    'menuParentCode'
+  );
   const levelMap = {};
 
   // Recursively generate menu
-  const getMenus = (menuTreeN) => { // eslint-disable-line
+  const getMenus = menuTreeN => {
+    // eslint-disable-line
     return menuTreeN.map(item => {
       if (item.children) {
-        if (item.mpid) {
-          levelMap[item.id] = item.mpid;
+        if (item.menuParentCode) {
+          levelMap[item.code] = item.menuParentCode;
         }
         return (
           <Menu.SubMenu
-            key={item.id}
-            title={<span>
-              {item.icon && <Icon type={item.icon} />}
-              {<span>{item.name}</span>}
-            </span>}
+            key={item.code}
+            title={
+              <span>
+                {item.icon && <Icon type={item.icon} />}
+                {<span>{item.name}</span>}
+              </span>
+            }
           >
             {getMenus(item.children)}
           </Menu.SubMenu>
         );
       }
       return (
-        <Menu.Item key={item.id}>
+        <Menu.Item key={item.code}>
           <Link to={item.route || '#'}>
             {item.icon && <Icon type={item.icon} />}
             {<span>{item.name}</span>}
@@ -50,12 +56,15 @@ const SideMenu = ({ collapsed, location }) => {
   // Look for the selected route
   let currentMenu;
   let defaultSelectedKeys;
-  for (let item of menus) { // eslint-disable-line
+  /* eslint-disable */
+  for (const item of menus) {
     if (item.route && pathToRegexp(item.route).exec(location.pathname)) {
       currentMenu = item;
       break;
     }
   }
+  /* eslint-enable */
+
   const getPathArray = (array, current, pid, id) => {
     let result = [String(current[id])]; // eslint-disable-line
     const getPath = item => {
@@ -69,7 +78,12 @@ const SideMenu = ({ collapsed, location }) => {
   };
 
   if (currentMenu) {
-    defaultSelectedKeys = getPathArray(menus, currentMenu, 'mpid', 'id');
+    defaultSelectedKeys = getPathArray(
+      menus,
+      currentMenu,
+      'menuParentCode',
+      'code'
+    );
   }
 
   if (!defaultSelectedKeys) {
@@ -77,23 +91,14 @@ const SideMenu = ({ collapsed, location }) => {
   }
 
   return (
-    <Sider
-      trigger={null}
-      collapsible
-      collapsed={collapsed}
-      width={250}
-    >
-      <div className="logo" >
+    <Sider trigger={null} collapsible collapsed={collapsed} width={250}>
+      <div className="logo">
         <div id="logo">
           {collapsed && <span>in</span>}
           {!collapsed && <span>inside</span>}
         </div>
       </div>
-      <Menu
-        mode="inline"
-        theme="dark"
-        selectedKeys={defaultSelectedKeys}
-      >
+      <Menu mode="inline" theme="dark" selectedKeys={defaultSelectedKeys}>
         {menuItems}
       </Menu>
     </Sider>

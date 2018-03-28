@@ -12,9 +12,12 @@ const Bread = ({ location }) => {
   let pathArray = []; // eslint-disable-line
   let current;
 
-  for (let index in menus) { // eslint-disable-line
-    if (menus[index].route && // eslint-disable-line
-      pathToRegexp(menus[index].route).exec(location.pathname)) {
+  for (const index in menus) {
+    // eslint-disable-line
+    if (
+      menus[index].route && // eslint-disable-line
+      pathToRegexp(menus[index].route).exec(location.pathname)
+    ) {
       current = menus[index];
       break;
     }
@@ -23,20 +26,22 @@ const Bread = ({ location }) => {
   const getPathArray = item => {
     // add item at the beginning of the array
     pathArray.unshift(item);
-    if (item.bpid) {
-      getPathArray(queryArray(menus, item.bpid, 'id'));
+    if (item.breadParentCode) {
+      getPathArray(queryArray(menus, item.breadParentCode, 'code'));
     }
   };
 
   let paramMap = {}; // eslint-disable-line
   if (!current) {
-    pathArray.push(menus[0] || {
-      id: 1,
-      icon: 'laptop',
-      name: 'Dashboard',
-    });
+    pathArray.push(
+      menus[0] || {
+        code: 1,
+        icon: 'laptop',
+        name: 'Dashboard',
+      }
+    );
     pathArray.push({
-      id: 404,
+      code: 404,
       name: 'Not Found',
     });
   } else {
@@ -44,7 +49,7 @@ const Bread = ({ location }) => {
 
     let keys = []; // eslint-disable-line
     let values = pathToRegexp(current.route, keys) // eslint-disable-line
-    .exec(location.pathname.replace('#', '')); // eslint-disable-line
+      .exec(location.pathname.replace('#', '')); // eslint-disable-line
     if (keys.length) {
       keys.forEach((currentValue, index) => {
         if (typeof currentValue.name !== 'string') {
@@ -57,26 +62,25 @@ const Bread = ({ location }) => {
 
   const breads = pathArray.map((item, key) => {
     const content = (
-      <span>{item.icon
-        ? <Icon type={item.icon} style={{ marginRight: 4 }} />
-        : ''}{item.name}</span>
+      <span>
+        {item.icon ? <Icon type={item.icon} style={{ marginRight: 4 }} /> : ''}
+        {item.name}
+      </span>
     );
     return (
       <Breadcrumb.Item key={key}>
-        {((pathArray.length - 1) !== key)
-          ? <Link to={pathToRegexp.compile(item.route || '')(paramMap) || '#'}>
+        {pathArray.length - 1 !== key ? (
+          <Link to={pathToRegexp.compile(item.route || '')(paramMap) || '#'}>
             {content}
           </Link>
-          : content}
+        ) : (
+          content
+        )}
       </Breadcrumb.Item>
     );
   });
 
-  return (
-    <Breadcrumb style={{ margin: '16px 0' }}>
-      {breads}
-    </Breadcrumb>
-  );
+  return <Breadcrumb style={{ margin: '16px 0' }}>{breads}</Breadcrumb>;
 };
 
 Bread.propTypes = {
