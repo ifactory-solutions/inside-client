@@ -5,6 +5,12 @@ export const PERMISSIONS = {
       resource: 'dashboard',
     },
   },
+  COMPANIES: {
+    LIST: {
+      action: 'view',
+      resource: 'adm/companies',
+    },
+  },
   ROLES: {
     CREATE: {
       action: 'create',
