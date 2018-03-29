@@ -29,6 +29,7 @@ import { ListMedicalCertificates } from './features/people/medicalCertificates';
 import './utils/jwtTokenInterceptor';
 import './index.css';
 import ListClients from './features/clients/ListClients';
+import { PERMISSIONS } from './utils/requiredPermissions';
 
 import { store } from './utils/store';
 
@@ -41,138 +42,138 @@ ReactDOM.render(
             <DefaultLayout
               exact
               path={`${process.env.PUBLIC_URL}/`}
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.DASHBOARD.LIST}
               component={Home}
             />
             {/* Admin */}
             <DefaultLayout
               exact
               path="/roles/new"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.ROLES.CREATE}
               component={CreateRole}
             />
             <DefaultLayout
               exact
               path="/roles"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.ROLES.LIST}
               component={ListRoles}
             />
             <DefaultLayout
               exact
               path="/roles/:id"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.ROLES.VIEW}
               component={ViewRole}
             />
             <DefaultLayout
               exact
               path="/permissions"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.PERMISSIONS.LIST}
               component={ListPermissions}
             />
             {/* Projects */}
             <DefaultLayout
               exact
               path="/projects/new"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.PROJECTS.CREATE}
               component={CreateProject}
             />
             <DefaultLayout
               exact
               path="/projects"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.PROJECTS.LIST}
               component={ListProjects}
             />
             {/* Employees */}
             <DefaultLayout
               exact
               path="/employees/new"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.EMPLOYEES.CREATE}
               component={CreateEmployee}
             />
             <DefaultLayout
               exact
               path="/employees"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.EMPLOYEES.LIST}
               component={ListEmployees}
             />
             {/* Profile */}
             <DefaultLayout
               exact
               path="/profile"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.PROFILE.LIST}
               component={Profile}
             />
             {/* Careers */}
             <DefaultLayout
               exact
               path="/careers"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.CAREERS.LIST}
               component={ListCareers}
             />
             {/* Levels */}
             <DefaultLayout
               exact
               path="/levels/new"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.LEVELS.CREATE}
               component={CreateLevel}
             />
             <DefaultLayout
               exact
               path="/levels"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.LEVELS.LIST}
               component={ListLevels}
             />
             {/* Requests */}
             <DefaultLayout
               exact
               path="/requests"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.REQUESTS.LIST}
               component={ListRequests}
             />
             {/* Badges */}
             <DefaultLayout
               exact
               path="/badges/new"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.BADGES.CREATE}
               component={CreateBadge}
             />
             <DefaultLayout
               exact
               path="/badges"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.LIST}
               component={ListBadges}
             />
             {/* Interviews */}
             <DefaultLayout
               exact
               path="/interviews/new"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.CREATE}
               component={CreateInterview}
             />
             <DefaultLayout
               exact
               path="/interviews"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.INTERVIEWS.LIST}
               component={ListInterviews}
             />
             {/* Vacation */}
             <DefaultLayout
               exact
               path="/vacation"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.VACATIONS.LIST}
               component={ListVacations}
             />
             {/* Medical Certificate */}
             <DefaultLayout
               exact
               path="/medical-certificate"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.MEDICAL_CERTIFICATES.LIST}
               component={ListMedicalCertificates}
             />
             <DefaultLayout
               exact
               path="/clients"
-              parent={DefaultLayout}
+              requiredPermission={PERMISSIONS.CLIENTS.LIST}
               component={ListClients}
             />
             <PageLayout
@@ -181,7 +182,7 @@ ReactDOM.render(
               parent={PageLayout}
               component={Login}
             />
-            <DefaultLayout exact parent={DefaultLayout} component={NotFound} />
+            <DefaultLayout exact component={NotFound} />
           </Switch>
         </div>
       </Router>
