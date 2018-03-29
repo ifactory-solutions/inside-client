@@ -7,6 +7,7 @@ import enUS from 'antd/lib/locale-provider/en_US';
 
 import history from './utils/browserHistory';
 import Home from './features/home';
+import { ListCompanies } from './features/admin/companies';
 import { ListRoles, CreateRole, ViewRole } from './features/admin/roles';
 import { ListProjects, CreateProject } from './features/projects';
 import { ListEmployees, CreateEmployee } from './features/people/employees';
@@ -69,6 +70,12 @@ ReactDOM.render(
               path="/permissions"
               requiredPermission={PERMISSIONS.PERMISSIONS.LIST}
               component={ListPermissions}
+            />
+            <DefaultLayout
+              exact
+              path="/companies"
+              requiredPermission={PERMISSIONS.COMPANIES.LIST}
+              component={ListCompanies}
             />
             {/* Projects */}
             <DefaultLayout

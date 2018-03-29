@@ -38,6 +38,10 @@ import {
 } from '../features/admin/roles/saga';
 
 import {
+  getCompaniesWatcher,
+} from '../features/admin/companies/saga';
+
+import {
   getUserMeWatcher,
   getUserMeSuccessWatcher,
 } from '../features/admin/users/sagas';
@@ -76,5 +80,7 @@ export function* rootSaga() {
 
     getPermissionsWatcher(),
     getClientsSagaWatcher(),
+
+    getCompaniesWatcher(),
   ]);
 }
