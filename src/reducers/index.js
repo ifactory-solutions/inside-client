@@ -24,7 +24,7 @@ const rootReducer = combineReducers({
   locations: locationReducer,
   employees: employeesReducer,
   roles: roleReducer,
-  users: userReducer,
+  loggedUser: userReducer,
 });
 
 export default rootReducer;

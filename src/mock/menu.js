@@ -4,12 +4,20 @@ export default [
     icon: 'dashboard',
     name: 'Dashboard',
     route: '/',
+    permission: {
+      action: 'view',
+      resources: ['dashboard'],
+    },
   },
   {
     code: '2',
     breadParentCode: '1',
     name: 'Administração',
     icon: 'api',
+    permission: {
+      action: 'view',
+      resources: ['roles', 'permissions'],
+    },
   },
   {
     code: '21',
@@ -18,6 +26,10 @@ export default [
     name: 'Perfis',
     icon: 'team',
     route: '/roles',
+    permission: {
+      action: 'view',
+      resources: ['roles'],
+    },
   },
   {
     code: '21',
@@ -40,6 +52,10 @@ export default [
     name: 'Permissões de usuário',
     icon: 'unlock',
     route: '/permissions',
+    permission: {
+      action: 'view',
+      resources: ['permissions'],
+    },
   },
   {
     code: '3',
@@ -47,12 +63,25 @@ export default [
     name: 'Perfil',
     icon: 'user',
     route: '/profile',
+    permission: {
+      action: 'view',
+      resources: ['profile'],
+    },
   },
   {
     code: '4',
     breadParentCode: '1',
     name: 'Gestão de Pessoas',
     icon: 'team',
+    permission: {
+      action: 'view',
+      resources: [
+        'employees',
+        'vacations',
+        'medical-certificates',
+        'interviews',
+      ],
+    },
   },
   {
     code: '41',
@@ -61,6 +90,10 @@ export default [
     name: 'Colaboradores',
     icon: 'switcher',
     route: '/employees',
+    permission: {
+      action: 'view',
+      resources: ['employees'],
+    },
   },
   {
     code: '41',
@@ -76,6 +109,10 @@ export default [
     name: 'Férias',
     icon: 'rocket',
     route: '/vacation',
+    permission: {
+      action: 'view',
+      resources: ['vacation'],
+    },
   },
   {
     code: '43',
@@ -84,6 +121,10 @@ export default [
     name: 'Atestados',
     icon: 'switcher',
     route: '/medical-certificate',
+    permission: {
+      action: 'view',
+      resources: ['medical-certificates'],
+    },
   },
   {
     code: '44',
@@ -92,6 +133,10 @@ export default [
     name: 'Entrevistas',
     icon: 'schedule',
     route: '/interviews',
+    permission: {
+      action: 'view',
+      resources: ['interviews'],
+    },
   },
   {
     code: '44',
@@ -106,6 +151,10 @@ export default [
     name: 'Projetos',
     icon: 'copy',
     route: '/projects',
+    permission: {
+      action: 'view',
+      resources: ['projects'],
+    },
   },
   {
     code: '5',
@@ -119,6 +168,10 @@ export default [
     breadParentCode: '1',
     name: 'Gestão de Carreiras',
     icon: 'solution',
+    permission: {
+      action: 'view',
+      resources: ['levels', 'requests', 'carrers', 'badges'],
+    },
   },
   {
     code: '61',
@@ -127,6 +180,10 @@ export default [
     name: 'Cargos/Níveis',
     icon: 'switcher',
     route: '/levels',
+    permission: {
+      action: 'view',
+      resources: ['levels'],
+    },
   },
   {
     code: '61',
@@ -142,6 +199,10 @@ export default [
     name: 'Carreiras',
     icon: 'switcher',
     route: '/careers',
+    permission: {
+      action: 'view',
+      resources: ['careers'],
+    },
   },
   {
     code: '63',
@@ -150,6 +211,10 @@ export default [
     name: 'Requisições',
     icon: 'switcher',
     route: '/requests',
+    permission: {
+      action: 'view',
+      resources: ['requests'],
+    },
   },
   {
     code: '64',
@@ -158,6 +223,10 @@ export default [
     name: 'Badges',
     icon: 'switcher',
     route: '/badges',
+    permission: {
+      action: 'view',
+      resources: ['badges'],
+    },
   },
   {
     code: '64',
@@ -172,6 +241,10 @@ export default [
     name: 'Gestao de Ponto',
     icon: 'clock-circle-o',
     route: '/time',
+    permission: {
+      action: 'view',
+      resources: ['time'],
+    },
   },
   {
     code: '8',
@@ -179,5 +252,9 @@ export default [
     name: 'Clientes',
     icon: 'clock-circle-o',
     route: '/clients',
+    permission: {
+      action: 'view',
+      resources: ['clients'],
+    },
   },
 ];

@@ -3,11 +3,14 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 import SideMenu from '../components/sideMenu';
 import Header from '../components/header';
 import Bread from '../components/breadcrumb';
 import Loader from '../components/loader/Loader';
+import Unauthorized from '../features/unauthorized';
+
 import { hasToken } from '../utils/token';
 import {
   pageStartLoadingAction,
@@ -23,8 +26,21 @@ class DefaultLayout extends React.Component {
     this.props.getUserMe();
   }
 
+  hasPermissionToAccess() {
+    const { permissions, requiredPermission } = this.props;
+    if (!requiredPermission) return true;
+
+    return !!_.find(permissions, requiredPermission);
+  }
+
   render() {
-    const { component: Component, loading, location, ...rest } = this.props;
+    const {
+      component: Component,
+      loading,
+      location,
+      history,
+      ...rest
+    } = this.props;
 
     const contentStyle = {
       padding: 24,
@@ -58,7 +74,12 @@ class DefaultLayout extends React.Component {
                   <Bread />
                   <Loader loading={loading} fullScreen />
                   <div style={contentStyle}>
-                    <Component {...matchProps} />
+                    {!this.hasPermissionToAccess() && (
+                      <Unauthorized {...matchProps} />
+                    )}
+                    {this.hasPermissionToAccess() && (
+                      <Component {...matchProps} />
+                    )}
                   </div>
                 </Content>
               </Layout>
@@ -75,12 +96,21 @@ DefaultLayout.propTypes = {
   getUserMe: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
+  requiredPermission: PropTypes.instanceOf(Object),
+  permissions: PropTypes.instanceOf(Array),
   onEnter: PropTypes.func, // eslint-disable-line
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
-function mapStateToProps({ page }) {
+DefaultLayout.defaultProps = {
+  permissions: [],
+  requiredPermission: null,
+};
+
+function mapStateToProps({ page, loggedUser }) {
   return {
     loading: page.loading,
+    permissions: loggedUser.permissions,
   };
 }
 
