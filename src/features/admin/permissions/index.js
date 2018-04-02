@@ -1,3 +1,1 @@
-import ListPermissions from './ListPermissions';
-
-export { ListPermissions };
+export * from './containers';
