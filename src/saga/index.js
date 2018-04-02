@@ -37,14 +37,20 @@ import {
   getPermissionsWatcher,
 } from '../features/admin/roles/saga';
 
-import {
-  getCompaniesWatcher,
-} from '../features/admin/companies/saga';
+import { getCompaniesWatcher } from '../features/admin/companies/saga';
 
 import {
   getUserMeWatcher,
   getUserMeSuccessWatcher,
 } from '../features/admin/users/sagas';
+
+import {
+  getUserRolesWatcher,
+  getUserRoleWatcher,
+  putUserRoleWatcher,
+  putUserRoleSuccessWatcher,
+  putUserRoleFailsWatcher,
+} from '../features/admin/permissions/saga';
 
 export function* rootSaga() {
   yield all([
@@ -82,5 +88,11 @@ export function* rootSaga() {
     getClientsSagaWatcher(),
 
     getCompaniesWatcher(),
+
+    getUserRolesWatcher(),
+    getUserRoleWatcher(),
+    putUserRoleWatcher(),
+    putUserRoleSuccessWatcher(),
+    putUserRoleFailsWatcher(),
   ]);
 }

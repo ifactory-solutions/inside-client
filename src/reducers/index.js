@@ -7,6 +7,7 @@ import { locationReducer } from '../features/locations/reducers';
 import { roleReducer } from '../features/admin/roles/reducers';
 import { userReducer } from '../features/admin/users/reducers';
 import { companiesReducer } from '../features/admin/companies/reducers';
+import { userRolesReducer } from '../features/admin/permissions/reducers';
 import authReducer from '../features/auth/reducers/authReducer';
 import menu from '../components/sideMenu/reducer';
 
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   roles: roleReducer,
   loggedUser: userReducer,
   companies: companiesReducer,
+  userRoles: userRolesReducer,
 });
 
 export default rootReducer;

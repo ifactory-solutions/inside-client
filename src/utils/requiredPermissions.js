@@ -197,7 +197,7 @@ export const PERMISSIONS = {
     },
 
     UPDATE: {
-      action: 'edit',
+      action: 'update',
       resource: 'levels',
     },
 
