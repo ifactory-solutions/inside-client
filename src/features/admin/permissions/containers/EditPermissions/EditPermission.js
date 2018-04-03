@@ -4,18 +4,23 @@ import * as _ from 'lodash';
 
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-import { Select } from 'antd';
+import { Form, Table, Button } from 'antd';
 
 import { getUserRole } from '../../actions';
 import { getRoles } from '../../../roles/actions';
 
-const { Option } = Select;
+import {
+  HORIZONTAL_FORM_LAYOUT,
+  FORM_ITEM_SUBMIT_LAYOUT,
+} from '../../../../../components/ui/Forms';
+
+import { columns } from '../PermissionsHelper';
+
+const { Item: FormItem } = Form;
 class EditUserRoles extends React.Component {
   constructor(props) {
     super(props);
-
     this.selectedRoleIds = [];
-    this.renderUserRolesOptions = this.renderUserRolesOptions.bind(this);
   }
 
   componentWillMount() {
@@ -24,31 +29,39 @@ class EditUserRoles extends React.Component {
     this.props.getRoles();
   }
 
-  renderUserRolesOptions() {
-    const { roles } = this.props;
-    return _.map(roles, it => <Option key={it.key}>{it.label}</Option>);
+  handleOnRowChange(selectedRowsKeys) {
+    this.selectedRows = selectedRowsKeys;
   }
 
   render() {
-    const { userRoleIds } = this.props;
-    console.log(userRoleIds);
+    const rowSelection = {
+      selectedRowKeys: this.props.userRoleIds,
+      onChange: this.handleOnRowChange,
+    };
 
     return (
-      <Select
-        mode="multiple"
-        style={{ width: '100%' }}
-        labelInValue
-        defaultValue={userRoleIds}
-        onChange={value => console.log(value)}
-      >
-        {this.renderUserRolesOptions()}
-      </Select>
+      <Form layout={HORIZONTAL_FORM_LAYOUT} onSubmit={this.handleOnSubmit}>
+        <FormItem>
+          <Table
+            rowSelection={rowSelection}
+            columns={columns}
+            dataSource={this.props.companyRoles}
+            rowKey={record => record.id}
+          />
+        </FormItem>
+
+        <FormItem {...FORM_ITEM_SUBMIT_LAYOUT}>
+          <Button type="primary" htmlType="submit">
+            Salvar
+          </Button>
+        </FormItem>
+      </Form>
     );
   }
 }
 
 EditUserRoles.propTypes = {
-  roles: PropTypes.instanceOf(Array).isRequired,
+  companyRoles: PropTypes.instanceOf(Array).isRequired,
   userRoleIds: PropTypes.instanceOf(Array).isRequired,
   match: PropTypes.instanceOf(Object).isRequired,
   getUserRole: PropTypes.func.isRequired,
@@ -56,17 +69,24 @@ EditUserRoles.propTypes = {
 };
 
 EditUserRoles.defaultProps = {
-  roles: [],
+  companyRoles: [],
   userRoles: [],
 };
 
-const mapStateToProps = ({ userRoles, roles }) => ({
-  userRoleIds: _.map(userRoles.user.roles, it => ({
-    key: it.id.toString(),
-    label: it.name,
-  })),
-  roles: _.map(roles.roles, it => ({ key: it.id, label: it.name })),
-});
+const mapStateToProps = state => {
+  const { roles: companyRoles } = state.roles;
+  const { roles: userRoles } = state.userRoles.user;
+
+  const userRoleIds = _.chain(userRoles)
+    .values()
+    .map(role => role.id)
+    .value();
+
+  return {
+    userRoleIds,
+    companyRoles: _.values(companyRoles),
+  };
+};
 
 const routedComponent = withRouter(EditUserRoles);
 export default connect(mapStateToProps, { getUserRole, getRoles })(
