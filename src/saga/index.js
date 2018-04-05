@@ -50,7 +50,7 @@ import {
   putUserRoleWatcher,
   putUserRoleSuccessWatcher,
   putUserRoleFailsWatcher,
-} from '../features/admin/permissions/saga';
+} from '../features/admin/userRoles/saga';
 
 export function* rootSaga() {
   yield all([
