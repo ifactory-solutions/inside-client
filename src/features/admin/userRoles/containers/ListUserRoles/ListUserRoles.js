@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Table, Row, Divider, Input } from 'antd';
 
-import { columns } from './ListPermissionHelper';
+import { columns } from './ListUserRolesHelper';
 import { getUserRoles } from '../../actions';
 
-class ListPermissions extends React.Component {
+class ListUserRoles extends React.Component {
   componentWillMount() {
     this.props.getUserRoles();
   }
@@ -38,7 +38,7 @@ class ListPermissions extends React.Component {
   }
 }
 
-ListPermissions.propTypes = {
+ListUserRoles.propTypes = {
   getUserRoles: PropTypes.func.isRequired,
   userRoles: PropTypes.instanceOf(Array).isRequired,
 };
@@ -47,5 +47,5 @@ const mapStateToProps = ({ userRoles }) => ({
   userRoles: _.values(userRoles.users),
 });
 
-const routedComponent = withRouter(ListPermissions);
+const routedComponent = withRouter(ListUserRoles);
 export default connect(mapStateToProps, { getUserRoles })(routedComponent);

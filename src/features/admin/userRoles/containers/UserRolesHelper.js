@@ -10,3 +10,8 @@ export const columns = [
     dataIndex: 'description',
   },
 ];
+
+export const LABELS = {
+  NAME: 'Nome',
+  EMAIL: 'E-mail',
+};

@@ -20,7 +20,11 @@ import { ListInterviews, CreateInterview } from './features/people/interviews';
 import { Login } from './features/auth';
 import NotFound from './features/error';
 import { ListVacations } from './features/people/vacations';
-import { ListPermissions, EditPermissions } from './features/admin/permissions';
+import {
+  EditUserRoles,
+  ListUserRoles,
+  ViewUserRoles,
+} from './features/admin/userRoles';
 
 import { PageLayout, DefaultLayout } from './layouts/index';
 
@@ -69,13 +73,19 @@ ReactDOM.render(
               exact
               path="/permissions"
               requiredPermission={PERMISSIONS.PERMISSIONS.LIST}
-              component={ListPermissions}
+              component={ListUserRoles}
+            />
+            <DefaultLayout
+              exact
+              path="/permissions/:id"
+              requiredPermission={PERMISSIONS.PERMISSIONS.VIEW}
+              component={ViewUserRoles}
             />
             <DefaultLayout
               exact
               path="/permissions/:id/edit"
               requiredPermission={PERMISSIONS.PERMISSIONS.UPDATE}
-              component={EditPermissions}
+              component={EditUserRoles}
             />
             <DefaultLayout
               exact

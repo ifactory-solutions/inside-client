@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Row, Input } from 'antd';
-import ListPermissions from './ListPermissions';
+import ListUserRoles from './ListUserRoles';
 
-describe('feature(ListPermissions)', () => {
+describe('feature(ListUserRoles)', () => {
   const pathHistory = [];
 
   const push = path => {
@@ -14,7 +14,7 @@ describe('feature(ListPermissions)', () => {
     history: { push },
   };
 
-  const wrapper = shallow(<ListPermissions.WrappedComponent {...props} />);
+  const wrapper = shallow(<ListUserRoles.WrappedComponent {...props} />);
 
   it('renders properly', () => {
     expect(wrapper).toMatchSnapshot();

@@ -21,7 +21,7 @@ export const putUserRoleWorker = createApiSaga(PUT_USER_ROLES, {
 
 export const putUserRoleSuccessWorker = function* putUserRoleFails() {
   browserHistory.push('/permissions');
-  yield message.error('Permissões salvas com sucesso');
+  yield message.success('Permissões salvas com sucesso');
 };
 
 export const putUserRoleFailsWorker = function* putUserRoleFails() {
