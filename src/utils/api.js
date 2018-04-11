@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://10.1.1.87:5000';
 const headerSettings = {
   headers: {
     'Content-Type': 'application/json',
